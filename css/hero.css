@@ -18,8 +18,7 @@
 
 .home .home-img {
     flex: 0 0 40%;
-    /* max-width: 40%; */
-
+    max-width: 40%;
     text-align: center;
     position: relative;
 
@@ -31,6 +30,6 @@ h3.intro {
 }
 
 .home .home-img img {
-    height: 400px;
+    height: 10px;
 
 }
