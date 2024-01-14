@@ -4,6 +4,15 @@
     color: var(--text-black-900)
 }
 
+.home .home-info {
+    flex: 0 0 60%;
+    max-width: 60%;
+}
+
+.home .home-img {
+    flex: 0 0 40%;
+    max-width: 40%;
+}
 
 
 .home .home-img img {
