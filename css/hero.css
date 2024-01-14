@@ -19,6 +19,7 @@
 .home .home-img {
     flex: 0 0 40%;
     max-width: 40%;
+    max-height: 60%;
     text-align: center;
     position: relative;
 
