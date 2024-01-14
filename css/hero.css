@@ -5,18 +5,18 @@
 
 }
 
-.home-section {
+.home {
     min-height: 100vh;
     display: flex;
     color: var(--text-black-900)
 }
 
-.home-section .home-info {
+.home .home-info {
     flex: 0 0 60%;
     max-width: 60%;
 }
 
-.home-section .home-img {
+.home .home-img {
     flex: 0 0 40%;
     max-width: 40%;
     text-align: center;
@@ -29,7 +29,7 @@ h3.intro {
     margin: 15px 0;
 }
 
-.home-section .home-img img {
+.home .home-img img {
     height: 400px;
 
 }
