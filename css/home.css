@@ -1,0 +1,12 @@
+.home {
+    min-height: 100vh;
+    display: flex;
+    color: var(--text-black-900)
+}
+
+
+
+.home .home-img img {
+    height: 400px;
+
+}
