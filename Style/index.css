@@ -302,7 +302,7 @@ html, body {
 /*  Grid Styles */
 .grid {
     display: grid;
-    grid-template-columns: repeat(3, 125px);
+    grid-template-columns: repeat(4, 125px);
     grid-template-rows: repeat(3, 125px);
     gap: 10px;
     justify-content: center;
