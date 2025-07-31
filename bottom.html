@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bottom Bar with Expandable contact-Icons</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding-bottom: 80px;
+        }
+
+        .bottom-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: rgba(30, 30, 30, 0.95);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 0 20px;
+            z-index: 1000;
+        }
+
+        .contact-icon-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-icon:nth-child(1) { background: linear-gradient(135deg, #ff6b6b, #ee5a52); }
+        .contact-icon:nth-child(1):before { content: "📝"; }
+
+        .contact-icon:nth-child(2) { background: linear-gradient(135deg, #4ecdc4, #44a08d); }
+        .contact-icon:nth-child(2):before { content: "🔧"; }
+
+        .contact-icon:nth-child(3) { background: linear-gradient(135deg, #45b7d1, #2196f3); }
+        .contact-icon:nth-child(3):before { content: "💡"; }
+
+        .contact-icon:nth-child(4) { background: linear-gradient(135deg, #96ceb4, #ffeaa7); }
+        .contact-icon:nth-child(4):before { content: "🎨"; }
+
+        .contact-icon:nth-child(5) { background: linear-gradient(135deg, #fda085, #f093fb); }
+        .contact-icon:nth-child(5):before { content: "⚡"; }
+
+        .contact-icon:nth-child(6) { background: linear-gradient(135deg, #a8edea, #fed6e3); }
+        .contact-icon:nth-child(6):before { content: "🚀"; }
+
+        .contact-icon:nth-child(7) { background: linear-gradient(135deg, #d299c2, #fef9d7); }
+        .contact-icon:nth-child(7):before { content: "🎯"; }
+
+        .contact-icon:nth-child(8) { background: linear-gradient(135deg, #89f7fe, #66a6ff); }
+        .contact-icon:nth-child(8):before { content: "💎"; }
+
+        .contact-icon:before {
+            font-size: 16px;
+            z-index: 2;
+            position: relative;
+        }
+
+        .contact-icon:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.1);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .contact-icon:hover {
+            transform: translateY(-2px) scale(1.1);
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .contact-icon:hover:after {
+            opacity: 1;
+        }
+
+        .tooltip {
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            background: rgba(20, 20, 20, 0.95);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 12px 16px;
+            border-radius: 12px;
+            font-size: 13px;
+            line-height: 1.4;
+            min-width: 200px;
+            max-width: 300px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .tooltip:before {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 6px solid transparent;
+            border-top-color: rgba(20, 20, 20, 0.95);
+        }
+
+        .contact-icon-container:hover .tooltip,
+        .contact-icon-container.active .tooltip {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .contact-icon-container.active .contact-icon {
+            transform: translateY(-2px) scale(1.1);
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .contact-icon-container.active .contact-icon:after {
+            opacity: 1;
+        }
+
+        .tooltip-text {
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .copy-button {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border: none;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 11px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .copy-button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .copy-button:active {
+            transform: translateY(0);
+        }
+
+        .copy-button.copied {
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+        }
+
+        /* Demo content */
+        .content {
+            padding: 40px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .content h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .content p {
+            font-size: 1.1em;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Interactive Bottom Bar</h1>
+        <p>Hover over the contact-icons in the bottom bar to see their tooltips with copy functionality. Each contact-icon expands with detailed information and a clickable copy button.</p>
+    </div>
+
+    <div class="bottom-bar">
+        <div class="contact-icon-container">
+            <div class="contact-icon" onclick="toggleTooltip(this.parentElement)"></div>
+            <div class="tooltip">
+                <div class="tooltip-text">Create stunning documents with our advanced text editor featuring real-time collaboration.</div>
+                <button class="copy-button" onclick="copyText(this, 'Advanced Text Editor - Real-time collaboration tool')">Copy</button>
+            </div>
+        </div>
+
+        <div class="contact-icon-container">
+            <div class="contact-icon" onclick="toggleTooltip(this.parentElement)"></div>
+            <div class="tooltip">
+                <div class="tooltip-text">Powerful development tools with integrated debugging and performance monitoring.</div>
+                <button class="copy-button" onclick="copyText(this, 'Development Tools - Debugging & monitoring suite')">Copy</button>
+            </div>
+        </div>
+
+        <div class="contact-icon-container">
+            <div class="contact-icon" onclick="toggleTooltip(this.parentElement)"></div>
+            <div class="tooltip">
+                <div class="tooltip-text">AI-powered insights and analytics to help you make data-driven decisions.</div>
+                <button class="copy-button" onclick="copyText(this, 'AI Analytics - Data-driven decision making platform')">Copy</button>
+            </div>
+        </div>
+
+        <div class="contact-icon-container">
+            <div class="contact-icon" onclick="toggleTooltip(this.parentElement)"></div>
+            <div class="tooltip">
+                <div class="tooltip-text">Creative design suite with advanced vector graphics and animation tools.</div>
+                <button class="copy-button" onclick="copyText(this, 'Design Suite - Vector graphics & animation tools')">Copy</button>
+            </div>
+        </div>
+
+        <div class="contact-icon-container">
+            <div class="contact-icon" onclick="toggleTooltip(this.parentElement)"></div>
+            <div class="tooltip">
+                <div class="tooltip-text">High-performance computing platform for complex calculations and simulations.</div>
+                <button class="copy-button" onclick="copyText(this, 'HPC Platform - Complex calculations & simulations')">Copy</button>
+            </div>
+        </div>
+
+        <div class="contact-icon-container">
+            <div class="contact-icon" onclick="toggleTooltip(this.parentElement)"></div>
+            <div class="tooltip">
+                <div class="tooltip-text">Project management and team collaboration tools for modern workflows.</div>
+                <button class="copy-button" onclick="copyText(this, 'Project Manager - Team collaboration & workflows')">Copy</button>
+            </div>
+        </div>
+
+        <div class="contact-icon-container">
+            <div class="contact-icon" onclick="toggleTooltip(this.parentElement)"></div>
+            <div class="tooltip">
+                <div class="tooltip-text">Goal tracking and productivity optimization with smart recommendations.</div>
+                <button class="copy-button" onclick="copyText(this, 'Goal Tracker - Productivity optimization system')">Copy</button>
+            </div>
+        </div>
+
+        <div class="contact-icon-container">
+            <div class="contact-icon" onclick="toggleTooltip(this.parentElement)"></div>
+            <div class="tooltip">
+                <div class="tooltip-text">Premium quality assurance and testing framework for reliable applications.</div>
+                <button class="copy-button" onclick="copyText(this, 'QA Framework - Premium testing & quality assurance')">Copy</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleTooltip(container) {
+            // Close all other tooltips
+            document.querySelectorAll('.contact-icon-container').forEach(c => {
+                if (c !== container) {
+                    c.classList.remove('active');
+                }
+            });
+            
+            // Toggle this tooltip
+            container.classList.toggle('active');
+        }
+
+        // Close tooltip when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!event.target.closest('.contact-icon-container')) {
+                document.querySelectorAll('.contact-icon-container').forEach(container => {
+                    container.classList.remove('active');
+                });
+            }
+        });
+
+        function copyText(button, text) {
+            navigator.clipboard.writeText(text).then(function() {
+                const originalText = button.textContent;
+                button.textContent = 'Copied!';
+                button.classList.add('copied');
+                
+                setTimeout(function() {
+                    button.textContent = originalText;
+                    button.classList.remove('copied');
+                }, 1500);
+            }).catch(function(err) {
+                console.error('Could not copy text: ', err);
+                button.textContent = 'Error';
+                setTimeout(function() {
+                    button.textContent = 'Copy';
+                }, 1500);
+            });
+        }
+
+        // Add smooth hover effects and prevent tooltip flickering
+        document.querySelectorAll('.contact-icon-container').forEach(container => {
+            let hoverTimeout;
+            
+            container.addEventListener('mouseenter', function() {
+                clearTimeout(hoverTimeout);
+            });
+            
+            container.addEventListener('mouseleave', function() {
+                hoverTimeout = setTimeout(() => {
+                    // Additional cleanup if needed
+                }, 100);
+            });
+        });
+    </script>
+</body>
+</html>
