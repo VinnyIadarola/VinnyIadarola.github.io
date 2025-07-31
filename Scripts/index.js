@@ -85,9 +85,7 @@
 
 
 
-                            target.querySelectorAll('.social-icon').forEach(icon => {
-                                icon.classList.add('animate');
-                            });
+                    
                         }
                     } else {
                         // Animate out when leaving viewport
@@ -111,11 +109,6 @@
                             target.querySelector('.end-title').classList.remove('animate');
                             target.querySelector('.end-subtitle').classList.remove('animate');
                             target.querySelector('.social-list').classList.remove('animate');
-
-
-                            target.querySelectorAll('.social-icon').forEach(icon => {
-                                icon.classList.remove('animate');
-                            });
                         }
                     }
                 });

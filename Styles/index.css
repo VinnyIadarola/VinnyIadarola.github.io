@@ -1,5 +1,7 @@
 :root {
             --navbar-height: 60px;
+            overflow-x: hidden;
+
         }
 
         * {
@@ -10,9 +12,11 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
             line-height: 1.6;
             background: linear-gradient(135deg, hsl(0, 0%, 15%) 0%, #292929 100%);
-            overflow-x: hidden;
+            overflow: visible;
+
         }
 
         /**********************************************************************
@@ -49,7 +53,6 @@
             font-family: 'Times New Roman', Times, serif;
             font-weight: bold;
             font-style: italic;
-            cursor: pointer;
             transition: transform 0.3s ease;
             background: linear-gradient(45deg, #100021, #2f005c);
             border: 1.5px solid rgba(255, 255, 255, 0.51);
@@ -97,6 +100,7 @@
             justify-content: center;
             padding: 20px;
             border-bottom: 3px solid #310000;
+    
         }
 
         #outer-border {
@@ -167,9 +171,16 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+
+            font-family: 'Times New Roman', Times, serif;
+
+
+
         }
 
         .hero-subtitle-degrees-container {
+            font-family: 'Times New Roman', Times, serif;
+
             display:flex;
             flex-direction:row;    
             width:100%;              
@@ -280,8 +291,9 @@
             transform: translateX(-100px);
             transition: all 0.8s ease-out;
 
-
-            font-size: 1.6rem;
+            padding-left: 3%;
+            padding-right: 3%;
+            font-size: 1.9rem;
             line-height: 1.3;
         }
 
@@ -291,7 +303,16 @@
         }
 
         .see-more-projects-link {
-            color: #310000;
+            border: 3px solid #100021;
+            background: #310000;
+            color: white;
+            padding: 15px;
+            text-decoration: none;
+
+            font-size: 1.6rem;
+            
+            margin-top:30px;
+            border-radius: 10px;
         }
 
         .project-right {
@@ -321,9 +342,9 @@
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(4, 125px);
-            grid-template-rows: repeat(3, 125px);
-            gap: 10px;
+            grid-template-columns: repeat(3, 125px);
+            grid-template-rows: repeat(4, 125px);
+            gap: 30px;
             justify-content: center;
             align-content: center;
             width: 100%;
@@ -333,8 +354,8 @@
         }
 
         .card {
-            width: 125px;
-            height: 125px;
+            width: 150px;
+            height: 150px;
             position: relative;
             cursor: pointer;
             perspective: 1000px;
@@ -362,8 +383,8 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 80px;
-            height: 80px;
+            width: 100px;
+            height: 100px;
             transition: all 2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
@@ -481,7 +502,7 @@
             transition: all 0.8s ease-out;
 
 
-            font-size: 1.6rem;
+            font-size: 1.9rem;
             line-height: 1.3;
         }
 
@@ -491,7 +512,17 @@
         }
 
         .see-more-employment-link {
-            color: #310000;
+            border: 3px solid #310000;
+            background: #100021;
+            color: white;
+            padding: 15px;
+            text-decoration: none;
+
+            font-size: 1.6rem;
+            
+            margin-top:30px;
+            border-radius: 10px;
+            /* font-size: 15px; */
         }
 
         .employment-left {
@@ -560,7 +591,7 @@
             transform: translateX(-100px);
             transition: all 0.8s ease-out;
 
-            font-size: 1.6rem;
+            font-size: 1.9rem;
             line-height: 1.3;
         }
 
@@ -570,7 +601,16 @@
         }
 
         .see-more-education-link {
-            color: #310000;
+            border: 3px solid #100021;
+            background: #310000;
+            color: white;
+            padding: 15px;
+            text-decoration: none;
+
+            font-size: 1.6rem;
+            
+            margin-top:30px;
+            border-radius: 10px;
         }
 
         .education-right {
@@ -609,6 +649,7 @@
         ******                      Bottom Bar                           ******
         **********************************************************************/
         .bottom-bar {
+            border-top: 3px solid #310000;
             padding-top: 0.5rem;
             padding-bottom: 2rem;
             background: #000000;
@@ -653,7 +694,6 @@
             font-family: 'Times New Roman', Times, serif;
             font-weight: bold;
             font-style: italic;
-            cursor: pointer;
             transition: transform 0.3s ease;
             background: linear-gradient(45deg, #100021, #2f005c);
             border: 1.5px solid rgba(255, 255, 255, 0.51);
@@ -798,8 +838,8 @@
             }
             
             .grid {
-                grid-template-columns: repeat(3, 100px);
-                grid-template-rows: repeat(4, 100px);
+                grid-template-columns: repeat(4, 100px);
+                grid-template-rows: repeat(3, 100px);
                 gap: 8px;
                 padding: 10px;
             }
