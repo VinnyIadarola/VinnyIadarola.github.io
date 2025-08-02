@@ -635,7 +635,7 @@
         ******                      Bottom Bar                           ******
         **********************************************************************/
         .bottom-bar {
-            border-top: 3px solid #310000;
+            border-top: 6px solid #310000;
             padding-top: 0.5rem;
             padding-bottom: 2rem;
             background: #000000;
@@ -698,8 +698,8 @@
             opacity: 0;
             transform: translateY(50px);
             transition: all 0.8s ease-out;
-            margin-top: -5px;
-            margin-bottom: 20px;
+            margin-top: -15px;
+            margin-bottom: 15px;
         }
 
         .end-subtitle.animate {
@@ -717,6 +717,8 @@
             position: relative;
             opacity: 0;
             transform: translateY(50px);
+    list-style: none;
+
         }
     
         .social-list.animate {

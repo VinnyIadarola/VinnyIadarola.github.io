@@ -618,6 +618,7 @@ body {
 ******                      Bottom Bar                           ******
 **********************************************************************/
 .bottom-bar {
+    border-top: 3px solid #000000;
     padding-top: 0.5rem;
     padding-bottom: 2rem;
     background: #000000;
