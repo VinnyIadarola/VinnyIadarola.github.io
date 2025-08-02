@@ -1005,7 +1005,7 @@
                 font-size: clamp(1rem, 4vw, 1.3rem);
             }
             
-            .see-more-link, .see-more-link, .see-more-link {
+            .see-more-link {
                 font-size: clamp(1rem, 4vw, 1.2rem);
                 padding: 12px;
             }
