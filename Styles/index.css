@@ -48,7 +48,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
+            color: rgb(214, 214, 214);
             margin-left: 8px;
             font-size: 1.4rem;
             font-family: 'Times New Roman', Times, serif;
@@ -65,14 +65,14 @@
 
         .nav-tabs {
             display: flex;
-            border: 2px solid #310000;
+            border: 2px solid rgba(49, 0, 0, 0);
             gap: 0rem;
         }
 
         .nav-tab {
             padding: 0.75rem 1.5rem;
             background: transparent;
-            color: white;
+            color: rgb(214, 214, 214);
             text-decoration: none;
             font-weight: 500;
             font-size: 1.2rem;
@@ -83,7 +83,7 @@
 
         .nav-tab:hover {
             background: #800000;
-            color: white;
+            color: rgb(214, 214, 214);
             box-shadow: 0 8px 25px rgba(234, 102, 102, 0.3);
         }
 
@@ -136,6 +136,7 @@
             object-fit: cover;
             display: block;
             border-radius: 8px;
+
         }
 
         .hero-text-container {
@@ -144,7 +145,7 @@
             min-width: 0;
             padding-left: 2rem;
             overflow: hidden;
-            color: white;
+            color: rgb(214, 214, 214);
             display: flex;
             flex-direction: column;
             opacity: 0;
@@ -166,7 +167,7 @@
             line-height: 1.1;
             font-weight: 700;
             margin-bottom: -3rem;
-            background: linear-gradient(45deg, #fff, #f0f0f0);
+            background: rgb(214, 214, 214);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -198,7 +199,7 @@
 
         .pre-typing-text, .typing-text {
             font-size: clamp(1.5rem, 4vw, 2rem);
-            color: #f0f0f0;
+            color: rgb(214, 214, 214);
             min-height: 2rem;
         }
 
@@ -249,7 +250,7 @@
             font-size: clamp(1.2rem, 3vw, 1.6rem);
             margin-top: 5rem;
             line-height: 1.3;
-            color: white;
+            color: rgb(214, 214, 214);
         }
 
 
@@ -280,7 +281,7 @@
             text-align: center;
             font-size: clamp(1.2rem, 3vw, 1.9rem);
             line-height: 1.3;
-            color: white;
+            color: rgb(214, 214, 214);
             position: relative;
             overflow: hidden;
             opacity: 0;
@@ -297,7 +298,7 @@
             border: 5px solid #230000;
             box-shadow: 0 6px 25px rgba(0, 0, 0, 0.5);       
             background: #310000;
-            color: white;
+            color: rgb(214, 214, 214);
             padding: 15px;
             text-decoration: none;
             font-size: clamp(1.2rem, 2.5vw, 1.6rem);
@@ -320,7 +321,7 @@
             background: linear-gradient(-135deg, #1c0101, #3d0000);
 ;
             border-left: 3px solid #310000;
-            color: white;
+            color: rgb(214, 214, 214);
             font-size: 1.1rem;
             position: relative;
             overflow: hidden;
@@ -400,7 +401,7 @@
             top: 0;
             left: 0;
             transform: none;
-            background: white;
+            background: rgb(214, 214, 214);
             border-radius: 15px;
         }
 
@@ -427,9 +428,9 @@
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            color: white;
+            color: rgb(214, 214, 214);
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-            background: white;
+            background: rgb(214, 214, 214);
         }
 
         .language-icon::before {
@@ -454,7 +455,7 @@
             justify-content: center;
             align-items: center;
             padding: 20px;
-            color: white;
+            color: rgb(214, 214, 214);
             opacity: 0;
             transform: rotateY(-180deg);
             transition: all 1s cubic-bezier(0.55, 0.085, 0.68, 0.53);
@@ -499,7 +500,7 @@
             justify-content: center;
             font-size: clamp(1.2rem, 3vw, 1.9rem);
             line-height: 1.3;
-            color: white;
+            color: rgb(214, 214, 214);
             position: relative;
             overflow: hidden;
             text-align: center;
@@ -522,7 +523,7 @@
             justify-content: center;
             background: linear-gradient(135deg, #1c0101, #3d0000);
             border-right: 3px solid #310000;
-            color: white;
+            color: rgb(214, 214, 214);
             font-size: 1.1rem;
             position: relative;
             overflow: hidden;
@@ -535,14 +536,17 @@
             transition: all 0.8s ease-out;
         }
 
+
+
         .employment-left.animate {
             opacity: 1;
             transform: translateX(0);
         }
 
         .employment-left img {
-            border: 9px solid #100021;
-            border-radius: 10px;
+            /* border: 5px solid #000000; */
+            box-shadow: 0 0 20px black;
+            border-radius: 30px;
             max-height: 450px;
             max-width: 450px;
             width: 100%;
@@ -576,7 +580,7 @@
             text-align: center;
             font-size: clamp(1.2rem, 3vw, 1.9rem);
             line-height: 1.3;
-            color: white;
+            color: rgb(214, 214, 214);
             position: relative;
             overflow: hidden;
             opacity: 0;
@@ -597,7 +601,7 @@
             justify-content: center;
             background: linear-gradient(-135deg, #1c0101, #3d0000);
             border-left: 3px solid #310000;
-            color: white;
+            color: rgb(214, 214, 214);
             font-size: 1.1rem;
             position: relative;
             overflow: hidden;
@@ -616,7 +620,9 @@
         }
 
         .education-right img {
-            border: 9px solid #310000;
+            /* border: 9px solid #310000; */
+            box-shadow: 0 0 20px black;
+
             border-radius: 10px;
             max-height: 450px;
             width: 100%;
@@ -648,6 +654,8 @@
             opacity: 0;
             transform: translateY(50px);
             transition: all 0.8s ease-out;
+
+            font-family: 'Times New Roman', Times, serif;
         }
 
         .end-title.animate {
@@ -656,6 +664,7 @@
         }
 
         .end-logo {
+            margin-top: -10px;
             aspect-ratio: 1/1;
             border-radius: 50%;
             width: 50px;
@@ -664,18 +673,17 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            margin-left: 8px;
+            color: rgb(214, 214, 214);
+            margin-left: 5px;
             font-size: 1.7rem;
             font-family: 'Times New Roman', Times, serif;
             font-weight: bold;
             font-style: italic;
-            transition: transform 0.3s ease;
+            transition: all 0.8s ease-out;
             background: linear-gradient(45deg, #100021, #2f005c);
             border: 1.5px solid rgba(255, 255, 255, 0.51);
             opacity: 0;
             transform: translateY(50px);
-            transition: all 0.8s ease-out;
         }
 
         .end-logo.animate {

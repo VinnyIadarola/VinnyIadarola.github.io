@@ -3,17 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects</title>
+    <title>VIadarola Projects Portfolio</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" href="Images/logo.png" type="image/png">
+    <link rel="stylesheet" href="Styles/projects.css">
+    <script src="Scripts/projects.js" defer></script>
+    
 </head>
 <body>
-    <header>
-        <h1>Projects</h1>
-    </header>
-    <main>
-       <p> meow </p>
-    </main>
-    <footer>
-        <p>&copy; 2024</p>
-    </footer>
+    <!--*************************** Navbar Section ***************************-->
+    <nav class="navbar">
+        <div class="nav-logo">VI</div>
+        <div class="nav-tabs">
+            <a href="index.html" class="nav-tab">Home</a>
+            <a href="projects.html" class="nav-tab active">Projects</a>
+            <a href="employment.html" class="nav-tab">Work</a>
+            <a href="education.html" class="nav-tab">Education</a>
+            <a href="contact.html" class="nav-tab">Contact</a>
+        </div>
+    </nav>
+
+    <div class="header-container">
+        <h1 class="title">My Projects</h1>
+        
+        <div class="controls-container">
+            <div class="left-controls">
+                <div class="search-container">
+                    <input type="text" class="search-bar" placeholder="Search projects..." id="searchBar">
+                </div>
+                
+                <div class="selected-tags-container">
+                    <div class="controls-title">Selected Tags</div>
+                    <div id="selectedTags">
+                        <div class="empty-tags">No tags selected</div>
+                    </div>
+                    <button class="clear-tags" id="clearTags">Clear All</button>
+                </div>
+            </div>
+            
+            <div class="right-controls">
+                <div class="all-tags-container">
+                    <div class="controls-title">Available Tags</div>
+                    <div id="allTags"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="projects-grid" id="projectsGrid">
+            <!-- Projects will be populated by JavaScript -->
+        </div>
+    </div>
+
+    <div class="info-card-overlay" id="infoCardOverlay">
+        <div class="info-card">
+            <button class="info-card-close" id="infoCardClose"></button>
+            <div class="info-card-image" id="infoCardImage"></div>
+            <div class="info-card-title" id="infoCardTitle"></div>
+            <div class="info-card-description" id="infoCardDescription"></div>
+            <div class="project-tags" id="infoCardTags"></div>
+            <button class="see-more-btn" id="seeMoreBtn">
+                <span>See More</span>
+                <i class="fab fa-github"></i>
+            </button>
+        </div>
+    </div>
+
+   <!--*************************** Bottom Bar Section ***************************-->
+    <div class="bottom-bar">
+        <div style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+            <h1 class="end-title">Vincent Iadarola</h1>
+            <div class="end-logo">VI</div>
+        </div>
+
+        <p class="end-subtitle">A Mathematician, Computer Engineer, and Scientist</p>
+
+        <ul class="social-list">
+            <li class="phone">
+                <a href="#" target="_blank" aria-label="Phone">
+                    <i class="fa fa-phone fa-2x" style="font-size: clamp(0rem, 4.75vw, 3rem);"></i>
+                </a>
+            </li>
+
+           <li class="email">
+                <a href="mailto:viadarola@outlook.com" aria-label="Email">
+                    <i class="fas fa-envelope fa-2x"></i>
+                </a>
+            </li>
+
+            <li class="github">
+                <a href="https://github.com/VinnytIadarola" target="_blank" aria-label="GitHub">
+                    <i class="fab fa-github fa-2x"></i>
+                </a>
+            </li>
+
+            <li class="instagram">
+                <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram">
+                    <i class="fab fa-instagram fa-2x"></i>
+                </a>
+            </li>
+
+            <li class="discord">
+                <a href="https://discord.gg/" target="_blank" aria-label="Discord">
+                    <i class="fab fa-discord fa-2x"></i>
+                </a>
+            </li>
+
+            <li class="linkedin">
+                <a href="#" target="_blank" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin fa-2x"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+   
 </body>
 </html>

@@ -1,0 +1,827 @@
+:root {
+    --navbar-height: 60px;
+    overflow-x: hidden;
+    --chip-w: 550px;   /* chip width  */
+    --chip-h: 140px;   /* chip height */
+    --pin-l : 25px;    /* pin length  */
+    --pin-t : 6px;     /* pin thickness */
+    --wire-color: #310000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, hsl(0, 0%, 15%) 0%, #292929 100%);
+    min-height: 100vh;
+    color: white;
+}
+
+/**********************************************************************
+******                        Navigation Bar                     ******
+**********************************************************************/
+.navbar {
+    background: rgba(49, 0, 0, 0.95);
+    border: 1px solid black;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 0.2rem 0.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.nav-logo {
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    padding-top: 1px;
+    padding-right: 2.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin-left: 8px;
+    font-size: 1.4rem;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-style: italic;
+    transition: transform 0.3s ease;
+    background: linear-gradient(45deg, #100021, #2f005c);
+    border: 1.5px solid rgba(255, 255, 255, 0.51);
+}
+
+.nav-logo:hover {
+    transform: scale(1.05);
+}
+
+.nav-tabs {
+    display: flex;
+    border: 2px solid #310000;
+    gap: 0rem;
+}
+
+.nav-tab {
+    padding: 0.75rem 1.5rem;
+    background: transparent;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-tab:hover {
+    background: #800000;
+    color: white;
+    box-shadow: 0 8px 25px rgba(234, 102, 102, 0.3);
+}
+
+.nav-tab.active {
+    background: #260000;
+}
+
+/**********************************************************************
+******                        Header Section                     ******
+**********************************************************************/
+.header-container {
+    margin: 0 30px;
+    padding: 40px 20px;
+    margin-top: calc(var(--navbar-height) + 20px);
+
+}
+
+.title {
+    text-align: center;
+    font-size: 4rem;
+    font-weight: 800;
+    margin-bottom: 70px;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    background: rgba(255,255,255,0.7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    overflow: visible;
+
+}
+
+
+
+/**********************************************************************
+******                    Microprocessor Title Box               ******
+**********************************************************************/
+
+/* ── INNER BOX (border of the micro-processor) ─────────────── */
+.title::before{
+    content:'';
+    position:absolute;
+    top:50%; left:50%;
+    transform:translate(-50%,-50%);
+    width:var(--chip-w);
+    height:var(--chip-h);
+
+    border: 6px solid #310000;
+    border-radius:8px;
+    background: transparent;
+    z-index:-1;
+}
+
+/* ── OUTER BOX (all the pins) ──────────────────────────────── */
+.title::after{
+    content:'';
+    position:absolute;
+    top:50%; left:50%;
+    transform:translate(-50%,-50%);
+
+    /* grow canvas one pin-length on every side */
+    width :calc(var(--chip-w) + var(--pin-l)*2);
+    height:calc(var(--chip-h) + var(--pin-l)*2);
+    z-index:-2;                    /* sits behind ::before */
+
+    /* build pins with linear-gradients */
+    background-image:
+        /* LEFT PINS */
+        linear-gradient(90deg,var(--wire-color) 0 var(--pin-l),transparent var(--pin-l)),
+        linear-gradient(90deg,var(--wire-color) 0 var(--pin-l),transparent var(--pin-l)),
+        linear-gradient(90deg,var(--wire-color) 0 var(--pin-l),transparent var(--pin-l)),
+        linear-gradient(90deg,var(--wire-color) 0 var(--pin-l),transparent var(--pin-l)),
+        /* RIGHT PINS */
+        linear-gradient(270deg,var(--wire-color) 0 var(--pin-l),transparent var(--pin-l)),
+        linear-gradient(270deg,var(--wire-color) 0 var(--pin-l),transparent var(--pin-l)),
+        linear-gradient(270deg,var(--wire-color) 0 var(--pin-l),transparent var(--pin-l)),
+        linear-gradient(270deg,var(--wire-color) 0 var(--pin-l),transparent var(--pin-l)),
+        /* TOP PINS */
+        linear-gradient(180deg,var(--wire-color) 0 var(--pin-l),transparent var(--pin-l)),
+        linear-gradient(180deg,var(--wire-color) 0 var(--pin-l),transparent var(--pin-l)),
+        linear-gradient(180deg,var(--wire-color) 0 var(--pin-l),transparent var(--pin-l)),
+        linear-gradient(180deg,var(--wire-color) 0 var(--pin-l),transparent var(--pin-l)),
+        linear-gradient(180deg,var(--wire-color) 0 var(--pin-l),transparent var(--pin-l)),
+
+        /* BOTTOM PINS */
+        linear-gradient(0deg,var(--wire-color) 0 var(--pin-l),transparent var(--pin-l)),
+        linear-gradient(180deg,var(--wire-color) 0 var(--pin-l),transparent var(--pin-l)),
+        linear-gradient(180deg,var(--wire-color) 0 var(--pin-l),transparent var(--pin-l)),
+        linear-gradient(0deg,var(--wire-color) 0 var(--pin-l),transparent var(--pin-l)),
+        linear-gradient(0deg,var(--wire-color) 0 var(--pin-l),transparent var(--pin-l));
+        
+
+    background-size:
+        /* side pins */
+        var(--pin-l) var(--pin-t), var(--pin-l) var(--pin-t),
+        var(--pin-l) var(--pin-t), var(--pin-l) var(--pin-t),
+        var(--pin-l) var(--pin-t), var(--pin-l) var(--pin-t),
+        var(--pin-l) var(--pin-t), var(--pin-l) var(--pin-t),
+        /* top / bottom pins */
+        var(--pin-t) var(--pin-l), var(--pin-t) var(--pin-l), var(--pin-t) var(--pin-l), var(--pin-t) var(--pin-l), var(--pin-t) var(--pin-l),
+        var(--pin-t) var(--pin-l), var(--pin-t) var(--pin-l), var(--pin-t) var(--pin-l), var(--pin-t) var(--pin-l), var(--pin-t) var(--pin-l);
+
+    background-position:
+        /* LEFT (x = 0) */
+        0            28%,
+        0            42%,
+        0            56%,
+        0            70%,
+        /* RIGHT (x = 100%) */
+        100%         28%,
+        100%         42%,
+        100%         56%,
+        100%         70%,
+        /* TOP (y = 0) */
+        40%          0,
+        45%          0,
+        50%          0,
+        55%          0,
+        60%          0,
+
+        /* BOTTOM (y = 100%) */
+        40%          100%,
+        45%          100%,
+        50%          100%,
+        55%          100%,
+        60%          100%;
+
+    background-repeat:no-repeat;
+}
+
+/**********************************************************************
+******                       Controls Sectioning                  * *****
+**********************************************************************/
+.controls-container {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 50px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.left-controls {
+    flex: 1;
+    min-width: 341px;
+    display: flex;
+    flex-direction: column;
+}
+
+.right-controls {
+    flex: 1;
+    min-width: 341px;
+
+
+}
+
+
+
+/**********************************************************************
+******                       Search bar                   * *****
+**********************************************************************/
+.search-container {
+    margin-bottom: 30px;
+}
+
+.search-bar {
+    width: 100%;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    background: linear-gradient(135deg, #1c0101, #2F0101);
+    color: white;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgb(29, 0, 0);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.search-bar:focus {
+    outline: none;
+    background: linear-gradient(135deg, #2e0101, #3f0101);
+    transform: scale(1.02);
+}
+
+.search-bar::placeholder {
+    color: rgba(255,255,255,0.7);
+}
+
+
+/**********************************************************************
+******                       Tag containers bar                   * *****
+**********************************************************************/
+.selected-tags-container, .all-tags-container {
+    background: linear-gradient(135deg, #1c0101, #2F0101);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 20px;
+    border: 2px solid rgb(29, 0, 0);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    height: 100%;
+
+}
+
+.selected-tags-container {
+    flex-grow: 1;
+}
+
+.all-tags-container {
+    background: linear-gradient(-135deg, #1c0101, #2F0101);
+}
+
+.empty-tags {
+    color: rgba(255,255,255,0.6);
+    font-style: italic;
+}
+
+.controls-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: rgb(214, 214, 214);
+
+}
+
+
+
+/**********************************************************************
+******                       Tags bar                   * *****
+**********************************************************************/
+.tag {
+    display: inline-block;
+    padding: 8px 16px;
+    margin: 5px;
+    background: rgba(255, 255, 255, 0.127);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(28, 1, 1, 0.401);
+    font-size: 14px;
+}
+
+.tag:hover {
+    background: linear-gradient(135deg, rgba(197, 0, 0, 0.3), rgba(197, 0, 0, 0.1));
+    transform: translateY(-2px);
+}
+
+.tag.selected {
+    background: linear-gradient(135deg, rgba(197, 0, 0, 0.3), rgba(197, 0, 0, 0.1));
+    border-color: rgb(39, 0, 0);
+    box-shadow:
+        0 0 4px 1px rgba(100, 20, 20, 0.5),
+        0 0 12px 3px rgba(100, 20, 20, 0.3),
+        0 0 24px 6px rgba(100, 20, 20, 0.15),
+        0 0 40px 10px rgba(100, 20, 20, 0.08);
+}
+
+.tag.hidden-tag {
+    display: none;
+}
+
+.clear-tags {
+    background: #320000;
+    border: 3px solid #200000;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+}
+
+.clear-tags:hover {
+    transform: translateY(-0.5px);
+    box-shadow: 0 3px 10px #8000008a;
+}
+
+
+
+/**********************************************************************
+******                       Info Card                   * *****
+**********************************************************************/
+.info-card-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.info-card-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.info-card{
+    background:  rgba(28, 1, 1, 0.9);
+    backdrop-filter: blur(20px);
+    border-radius: 25px;
+    padding: 40px;
+    max-width: 900px;
+    width: 95%;
+    border: 1px solid rgba(255,255,255,0.2);
+    transform: scale(0.8) rotateY(10deg);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.info-card-overlay.active .info-card-card {
+    transform: scale(1) rotateY(0);
+}
+
+.info-card-close {
+    position: absolute;
+    background: none;
+    border: none;
+}
+
+
+
+.info-card-title {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: rgb(214, 214, 214);;
+}
+
+.info-card-description {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    color: rgba(255,255,255,0.9);
+}
+
+.info-card-image {
+    width: 100%;
+    height: 300px;
+    
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 64px;
+    color: white;
+    margin-bottom: 25px;
+    position: relative;
+    overflow: hidden;
+}
+
+.info-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.info-card-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s ease;
+    z-index: 1;
+}
+
+.info-card-card:hover .info-card-image::before {
+    left: 100%;
+}
+
+.see-more-btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: #258a42;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 18px;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.see-more-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    background: #113e1e;
+}
+
+.see-more-btn i {
+    font-size: 24px;
+}
+
+
+
+/**********************************************************************
+******                       Projects bar                   * *****
+**********************************************************************/
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: none;
+}
+
+.project-card {
+    background: #1c0101;
+;
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    border: 1px solid rgba(255,255,255,0.2);
+    opacity: 0;
+    transform: translateY(50px) rotateX(10deg);
+    /* height: 400px; */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.project-card.visible {
+    opacity: 1;
+    transform: translateY(0) rotateX(0);
+}
+
+.project-card.hidden {
+    opacity: 0;
+    transform: translateY(50px) rotateX(10deg);
+}
+
+.project-card.shrinking {
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+}
+
+.project-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.project-image {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.project-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    transition: left 0.5s ease;
+    z-index: 1;
+}
+
+.project-card:hover .project-image::before {
+    left: 100%;
+}
+
+.project-info {
+    padding: 20px;
+}
+
+.project-name {
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: rgb(214, 214, 214);
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.project-tag {
+    padding: 4px 12px;
+    background: rgba(255, 255, 255, 0.127);
+
+    border-radius: 15px;
+    font-size: 16px;
+    border: 1px solid rgba(28, 1, 1, 0.401);
+
+}
+
+
+
+
+
+
+
+/**********************************************************************
+******                      Bottom Bar                           ******
+**********************************************************************/
+.bottom-bar {
+    padding-top: 0.5rem;
+    padding-bottom: 2rem;
+    background: #000000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.end-title {
+    color: #666;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 300;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease-out;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.end-title.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.end-logo {
+    margin-top: -10px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    padding-right: 2.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin-left: 5px;
+    font-size: 1.7rem;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-style: italic;
+    transition: all 0.8s ease-out;
+    background: linear-gradient(45deg, #100021, #2f005c);
+    border: 1.5px solid rgba(255, 255, 255, 0.51);
+    opacity: 0;
+    transform: translateY(50px);
+    
+}
+
+.end-logo.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.end-subtitle {
+    color: #666;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    text-align: center;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease-out;
+    margin-top: -10px;
+    margin-bottom: 20px;
+}
+
+.end-subtitle.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.social-list {
+    display: flex;
+    gap: clamp(20px, 5vw, 40px);
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    transition: all 1s ease;
+    position: relative;
+    opacity: 0;
+    transform: translateY(50px);
+    list-style: none;
+}
+
+.social-list.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.social-list .phone    { --glow: #bec504; }   
+.social-list .email    { --glow: #00b9e2; }   
+.social-list .github   { --glow: #006205; }   
+.social-list .instagram{ --glow: #ff0077; }   
+.social-list .discord  { --glow: #37394f; }   
+.social-list .linkedin { --glow: #0010c1; }   
+
+.social-list li a i {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    color: grey;
+    transition: color .3s ease, text-shadow .3s ease, transform .3s ease;
+}
+
+.social-list li:hover i,
+.social-list li:focus-within i {
+    color: var(--glow);
+    text-shadow:
+        0 0 1px  var(--glow),
+        0 0 2px  var(--glow),
+        0 0 4px  var(--glow);
+    transform: scale(1.1);         
+}
+
+/**********************************************************************
+******                      Responsiveness                       ******
+**********************************************************************/        
+@media (max-width: 1200px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .controls-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .left-controls, .right-controls {
+        flex: none;
+        width: 100%;
+    }
+    
+    .selected-tags-container, .all-tags-container {
+        height: auto;
+    }
+    
+    .title {
+        font-size: 2.5rem;
+    }
+    
+    .title::before {
+        width: 400px;
+        height: 120px;
+    }
+    
+    .title::after {
+        width: 400px;
+        height: 120px;
+        background-size: 
+            /* Wire sizes */
+            20px 2px, 20px 2px, 20px 2px, 20px 2px,
+            20px 2px, 20px 2px, 20px 2px, 20px 2px,
+            2px 20px, 2px 20px, 2px 20px,
+            2px 20px, 2px 20px, 2px 20px,
+            /* Connection point sizes */
+            400px 120px, 400px 120px, 400px 120px, 400px 120px,
+            400px 120px, 400px 120px, 400px 120px, 400px 120px,
+            400px 120px, 400px 120px, 400px 120px,
+            400px 120px, 400px 120px, 400px 120px;
+        background-position:
+            /* Left wires */
+            -20px 28%, -20px 42%, -20px 56%, -20px 70%,
+            /* Right wires */
+            calc(100% + 20px) 28%, calc(100% + 20px) 42%, calc(100% + 20px) 56%, calc(100% + 20px) 70%,
+            /* Top wires */
+            25% -20px, 50% -20px, 75% -20px,
+            /* Bottom wires */
+            25% calc(100% + 20px), 50% calc(100% + 20px), 75% calc(100% + 20px),
+            /* Connection points */
+            0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .info-card {
+        width: 98%;
+        padding: 20px;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+    
+    .info-card-image {
+        height: 150px;
+        font-size: 48px;
+        margin-bottom: 20px;
+    }
+    
+    .info-card-title {
+        font-size: 24px;
+        margin-bottom: 15px;
+    }
+    
+    .info-card-description {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+    
+    .see-more-btn {
+        position: static;
+        margin-top: 20px;
+        align-self: flex-end;
+        margin-left: auto;
+        display: flex;
+    }
+    
+    .info-card {
+        display: flex;
+        flex-direction: column;
+    }
+}
