@@ -154,65 +154,70 @@ body {
 
     /* build pins with linear-gradients */
     background-image:
-        /* LEFT PINS */
-        linear-gradient(90deg,var(--wire-color) 0 var(--pin-l),transparent var(--pin-l)),
-        linear-gradient(90deg,var(--wire-color) 0 var(--pin-l),transparent var(--pin-l)),
-        linear-gradient(90deg,var(--wire-color) 0 var(--pin-l),transparent var(--pin-l)),
-        linear-gradient(90deg,var(--wire-color) 0 var(--pin-l),transparent var(--pin-l)),
-        /* RIGHT PINS */
-        linear-gradient(270deg,var(--wire-color) 0 var(--pin-l),transparent var(--pin-l)),
-        linear-gradient(270deg,var(--wire-color) 0 var(--pin-l),transparent var(--pin-l)),
-        linear-gradient(270deg,var(--wire-color) 0 var(--pin-l),transparent var(--pin-l)),
-        linear-gradient(270deg,var(--wire-color) 0 var(--pin-l),transparent var(--pin-l)),
+ 
         /* TOP PINS */
         linear-gradient(180deg,var(--wire-color) 0 var(--pin-l),transparent var(--pin-l)),
         linear-gradient(180deg,var(--wire-color) 0 var(--pin-l),transparent var(--pin-l)),
         linear-gradient(180deg,var(--wire-color) 0 var(--pin-l),transparent var(--pin-l)),
         linear-gradient(180deg,var(--wire-color) 0 var(--pin-l),transparent var(--pin-l)),
         linear-gradient(180deg,var(--wire-color) 0 var(--pin-l),transparent var(--pin-l)),
+        linear-gradient(180deg,var(--wire-color) 0 var(--pin-l),transparent var(--pin-l)),
+        linear-gradient(180deg,var(--wire-color) 0 var(--pin-l),transparent var(--pin-l)),
+        linear-gradient(180deg,var(--wire-color) 0 var(--pin-l),transparent var(--pin-l)),
+        linear-gradient(180deg,var(--wire-color) 0 var(--pin-l),transparent var(--pin-l)),
+        linear-gradient(180deg,var(--wire-color) 0 var(--pin-l),transparent var(--pin-l)),
+        linear-gradient(180deg,var(--wire-color) 0 var(--pin-l),transparent var(--pin-l)),
+        linear-gradient(180deg,var(--wire-color) 0 var(--pin-l),transparent var(--pin-l)),
+        linear-gradient(180deg,var(--wire-color) 0 var(--pin-l),transparent var(--pin-l)),
+        linear-gradient(180deg,var(--wire-color) 0 var(--pin-l),transparent var(--pin-l)),
+        linear-gradient(180deg,var(--wire-color) 0 var(--pin-l),transparent var(--pin-l)),
+        linear-gradient(180deg,var(--wire-color) 0 var(--pin-l),transparent var(--pin-l)),
+        linear-gradient(180deg,var(--wire-color) 0 var(--pin-l),transparent var(--pin-l)),
+        linear-gradient(180deg,var(--wire-color) 0 var(--pin-l),transparent var(--pin-l)),
+
 
         /* BOTTOM PINS */
         linear-gradient(0deg,var(--wire-color) 0 var(--pin-l),transparent var(--pin-l)),
-        linear-gradient(180deg,var(--wire-color) 0 var(--pin-l),transparent var(--pin-l)),
-        linear-gradient(180deg,var(--wire-color) 0 var(--pin-l),transparent var(--pin-l)),
         linear-gradient(0deg,var(--wire-color) 0 var(--pin-l),transparent var(--pin-l)),
+        linear-gradient(0deg,var(--wire-color) 0 var(--pin-l),transparent var(--pin-l)),
+        linear-gradient(0deg,var(--wire-color) 0 var(--pin-l),transparent var(--pin-l)),
+        linear-gradient(0deg,var(--wire-color) 0 var(--pin-l),transparent var(--pin-l)),
+        linear-gradient(0deg,var(--wire-color) 0 var(--pin-l),transparent var(--pin-l)),
+        linear-gradient(0deg,var(--wire-color) 0 var(--pin-l),transparent var(--pin-l)),
+        linear-gradient(0deg,var(--wire-color) 0 var(--pin-l),transparent var(--pin-l)),
+        linear-gradient(0deg,var(--wire-color) 0 var(--pin-l),transparent var(--pin-l)),
+        linear-gradient(0deg,var(--wire-color) 0 var(--pin-l),transparent var(--pin-l)),
+        linear-gradient(0deg,var(--wire-color) 0 var(--pin-l),transparent var(--pin-l)),
+        linear-gradient(0deg,var(--wire-color) 0 var(--pin-l),transparent var(--pin-l)),
+        linear-gradient(0deg,var(--wire-color) 0 var(--pin-l),transparent var(--pin-l)),
+        linear-gradient(0deg,var(--wire-color) 0 var(--pin-l),transparent var(--pin-l)),
+        linear-gradient(0deg,var(--wire-color) 0 var(--pin-l),transparent var(--pin-l)),
+        linear-gradient(0deg,var(--wire-color) 0 var(--pin-l),transparent var(--pin-l)),
+        linear-gradient(0deg,var(--wire-color) 0 var(--pin-l),transparent var(--pin-l)),
+
         linear-gradient(0deg,var(--wire-color) 0 var(--pin-l),transparent var(--pin-l));
-        
 
-    background-size:
-        /* side pins */
-        var(--pin-l) var(--pin-t), var(--pin-l) var(--pin-t),
-        var(--pin-l) var(--pin-t), var(--pin-l) var(--pin-t),
-        var(--pin-l) var(--pin-t), var(--pin-l) var(--pin-t),
-        var(--pin-l) var(--pin-t), var(--pin-l) var(--pin-t),
-        /* top / bottom pins */
+        background-size:
         var(--pin-t) var(--pin-l), var(--pin-t) var(--pin-l), var(--pin-t) var(--pin-l), var(--pin-t) var(--pin-l), var(--pin-t) var(--pin-l),
-        var(--pin-t) var(--pin-l), var(--pin-t) var(--pin-l), var(--pin-t) var(--pin-l), var(--pin-t) var(--pin-l), var(--pin-t) var(--pin-l);
+        var(--pin-t) var(--pin-l), var(--pin-t) var(--pin-l), var(--pin-t) var(--pin-l), var(--pin-t) var(--pin-l), var(--pin-t) var(--pin-l),
+        var(--pin-t) var(--pin-l), var(--pin-t) var(--pin-l), var(--pin-t) var(--pin-l), var(--pin-t) var(--pin-l), var(--pin-t) var(--pin-l),
+        var(--pin-t) var(--pin-l), var(--pin-t) var(--pin-l), var(--pin-t) var(--pin-l), var(--pin-t) var(--pin-l), var(--pin-t) var(--pin-l),
+        var(--pin-t) var(--pin-l), var(--pin-t) var(--pin-l), var(--pin-t) var(--pin-l), var(--pin-t) var(--pin-l), var(--pin-t) var(--pin-l),
+        var(--pin-t) var(--pin-l), var(--pin-t) var(--pin-l), var(--pin-t) var(--pin-l), var(--pin-t) var(--pin-l), var(--pin-t) var(--pin-l),
+        var(--pin-t) var(--pin-l), var(--pin-t) var(--pin-l), var(--pin-t) var(--pin-l), var(--pin-t) var(--pin-l);
 
-    background-position:
-        /* LEFT (x = 0) */
-        0            28%,
-        0            42%,
-        0            56%,
-        0            70%,
-        /* RIGHT (x = 100%) */
-        100%         28%,
-        100%         42%,
-        100%         56%,
-        100%         70%,
+        background-position:
         /* TOP (y = 0) */
-        40%          0,
-        45%          0,
-        50%          0,
-        55%          0,
-        60%          0,
+        10% 0, 15% 0, 20% 0, 25% 0,
+        30% 0, 35% 0, 40% 0, 45% 0, 50% 0,
+        55% 0, 60% 0, 65% 0, 70% 0, 75% 0,
+        80% 0, 85% 0, 90% 0, 
 
         /* BOTTOM (y = 100%) */
-        40%          100%,
-        45%          100%,
-        50%          100%,
-        55%          100%,
-        60%          100%;
+         10% 100%, 15% 100%, 20% 100%, 25% 100%,
+        30% 100%, 35% 100%, 40% 100%, 45% 100%, 50% 100%,
+        55% 100%, 60% 100%, 65% 100%, 70% 100%, 75% 100%,
+        80% 100%, 85% 100%, 90% 100%;
 
     background-repeat:no-repeat;
 }
