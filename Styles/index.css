@@ -293,8 +293,9 @@
             transform: translateX(0);
         }
 
-        .see-more-projects-link {
-            border: 3px solid #100021;
+        .see-more-link {
+            border: 5px solid #230000;
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.5);       
             background: #310000;
             color: white;
             padding: 15px;
@@ -302,14 +303,22 @@
             font-size: clamp(1.2rem, 2.5vw, 1.6rem);
             margin-top: 30px;
             border-radius: 10px;
+            transition: background 0.2s ease-in-out; /* Added transition for smooth effect */
         }
+
+        .see-more-link:hover {
+            background: rgba(104, 0, 0, 0.8);
+        }
+
+
 
         .project-right {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, #100021, #2f005c);
+            background: linear-gradient(-135deg, #1c0101, #3d0000);
+;
             border-left: 3px solid #310000;
             color: white;
             font-size: 1.1rem;
@@ -356,8 +365,13 @@
             position: relative;
             background: #310000;
             border-radius: 15px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+
+
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);       
             border: 2px solid #1c0000;
+
+
+
             transition: 0.2s ease;
             overflow: hidden;
         }
@@ -372,8 +386,11 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 80%;
-            height: 80%;
+            /* width: 80%;
+            height: 80%; */
+
+            width: 100%;
+            height: 100%;
             transition: all 2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
@@ -496,16 +513,11 @@
             transform: translateX(0);
         }
 
-        .see-more-employment-link {
-            border: 3px solid #310000;
-            background: #100021;
-            color: white;
-            padding: 15px;
-            text-decoration: none;
-            font-size: clamp(1.2rem, 2.5vw, 1.6rem);
-            margin-top: 30px;
-            border-radius: 10px;
-        }
+
+
+
+
+
 
         .employment-left {
             display: inline-flex;
@@ -581,23 +593,13 @@
             transform: translateX(0);
         }
 
-        .see-more-education-link {
-            border: 3px solid #100021;
-            background: #310000;
-            color: white;
-            padding: 15px;
-            text-decoration: none;
-            font-size: clamp(1.2rem, 2.5vw, 1.6rem);
-            margin-top: 30px;
-            border-radius: 10px;
-        }
 
         .education-right {
             display: inline-flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, #100021, #2f005c);
+            background: linear-gradient(-135deg, #1c0101, #3d0000);
             border-left: 3px solid #310000;
             color: white;
             font-size: 1.1rem;
@@ -1003,7 +1005,7 @@
                 font-size: clamp(1rem, 4vw, 1.3rem);
             }
             
-            .see-more-projects-link, .see-more-employment-link, .see-more-education-link {
+            .see-more-link, .see-more-link, .see-more-link {
                 font-size: clamp(1rem, 4vw, 1.2rem);
                 padding: 12px;
             }
