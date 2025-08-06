@@ -35,17 +35,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let activeFilter = null;
     
     const courseDetails = {
-        // Fall 2021-2022 (Transfer Test Credits)
-        'econ102':    { title: 'Principles-Macroeconomics',           code: 'ECON 102',    credits: 4, grade: 'T', majors: [], summary: 'TBD' },
-        'zoology151': { title: 'Introductory Biology',               code: 'ZOOLOGY 151', credits: 5, grade: 'T', majors: [], summary: 'TBD' },
-        'bioscix12':  { title: 'Electives',                          code: 'BIO SCI X12', credits: 3, grade: 'T', majors: [], summary: 'TBD' },
-        'genelctx12': { title: 'Electives',                          code: 'GEN ELCT X12',credits: 3, grade: 'T', majors: [], summary: 'TBD' },
-        'litx10':     { title: 'Electives',                          code: 'LIT X10',     credits: 3, grade: 'T', majors: [], summary: 'TBD' },
 
         // Fall 2021-2022 (Regular Session)
         'lsc100':     { title: 'Science and Storytelling',           code: 'LSC 100',     credits: 3, grade: 'A', majors: [], summary: 'TBD' },
         'asian236':   { title: 'Asia Enchanted',                     code: 'ASIAN 236',   credits: 3, grade: 'A', majors: [], summary: 'TBD' },
-        'chem109':    { title: 'Advanced General Chemistry',         code: 'CHEM 109',    credits: 5, grade: 'DR',majors: [], summary: 'TBD' },
         'compsci200': { title: 'Programming I',                      code: 'COMP SCI 200',credits: 3, grade: 'A', majors: [], summary: 'TBD' },
         'ils157':     { title: 'Bradley Roundtable Seminar',         code: 'ILS 157',     credits: 1, grade: 'CR',majors: [], summary: 'TBD' },
         'math221':    { title: 'Calculus & Analytic Geometry 1',     code: 'MATH 221',    credits: 5, grade: 'A', majors: [], summary: 'TBD' },
@@ -61,9 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'music203':   { title: 'American Ethnicities & Pop Song',    code: 'MUSIC 203',   credits: 3, grade: 'A', majors: [], summary: 'TBD' },
 
         // Fall 2022-2023
-        'bme200':     { title: 'Biomedical Engineering Design',      code: 'BME 200',     credits: 1, grade: 'DR',majors: [], summary: 'TBD' },
         'chem343':    { title: 'Organic Chemistry I',                code: 'CHEM 343',    credits: 3, grade: 'A', majors: [], summary: 'TBD' },
-        'ema201':     { title: 'Statics',                            code: 'EMA 201',     credits: 3, grade: 'DR',majors: [], summary: 'TBD' },
         'math234':    { title: 'Calc—Functions of Variables',        code: 'MATH 234',    credits: 4, grade: 'A', majors: [], summary: 'TBD' },
         'math320':    { title: 'Linear Algebra & Differential Equations', code: 'MATH 320', credits: 3, grade: 'A', majors: [], summary: 'TBD' },
         'zoology570': { title: 'Cell Biology',                      code: 'ZOOLOGY 570', credits: 3, grade: 'B', majors: [], summary: 'TBD' },
