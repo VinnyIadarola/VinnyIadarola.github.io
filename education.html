@@ -6,15 +6,14 @@
     <title>Education Portfolio</title>
     <link rel="icon" type="image/png" href="Images/logo.png">
     <link rel="stylesheet" href="Styles/education.css">
-    <script src="Scripts/education.js" defer></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
+    <link rel="stylesheet" href="Styles/shared.css">
+
+    <script src="Scripts/education.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-    <!--------------------------- Book Animation --------------------------->
-     <div class="falling-books"></div>
-
-    <!--------------------------- Navbar Section --------------------------->
+        <!--------------------------- Navbar Section --------------------------->
     <nav class="navbar">
         <div class="nav-logo">VI</div>
         <div class="nav-tabs">
@@ -27,16 +26,25 @@
     </nav>
 
 
+    <!--------------------------- Book Animation --------------------------->
+     <div class="falling-books"></div>
+
+
+
+
     <!--------------------------- Title Section --------------------------->
-    <header class="header">
+    <div class="header">
         <h1 class="title">Academic Background</h1>
-    </header>
+    </div>
 
 
     <!--------------------------- Degree Section --------------------------->
     <div class="main-content">
         <div class="degrees-container">
-            <h2 class="section-title">Degrees</h2>
+            <h2 class="section-title">
+                Degrees
+            <span style="font-size: 1rem; font-weight: normal; margin-left: 10px; opacity: 0.5;">click to filter core courses</span>
+        </h2>
             
              <div class="degree-card" data-major="Applied-Biomedical-Engineering">
                 <div class="degree-name">Applied Biomedical Engineering, M.S.</div>
@@ -57,8 +65,10 @@
                     Madison, WI<br>
                     Expected Graduation: Dec 2025
                 </div>
-                <div class="gpa">Core GPA: 3.78</div>
-                <div class="honors">Dean's List</div>
+                <div class="gpa">Core GPA: 3.81</div>
+                <div class="honors">Distinction in the Major Candidate</div>
+                <div class="honors">Dean's Honors List</div>
+
             </div>
 
             <div class="degree-card" data-major="mathematics">
@@ -68,8 +78,8 @@
                     Madison, WI<br>
                     Expected Graduation: Dec 2025
                 </div>
-                <div class="gpa">Core GPA: 3.92</div>
-                <div class="honors">Outstanding Achievement</div>
+                <div class="gpa">Core GPA: 3.72</div>
+                <div class="honors">Dean's Honors List</div>
             </div>
 
             <div class="degree-card" data-major="computer-science">
@@ -79,8 +89,8 @@
                     Madison, WI<br>
                     Expected Graduation: Dec. 2025
                 </div>
-                <div class="gpa">Core GPA: 3.85</div>
-                <div class="honors">Dean's List</div>
+                <div class="gpa">Core GPA: 3.69</div>
+                <div class="honors">Dean's Honors List</div>
             </div>
 
             <div class="degree-card" data-major="biology">
@@ -90,7 +100,7 @@
                     Madison, WI<br>
                     Completed: May 2024
                 </div>
-                <div class="gpa">Core GPA: 3.89</div>
+                <div class="gpa">Core GPA: 3.68</div>
             </div>
 
             
@@ -99,7 +109,10 @@
         </div>
 
         <div class="course-container">
-            <h2 class="section-title">Course History</h2>
+            <h2 class="section-title">
+                Course History
+                <span style="font-size: 1rem; font-weight: normal; margin-left: 10px; opacity: 0.5;">click to view course details</span>
+            </h2>
             
             <div class="courses-grid" id="coursesGrid">
                 <!-- This will be populated by JavaScript -->

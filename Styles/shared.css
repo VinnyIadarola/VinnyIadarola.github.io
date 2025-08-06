@@ -1,0 +1,229 @@
+/**********************************************************************
+******                        Navigation Bar                     ******
+**********************************************************************/
+.navbar {
+    background: rgba(49, 0, 0, 0.95);
+    border: 1px solid black;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 0.2rem 0.2rem !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.nav-logo {
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    padding-top: 1px;
+    padding-right: 2.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(214, 214, 214);
+    margin-left: 8px;
+    font-size: 1.4rem;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-style: italic;
+    transition: transform 0.3s ease;
+    background: linear-gradient(45deg, #100021, #2f005c);
+    border: 1.5px solid rgba(255, 255, 255, 0.51);
+}
+
+.nav-logo:hover {
+    transform: scale(1.05);
+}
+
+.nav-tabs {
+    display: flex;
+    border: 2px solid rgba(49, 0, 0, 0);
+    gap: 0rem;
+}
+
+.nav-tab {
+    padding: 0.75rem 1.5rem;
+    background: transparent;
+    color: rgb(214, 214, 214);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-tab:hover {
+    background: #800000;
+    color: rgb(214, 214, 214);
+    box-shadow: 0 8px 25px rgba(234, 102, 102, 0.3);
+}
+
+.nav-tab.active {
+    background: #260000;
+}
+
+
+
+
+/**********************************************************************
+******                      Bottom Bar                           ******
+**********************************************************************/
+.bottom-bar {
+    border-top: 3px solid #000000;
+    padding-top: 0.5rem;
+    padding-bottom: 2rem;
+    background: #000000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.end-title {
+    color: #666;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 300;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease-out;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.end-title.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.end-logo {
+    margin-top: -10px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    padding-right: 2.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin-left: 5px;
+    font-size: 1.7rem;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-style: italic;
+    transition: all 0.8s ease-out;
+    background: linear-gradient(45deg, #100021, #2f005c);
+    border: 1.5px solid rgba(255, 255, 255, 0.51);
+    opacity: 0;
+    transform: translateY(50px);
+    
+}
+
+.end-logo.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.end-subtitle {
+    color: #666;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    text-align: center;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease-out;
+    margin-top: -5px;
+    margin-bottom: 20px;
+}
+
+.end-subtitle.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.social-list {
+    display: flex;
+    gap: clamp(20px, 5vw, 40px);
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    transition: all 1s ease;
+    position: relative;
+    opacity: 0;
+    transform: translateY(50px);
+    list-style: none;
+}
+
+.social-list.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.social-list .phone    { --glow: #bec504; }   
+.social-list .email    { --glow: #00b9e2; }   
+.social-list .github   { --glow: #006205; }   
+.social-list .instagram{ --glow: #ff0077; }   
+.social-list .discord  { --glow: #37394f; }   
+.social-list .linkedin { --glow: #0010c1; }   
+
+.social-list li a i {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    color: grey;
+    transition: color .3s ease, text-shadow .3s ease, transform .3s ease;
+}
+
+.social-list li:hover i,
+.social-list li:focus-within i {
+    color: var(--glow);
+    text-shadow:
+        0 0 1px  var(--glow),
+        0 0 2px  var(--glow),
+        0 0 4px  var(--glow);
+    transform: scale(1.1);         
+}
+
+
+
+/**********************************************************************
+******                      Responsive                           ******
+**********************************************************************/
+
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+        position: static;
+    }
+    
+    :root {
+        --navbar-height: 120px;
+    }
+
+    .nav-tabs {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .nav-tab {
+        padding: 0.5rem 1rem;
+    }
+
+}
+
+/* Extra small phones */
+@media (max-width: 360px) {
+    .nav-tab {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
+
+}
