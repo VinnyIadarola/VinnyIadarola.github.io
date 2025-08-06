@@ -5,7 +5,7 @@
     --chip-h: 140px;   /* chip height */
     --pin-l : 25px;    /* pin length  */
     --pin-t : 6px;     /* pin thickness */
-    --wire-color: #310000;
+    --wire-color: rgba(28, 1, 1, 0.9);
 }
 
 * {
@@ -109,9 +109,8 @@ body {
     font-weight: 800;
     margin-bottom: 90px;
     text-shadow: 0 4px 20px rgba(0,0,0,0.3);
-    background: rgba(255,255,255,0.7);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: rgba(255, 255, 255, 0.837);
+
     background-clip: text;
     position: relative;
     display: inline-block;
@@ -135,10 +134,12 @@ body {
     width:var(--chip-w);
     height:var(--chip-h);
 
-    border: 10px solid #310000;
+    border: 10px solid rgba(28, 1, 1, 0.9);
     border-radius:8px;
     background: transparent;
     z-index:-1;
+    background-color: rgba(28, 1, 1, 0.9);
+
 }
 
 /* ── OUTER BOX (all the pins) ──────────────────────────────── */
@@ -397,16 +398,44 @@ body {
 }
 
 .info-card{
+
+      position: relative;
+     overflow: hidden;              /* ← clip its children */
     background:  rgba(28, 1, 1, 0.9);
     backdrop-filter: blur(20px);
     border-radius: 25px;
-    padding: 40px;
+    padding: 40px 40px 0 40px;
     max-width: 900px;
     width: 95%;
     border: 1px solid rgba(255,255,255,0.2);
     transform: scale(0.8) rotateY(10deg);
     transition: all 0.3s ease;
-    position: relative;
+}
+
+
+.info-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+.info-text-container {
+    background-color: rgba(30, 30, 35, 0.893);
+
+    width: 100%;                   /* ← span the full width of .info-card */
+    padding: 20px;                 /* ← whatever gutter you like */
+    box-sizing: border-box;        /* ← include padding in that 100% width */
+    border-radius: 0 0 25px 25px;  /* ← only bottom corners rounded */
+    
+    margin-top: -30px;              /* ← hide that 1px of .info-card background */
+    z-index: 1;
+  
 }
 
 .info-card-overlay.active .info-card-card {
@@ -420,12 +449,11 @@ body {
 }
 
 
-
 .info-card-title {
     font-size: 28px;
     font-weight: 700;
     margin-bottom: 20px;
-    color: rgb(214, 214, 214);;
+    color: rgb(214, 214, 214);
 }
 
 .info-card-description {
@@ -436,10 +464,12 @@ body {
 }
 
 .info-card-image {
-    width: 100%;
+      width: 100%;
     height: 300px;
+    object-fit: cover;
+    border-radius: 25px 25px 0 0;  /* ← only top corners rounded */
+
     
-    border-radius: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -448,33 +478,31 @@ body {
     margin-bottom: 25px;
     position: relative;
     overflow: hidden;
+    z-index: 2;
+
 }
 
 .info-card-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 15px;
 }
 
-.info-card-image::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-    transition: left 0.5s ease;
-    z-index: 1;
-}
 
-.info-card-card:hover .info-card-image::before {
+
+.info-card-card:hover {
     left: 100%;
 }
 
 .see-more-btn {
-    position: absolute;
+
+    position: static;
+    margin: 10px 0;
+
+    align-self: flex-end;
+    margin-left: auto;
+
+
     bottom: 20px;
     right: 20px;
     background: #258a42;
@@ -608,8 +636,6 @@ body {
     border: 1px solid rgba(28, 1, 1, 0.401);
 
 }
-
-
 
 
 

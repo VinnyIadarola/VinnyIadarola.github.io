@@ -3,17 +3,181 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Education</title>
+    <title>Education Portfolio</title>
+    <link rel="icon" type="image/png" href="Images/logo.png">
+    <link rel="stylesheet" href="Styles/education.css">
+    <script src="Scripts/education.js" defer></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 </head>
 <body>
-    <header>
-        <h1>Education</h1>
+    <!--------------------------- Book Animation --------------------------->
+     <div class="falling-books"></div>
+
+    <!--------------------------- Navbar Section --------------------------->
+    <nav class="navbar">
+        <div class="nav-logo">VI</div>
+        <div class="nav-tabs">
+            <a href="index.html" class="nav-tab">Home</a>
+            <a href="projects.html" class="nav-tab">Projects</a>
+            <a href="employment.html" class="nav-tab">Employment</a>
+            <a href="education.html" class="nav-tab active">Education</a>
+            <a href="contact.html" class="nav-tab">Contact</a>
+        </div>
+    </nav>
+
+
+    <!--------------------------- Title Section --------------------------->
+    <header class="header">
+        <h1 class="title">Academic Background</h1>
     </header>
-    <main>
-       <p> meow </p>
-    </main>
-    <footer>
-        <p>&copy; 2024</p>
-    </footer>
+
+
+    <!--------------------------- Degree Section --------------------------->
+    <div class="main-content">
+        <div class="degrees-container">
+            <h2 class="section-title">Degrees</h2>
+            
+             <div class="degree-card" data-major="Applied-Biomedical-Engineering">
+                <div class="degree-name">Applied Biomedical Engineering, M.S.</div>
+                <div class="degree-details">
+                    <strong>John-Hopkins University</strong><br>
+                    Baltimore, MD<br>
+                    Expected Graduation: 2027
+                </div>
+                <!-- <div class="gpa">Core GPA:</div>
+                <div class="honors"></div>
+                <div class="honors"></div> -->
+            </div>
+
+            <div class="degree-card" data-major="computer-engineering">
+                <div class="degree-name">Computer Engineering, B.S.</div>
+                <div class="degree-details">
+                    <strong>University of Wisconsin-Madison</strong><br>
+                    Madison, WI<br>
+                    Expected Graduation: Dec 2025
+                </div>
+                <div class="gpa">Core GPA: 3.78</div>
+                <div class="honors">Dean's List</div>
+            </div>
+
+            <div class="degree-card" data-major="mathematics">
+                <div class="degree-name">Mathematics, B.S.</div>
+                <div class="degree-details">
+                    <strong>University of Wisconsin-Madison</strong><br>
+                    Madison, WI<br>
+                    Expected Graduation: Dec 2025
+                </div>
+                <div class="gpa">Core GPA: 3.92</div>
+                <div class="honors">Outstanding Achievement</div>
+            </div>
+
+            <div class="degree-card" data-major="computer-science">
+                <div class="degree-name">Computer Science, B.S.</div>
+                <div class="degree-details">
+                    <strong>University of Wisconsin-Madison</strong><br>
+                    Madison, WI<br>
+                    Expected Graduation: Dec. 2025
+                </div>
+                <div class="gpa">Core GPA: 3.85</div>
+                <div class="honors">Dean's List</div>
+            </div>
+
+            <div class="degree-card" data-major="biology">
+                <div class="degree-name">Biology in Engineering, Minor</div>
+                <div class="degree-details">
+                    <strong>University of Wisconsin-Madison</strong><br>
+                    Madison, WI<br>
+                    Completed: May 2024
+                </div>
+                <div class="gpa">Core GPA: 3.89</div>
+            </div>
+
+            
+
+            <!-- <button class="clear-filter" onclick="clearFilter()">Show All Courses</button> -->
+        </div>
+
+        <div class="course-container">
+            <h2 class="section-title">Course History</h2>
+            
+            <div class="courses-grid" id="coursesGrid">
+                <!-- This will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Course info card -->
+    <div class="info-card-overlay" id="courseInfoCard">
+        <div class="info-note">
+            <!-- <button class="close-info-card" onclick="closeCourseInfoCard()">&times;</button> -->
+            <div class="course-note-header">
+                <h3 class="course-note-title" id="infoCardTitle">Course Title</h3>
+                <div class="course-meta">
+                    <div class="meta-item">
+                        <strong>Credits:</strong> <span id="infoCardCredits">3</span>
+                    </div>
+                    <div class="meta-item">
+                        <strong>Grade:</strong> <span id="infoCardGrade">A</span>
+                    </div>
+                </div>
+            </div>
+            <div class="course-note-body">
+                <h4 class="course-summary-title">Course Summary</h4>
+                <p class="course-summary" id="infoCardSummary">Course details will appear here.</p>
+            </div>
+        </div>
+    </div>
+
+
+     <!--*************************** Bottom Bar Section ***************************-->
+    <div class="bottom-bar">
+        <div style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+            <h1 class="end-title">Vincent Iadarola</h1>
+            <div class="end-logo">VI</div>
+        </div>
+
+        <p class="end-subtitle">A Mathematician, Computer Engineer, and Scientist</p>
+
+        <ul class="social-list">
+            <li class="phone">
+                <a href="#" target="_blank" aria-label="Phone">
+                    <i class="fa fa-phone fa-2x" style="font-size: clamp(0rem, 4.75vw, 3rem);"></i>
+                </a>
+            </li>
+
+           <li class="email">
+                <a href="mailto:viadarola@outlook.com" aria-label="Email">
+                    <i class="fas fa-envelope fa-2x"></i>
+                </a>
+            </li>
+
+            <li class="github">
+                <a href="https://github.com/VinnytIadarola" target="_blank" aria-label="GitHub">
+                    <i class="fab fa-github fa-2x"></i>
+                </a>
+            </li>
+
+            <li class="instagram">
+                <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram">
+                    <i class="fab fa-instagram fa-2x"></i>
+                </a>
+            </li>
+
+            <li class="discord">
+                <a href="https://discord.gg/" target="_blank" aria-label="Discord">
+                    <i class="fab fa-discord fa-2x"></i>
+                </a>
+            </li>
+
+            <li class="linkedin">
+                <a href="#" target="_blank" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin fa-2x"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+  
+   
 </body>
 </html>
