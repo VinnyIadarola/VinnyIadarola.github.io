@@ -140,8 +140,8 @@ const jobs = [
         department: "Community Service",
         location: "El Paso, TX",
         positionType: "Volunteer",
-        startDate: "2021-01-01",
-        endDate: "2021-12-31",
+        startDate: "2021-07-01",
+        endDate: "2021-8-31",
         status: "completed",
         bulletPoints: [
             "Sewed masks and blankets during the COVID-19 pandemic",
@@ -246,7 +246,32 @@ const jobs = [
             "Received positive feedback from expo attendees"
         ],
         tags: ["engineering","leadership","project management","team coordination","process improvement","cost reduction"]
+    },
+        {
+        title: "Dining Hall Team Member",
+        company: "University of Wisconsin-Madison",
+        department: "Dining",
+        location: "Madison, WI",
+        positionType: "Part-time Position",
+        startDate: "2023-09-01",
+        endDate: "2024-05-01",
+        status: "completed",
+        bulletPoints: [
+            "Led a 15-person team to develop and present an engineering project",
+            "Improved processes and reduced costs through recommendations",
+            "Gathered and organized resources for project success"
+        ],
+        summary: "Directed a large-scale engineering project from concept to presentation, leading a team to process improvements and cost reductions.",
+        achievements: [
+            "Won election to lead engineering expo project",
+            "Achieved cost reduction goals while maintaining quality",
+            "Received positive feedback from expo attendees"
+        ],
+        tags: ["engineering","leadership","project management","team coordination","process improvement","cost reduction"]
     }
+
+
+    
 ];
 
 /**********************************************************************
@@ -269,18 +294,22 @@ function formatDate(dateString) {
     const options = { year: 'numeric', month: 'short' };
     return new Date(dateString).toLocaleDateString('en-US', options);
 }
-
 function calculateDuration(startDate, endDate) {
     const start = parseMaybeDate(startDate);
     const end = parseMaybeDate(endDate);
     const diffTime = Math.max(0, end - start);
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    const months = Math.floor(diffDays / 30);
+
+    const years = Math.floor(diffDays / 365);
+    const months = Math.floor((diffDays % 365) / 30);
     const remainingDays = diffDays % 30;
 
-    if (months === 0) return `${diffDays} day${diffDays !== 1 ? 's' : ''}`;
-    if (remainingDays === 0) return `${months} month${months !== 1 ? 's' : ''}`;
-    return `${months} month${months !== 1 ? 's' : ''}, ${remainingDays} day${remainingDays !== 1 ? 's' : ''}`;
+    let parts = [];
+    if (years > 0) parts.push(`${years} year${years !== 1 ? 's' : ''}`);
+    if (months > 0) parts.push(`${months} month${months !== 1 ? 's' : ''}`);
+    if (remainingDays > 0 || parts.length === 0) parts.push(`${remainingDays} day${remainingDays !== 1 ? 's' : ''}`);
+
+    return parts.join(', ');
 }
 
 function bindFields(root, map) {
