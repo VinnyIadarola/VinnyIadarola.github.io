@@ -102,37 +102,29 @@
     <!-- Include EmailJS SDK -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script type="text/javascript">
-        // Initialize EmailJS with your user ID
         emailjs.init('KdoyFAWzmFigcdvAw');
 
-        // Get a reference to the submit button and form
         const btn = document.getElementById('button');
         const form = document.getElementById('form');
         const successMessage = document.getElementById('success-message');
 
-        // Listen for form submission
         form.addEventListener('submit', function(event) {
             event.preventDefault();
             btn.value = 'Sending...';
             btn.disabled = true;
 
-            // Set your EmailJS service and template IDs
             const serviceID = 'service_4tkh1fd';
             const templateID = 'contact-me';
 
             emailjs.sendForm(serviceID, templateID, this)
                 .then(() => {
-                    // Reset button state
                     btn.value = 'Send Email';
                     btn.disabled = false;
                     
-                    // Show success message
                     successMessage.style.display = 'block';
                     
-                    // Clear the form
                     form.reset();
                     
-                    // Hide success message after 5 seconds
                     setTimeout(() => {
                         successMessage.style.display = 'none';
                     }, 5000);
@@ -143,10 +135,8 @@
                 });
         });
 
-        // Add hover effects for social icons
         document.querySelectorAll('.social-icon').forEach(icon => {
             icon.addEventListener('click', function() {
-                // Add click animation
                 this.style.transform = 'scale(0.95)';
                 setTimeout(() => {
                     this.style.transform = 'translateY(-3px)';

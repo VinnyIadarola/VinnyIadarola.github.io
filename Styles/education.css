@@ -65,9 +65,7 @@ body {
 ******                        Header Section                     ******
 **********************************************************************/
 .header {
-        margin-top: calc(var(--navbar-height) + 20px);
-
-
+    margin-top: calc(var(--navbar-height));
     padding: 70px;
     text-align: center;
     position: relative;
@@ -75,7 +73,6 @@ body {
 
 
 .title {
-
     text-align: center;
     font-size: 5rem;
     font-weight: 800;
@@ -304,7 +301,7 @@ body {
 }
 
 .info-note {
-    background-color: rgba(30, 30, 35, 0.893);
+    background-color: rgba(30, 30, 35, 1);
     border-radius: 25px;
     padding: 0;
     max-width: 600px;

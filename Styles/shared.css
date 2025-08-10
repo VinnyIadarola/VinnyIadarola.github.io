@@ -166,18 +166,20 @@
     transform: translateY(0);
 }
 
-.social-list .phone    { --glow: #bec504; }   
-.social-list .email    { --glow: #00b9e2; }   
-.social-list .github   { --glow: #006205; }   
-.social-list .instagram{ --glow: #ff0077; }   
-.social-list .discord  { --glow: #37394f; }   
-.social-list .linkedin { --glow: #0010c1; }   
 
 .social-list li a i {
     font-size: clamp(2.5rem, 6vw, 4rem);
     color: grey;
     transition: color .3s ease, text-shadow .3s ease, transform .3s ease;
 }
+
+.social-list .phone    { --glow: #bec504;}   
+.social-list .email    { --glow: #00b9e2; }   
+.social-list .github   { --glow: #006205; }   
+.social-list .instagram{ --glow: #ff0077; }   
+.social-list .discord  { --glow: #37394f; }   
+.social-list .linkedin { --glow: #0010c1; }   
+
 
 .social-list li:hover i,
 .social-list li:focus-within i {
@@ -189,7 +191,9 @@
     transform: scale(1.1);         
 }
 
-
+#meow {
+    font-size: clamp(0rem, 4.75vw, 3rem);
+}
 
 /**********************************************************************
 ******                      Responsive                           ******
@@ -219,11 +223,26 @@
 
 }
 
-/* Extra small phones */
-@media (max-width: 360px) {
+@media (max-width: 550px) {
+    #meow {
+      font-size: clamp(0rem, 5.5vw, 5rem);
+    }
+}
+
+@media (max-width: 450px) {
+    #meow {
+      font-size: clamp(0rem, 7vw, 5rem);
+    }
+}
+
+
+@media (max-width: 400px) {
     .nav-tab {
         padding: 0.4rem 0.8rem;
         font-size: 0.9rem;
+    }
+    #meow {
+      font-size: clamp(0rem, 8vw, 6rem);
     }
 
 }
