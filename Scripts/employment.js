@@ -2,6 +2,50 @@
 ******                      Job Data                             ******
 **********************************************************************/
 const jobs = [
+        {
+        title: "Kappa Eta Kappa Academic Chair",
+        company: "Youth Wrestling Club",
+        department: "Sports & Recreation",
+        location: "El Paso, TX",
+        positionType: "Elected Club",
+        startDate: "2024-07-01",
+        endDate: "2024-12-31",
+        status: "completed",
+        bulletPoints: [
+            "Led team warm-ups and taught wrestling techniques",
+            "Prepared the team for tournaments and competitive matches",
+            "Ensured safety and maintained discipline during training and events"
+        ],
+        summary: "Directed and instructed youth wrestlers, overseeing training sessions, safety protocols, and tournament preparation for over 150 volunteer hours.",
+        achievements: [
+            "Trained multiple wrestlers who advanced to regional competitions",
+            "Improved team performance metrics over two seasons",
+            "Recognized for dedication to youth sports development"
+        ],
+        tags: ["sports","youth","coaching","team leadership","athletics","wrestling","training","volunteer"]
+    },
+        {
+        title: "Kappa Eta Kappa Parlimentarian",
+        company: "Youth Wrestling Club",
+        department: "Sports & Recreation",
+        location: "El Paso, TX",
+        positionType: "Elected Club",
+        startDate: "2024-07-01",
+        endDate: "2024-12-31",
+        status: "completed",
+        bulletPoints: [
+            "Led team warm-ups and taught wrestling techniques",
+            "Prepared the team for tournaments and competitive matches",
+            "Ensured safety and maintained discipline during training and events"
+        ],
+        summary: "Directed and instructed youth wrestlers, overseeing training sessions, safety protocols, and tournament preparation for over 150 volunteer hours.",
+        achievements: [
+            "Trained multiple wrestlers who advanced to regional competitions",
+            "Improved team performance metrics over two seasons",
+            "Recognized for dedication to youth sports development"
+        ],
+        tags: ["sports","youth","coaching","team leadership","athletics","wrestling","training","volunteer"]
+    },
     {
         title: "Volunteer Youth Wrestling Team Leader",
         company: "Youth Wrestling Club",
