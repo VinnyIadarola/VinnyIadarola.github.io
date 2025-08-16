@@ -2,203 +2,27 @@
 ******                      Job Data                             ******
 **********************************************************************/
 const jobs = [
-        {
-        title: "Kappa Eta Kappa Academic Chair",
-        company: "Youth Wrestling Club",
-        department: "Sports & Recreation",
-        location: "El Paso, TX",
-        positionType: "Elected Club",
-        startDate: "2024-07-01",
-        endDate: "2024-12-31",
-        status: "completed",
-        bulletPoints: [
-            "Led team warm-ups and taught wrestling techniques",
-            "Prepared the team for tournaments and competitive matches",
-            "Ensured safety and maintained discipline during training and events"
-        ],
-        summary: "Directed and instructed youth wrestlers, overseeing training sessions, safety protocols, and tournament preparation for over 150 volunteer hours.",
-        achievements: [
-            "Trained multiple wrestlers who advanced to regional competitions",
-            "Improved team performance metrics over two seasons",
-            "Recognized for dedication to youth sports development"
-        ],
-        tags: ["sports","youth","coaching","team leadership","athletics","wrestling","training","volunteer"]
-    },
-        {
-        title: "Kappa Eta Kappa Parlimentarian",
-        company: "Youth Wrestling Club",
-        department: "Sports & Recreation",
-        location: "El Paso, TX",
-        positionType: "Elected Club",
-        startDate: "2024-07-01",
-        endDate: "2024-12-31",
-        status: "completed",
-        bulletPoints: [
-            "Led team warm-ups and taught wrestling techniques",
-            "Prepared the team for tournaments and competitive matches",
-            "Ensured safety and maintained discipline during training and events"
-        ],
-        summary: "Directed and instructed youth wrestlers, overseeing training sessions, safety protocols, and tournament preparation for over 150 volunteer hours.",
-        achievements: [
-            "Trained multiple wrestlers who advanced to regional competitions",
-            "Improved team performance metrics over two seasons",
-            "Recognized for dedication to youth sports development"
-        ],
-        tags: ["sports","youth","coaching","team leadership","athletics","wrestling","training","volunteer"]
-    },
     {
-        title: "Volunteer Youth Wrestling Team Leader",
-        company: "Youth Wrestling Club",
-        department: "Sports & Recreation",
-        location: "El Paso, TX",
-        positionType: "Volunteer",
-        startDate: "2016-01-01",
-        endDate: "2018-12-31",
-        status: "completed",
-        bulletPoints: [
-            "Led team warm-ups and taught wrestling techniques",
-            "Prepared the team for tournaments and competitive matches",
-            "Ensured safety and maintained discipline during training and events"
-        ],
-        summary: "Directed and instructed youth wrestlers, overseeing training sessions, safety protocols, and tournament preparation for over 150 volunteer hours.",
-        achievements: [
-            "Trained multiple wrestlers who advanced to regional competitions",
-            "Improved team performance metrics over two seasons",
-            "Recognized for dedication to youth sports development"
-        ],
-        tags: ["sports","youth","coaching","team leadership","athletics","wrestling","training","volunteer"]
-    },
-    {
-        title: "Math Tutor",
-        company: "Cielo Vista Elementary School",
+        title: "ECE In-Class Peer Mentor",
+        company: "UW-Madison Engineering Department",
         department: "Education",
-        location: "El Paso, TX",
-        positionType: "Volunteer",
-        startDate: "2017-01-01",
-        endDate: "2019-12-31",
-        status: "completed",
+        location: "Madison, WI",
+        positionType: "Part-time Position",
+        startDate: "2024-01-01",
+        endDate: "",
+        status: "current",
         bulletPoints: [
-            "Taught basic mathematics to children in both Spanish and English",
-            "Assisted students with English homework assignments",
-            "Encouraged academic confidence through patient, individualized instruction"
+            "Guided students through computer lab assignments",
+            "Maintained accurate attendance and progress records",
+            "Hosted make-up exams and organized study groups"
         ],
-        summary: "Provided bilingual tutoring in math and English, fostering academic growth and confidence among elementary students for 270 volunteer hours.",
+        summary: "I took on this role Supported engineering students in lab environments, tracking progress and facilitating additional learning opportunities.",
         achievements: [
-            "Helped several students advance a full grade level in math proficiency",
-            "Recognized by teachers for exceptional bilingual teaching skills",
-            "Contributed to improved test scores in targeted classrooms"
+            "Received recognition from faculty for mentoring excellence",
+            "Increased student lab completion rates through targeted support",
+            "Successfully hosted multiple study sessions with high attendance"
         ],
-        tags: ["education","math","tutoring","bilingual","Spanish","English","youth","elementary school","volunteer"]
-    },
-    {
-        title: "Volunteer Food Sorter",
-        company: "Second Harvest Food Drive",
-        department: "Community Service",
-        location: "El Paso, TX",
-        positionType: "Volunteer",
-        startDate: "2018-01-01",
-        endDate: "2018-12-31",
-        status: "completed",
-        bulletPoints: [
-            "Collected, transported, and sorted donated food items",
-            "Assisted in preparing shipments for homeless shelters and soup kitchens",
-            "Ensured quality and safety of distributed food"
-        ],
-        summary: "Supported food distribution efforts by collecting, sorting, and preparing donations for delivery to local shelters during a community food drive.",
-        achievements: [
-            "Processed over 1,000 pounds of food donations",
-            "Helped streamline food sorting workflow for faster distribution",
-            "Recognized by organizers for efficiency and reliability"
-        ],
-        tags: ["community service","food distribution","volunteer","charity","logistics","sorting","homeless support"]
-    },
-    {
-        title: "Special Olympics Guide",
-        company: "Special Olympics",
-        department: "Community Service",
-        location: "El Paso, TX",
-        positionType: "Volunteer",
-        startDate: "2018-01-01",
-        endDate: "2018-12-31",
-        status: "completed",
-        bulletPoints: [
-            "Directed families and athletes to event locations",
-            "Assisted with setup and breakdown of event spaces",
-            "Provided encouragement and assistance to athletes during competitions"
-        ],
-        summary: "Guided families and athletes during Special Olympics events, offering logistical support, information, and encouragement to participants.",
-        achievements: [
-            "Assisted over 50 athletes and their families in a single event",
-            "Praised by event coordinators for exceptional communication",
-            "Improved event flow by optimizing athlete guidance routes"
-        ],
-        tags: ["community service","special needs","sports","event coordination","volunteer","athlete support"]
-    },
-    {
-        title: "Catholic Retreat Counselor",
-        company: "Catholic Youth Organization",
-        department: "Faith-Based Programs",
-        location: "El Paso, TX",
-        positionType: "Volunteer",
-        startDate: "2018-01-01",
-        endDate: "2018-12-31",
-        status: "completed",
-        bulletPoints: [
-            "Led group activities including sports-based games and reflections",
-            "Provided emotional and health support for teenagers during retreat",
-            "Organized schedules and coordinated with other counselors"
-        ],
-        summary: "Led a group of 7 teenagers through a 3-day retreat, organizing engaging activities, facilitating religious discussions, and ensuring emotional and physical well-being.",
-        achievements: [
-            "Successfully managed group dynamics for diverse participants",
-            "Praised for creating an inclusive and engaging retreat environment",
-            "Coordinated a full activity schedule without delays"
-        ],
-        tags: ["faith-based","youth","leadership","event planning","team building","religious retreat","volunteer"]
-    },
-    {
-        title: "Chinese Honors Association Tutor",
-        company: "Chinese Honors Association",
-        department: "Education",
-        location: "El Paso, TX",
-        positionType: "Volunteer",
-        startDate: "2019-01-01",
-        endDate: "2020-12-31",
-        status: "completed",
-        bulletPoints: [
-            "Tutored students in Chinese language, history, and culture",
-            "Taught traditional art forms such as calligraphy",
-            "Supported students in preparing for academic competitions"
-        ],
-        summary: "Provided tutoring in Chinese language, history, and calligraphy, helping underclassmen improve academic performance and cultural understanding.",
-        achievements: [
-            "Helped students achieve top scores in Chinese language competitions",
-            "Introduced new calligraphy techniques to the curriculum",
-            "Expanded cultural learning opportunities for members"
-        ],
-        tags: ["education","Chinese language","history","calligraphy","tutoring","culture","volunteer"]
-    },
-    {
-        title: "Volunteer Mask and Blanket Creator",
-        company: "Rescue Mission Organization",
-        department: "Community Service",
-        location: "El Paso, TX",
-        positionType: "Volunteer",
-        startDate: "2021-07-01",
-        endDate: "2021-8-31",
-        status: "completed",
-        bulletPoints: [
-            "Sewed masks and blankets during the COVID-19 pandemic",
-            "Coordinated with local organizations for distribution",
-            "Ensured comfort and safety through quality materials"
-        ],
-        summary: "Produced masks and blankets for donation to vulnerable communities during the COVID-19 pandemic, supporting public health efforts.",
-        achievements: [
-            "Donated over 100 handmade masks and blankets",
-            "Supported local pandemic relief efforts",
-            "Recognized by charity organization for outstanding service"
-        ],
-        tags: ["COVID-19","mask making","blankets","volunteer","community service","public health","charity"]
+        tags: ["education","engineering","peer mentor","student support","record keeping","labs"]
     },
     {
         title: "Inpatient Unit Assistant",
@@ -248,26 +72,70 @@ const jobs = [
         tags: ["military","training","fitness","leadership","records management","recruit preparation"]
     },
     {
-        title: "ECE In-Class Peer Mentor",
-        company: "UW-Madison Engineering Department",
-        department: "Education",
+        title: "Kappa Eta Kappa Academic Chair",
+        company: "Youth Wrestling Club",
+        department: "Sports & Recreation",
+        location: "El Paso, TX",
+        positionType: "Elected Club",
+        startDate: "2024-07-01",
+        endDate: "2024-12-31",
+        status: "completed",
+        bulletPoints: [
+            "Led team warm-ups and taught wrestling techniques",
+            "Prepared the team for tournaments and competitive matches",
+            "Ensured safety and maintained discipline during training and events"
+        ],
+        summary: "Directed and instructed youth wrestlers, overseeing training sessions, safety protocols, and tournament preparation for over 150 volunteer hours.",
+        achievements: [
+            "Trained multiple wrestlers who advanced to regional competitions",
+            "Improved team performance metrics over two seasons",
+            "Recognized for dedication to youth sports development"
+        ],
+        tags: ["sports","youth","coaching","team leadership","athletics","wrestling","training","volunteer"]
+    },
+    {
+        title: "Kappa Eta Kappa Parlimentarian",
+        company: "Youth Wrestling Club",
+        department: "Sports & Recreation",
+        location: "El Paso, TX",
+        positionType: "Elected Club",
+        startDate: "2024-07-01",
+        endDate: "2024-12-31",
+        status: "completed",
+        bulletPoints: [
+            "Led team warm-ups and taught wrestling techniques",
+            "Prepared the team for tournaments and competitive matches",
+            "Ensured safety and maintained discipline during training and events"
+        ],
+        summary: "Directed and instructed youth wrestlers, overseeing training sessions, safety protocols, and tournament preparation for over 150 volunteer hours.",
+        achievements: [
+            "Trained multiple wrestlers who advanced to regional competitions",
+            "Improved team performance metrics over two seasons",
+            "Recognized for dedication to youth sports development"
+        ],
+        tags: ["sports","youth","coaching","team leadership","athletics","wrestling","training","volunteer"]
+    },
+    {
+        title: "Dining Hall Team Member",
+        company: "University of Wisconsin-Madison",
+        department: "Dining",
         location: "Madison, WI",
         positionType: "Part-time Position",
-        startDate: "2024-01-01",
-        endDate: "",
-        status: "current",
+        startDate: "2023-09-01",
+        endDate: "2024-05-01",
+        status: "completed",
         bulletPoints: [
-            "Guided students through computer lab assignments",
-            "Maintained accurate attendance and progress records",
-            "Hosted make-up exams and organized study groups"
+            "Led a 15-person team to develop and present an engineering project",
+            "Improved processes and reduced costs through recommendations",
+            "Gathered and organized resources for project success"
         ],
-        summary: "Supported engineering students in lab environments, tracking progress and facilitating additional learning opportunities.",
+        summary: "Directed a large-scale engineering project from concept to presentation, leading a team to process improvements and cost reductions.",
         achievements: [
-            "Received recognition from faculty for mentoring excellence",
-            "Increased student lab completion rates through targeted support",
-            "Successfully hosted multiple study sessions with high attendance"
+            "Won election to lead engineering expo project",
+            "Achieved cost reduction goals while maintaining quality",
+            "Received positive feedback from expo attendees"
         ],
-        tags: ["education","engineering","peer mentor","student support","record keeping","labs"]
+        tags: ["engineering","leadership","project management","team coordination","process improvement","cost reduction"]
     },
     {
         title: "Engineering Expo Lead",
@@ -291,28 +159,73 @@ const jobs = [
         ],
         tags: ["engineering","leadership","project management","team coordination","process improvement","cost reduction"]
     },
-        {
-        title: "Dining Hall Team Member",
-        company: "University of Wisconsin-Madison",
-        department: "Dining",
-        location: "Madison, WI",
-        positionType: "Part-time Position",
-        startDate: "2023-09-01",
-        endDate: "2024-05-01",
+    {
+        title: "Chinese Honors Association Tutor",
+        company: "Chinese Honors Association",
+        department: "Education",
+        location: "Santa Ana, CA",
+        positionType: "Volunteer",
+        startDate: "2019-01-01",
+        endDate: "2020-12-31",
         status: "completed",
         bulletPoints: [
-            "Led a 15-person team to develop and present an engineering project",
-            "Improved processes and reduced costs through recommendations",
-            "Gathered and organized resources for project success"
+            "Tutored students in Chinese language, history, and culture",
+            "Taught traditional art forms such as calligraphy",
+            "Supported students in preparing for academic competitions"
         ],
-        summary: "Directed a large-scale engineering project from concept to presentation, leading a team to process improvements and cost reductions.",
+        summary: "Provided tutoring in Chinese language, history, and calligraphy, helping underclassmen improve academic performance and cultural understanding.",
         achievements: [
-            "Won election to lead engineering expo project",
-            "Achieved cost reduction goals while maintaining quality",
-            "Received positive feedback from expo attendees"
+            "Helped students achieve top scores in Chinese language competitions",
+            "Introduced new calligraphy techniques to the curriculum",
+            "Expanded cultural learning opportunities for members"
         ],
-        tags: ["engineering","leadership","project management","team coordination","process improvement","cost reduction"]
+        tags: ["education","Chinese language","history","calligraphy","tutoring","culture","volunteer"]
+    },
+    {
+        title: "Math Tutor",
+        company: "Cielo Vista Elementary School",
+        department: "Education",
+        location: "Rancho Santa Margarita, CA",
+        positionType: "Volunteer",
+        startDate: "2017-01-01",
+        endDate: "2019-12-31",
+        status: "completed",
+        bulletPoints: [
+            "Taught basic mathematics to children in both Spanish and English",
+            "Assisted students with English homework assignments",
+            "Encouraged academic confidence through patient, individualized instruction"
+        ],
+        summary: "Provided bilingual tutoring in math and English, fostering academic growth and confidence among elementary students for 270 volunteer hours.",
+        achievements: [
+            "Helped several students advance a full grade level in math proficiency",
+            "Recognized by teachers for exceptional bilingual teaching skills",
+            "Contributed to improved test scores in targeted classrooms"
+        ],
+        tags: ["education","math","tutoring","bilingual","Spanish","English","youth","elementary school","volunteer"]
+    },
+    {
+        title: "Volunteer Youth Wrestling Team Leader",
+        company: "Youth Wrestling Club",
+        department: "Sports & Recreation",
+        location: "San Clemente, CA",
+        positionType: "Volunteer",
+        startDate: "2016-01-01",
+        endDate: "2018-12-31",
+        status: "completed",
+        bulletPoints: [
+            "Led team warm-ups and taught wrestling techniques",
+            "Prepared the team for tournaments and competitive matches",
+            "Ensured safety and maintained discipline during training and events"
+        ],
+        summary: "Directed and instructed youth wrestlers, overseeing training sessions, safety protocols, and tournament preparation for over 150 volunteer hours.",
+        achievements: [
+            "Trained multiple wrestlers who advanced to regional competitions",
+            "Improved team performance metrics over two seasons",
+            "Recognized for dedication to youth sports development"
+        ],
+        tags: ["sports","youth","coaching","team leadership","athletics","wrestling","training","volunteer"]
     }
+
 
 
     

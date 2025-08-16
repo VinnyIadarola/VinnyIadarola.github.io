@@ -73,7 +73,7 @@ const courseDetails = {
         grade: '',
         majors: ['computer-engineering'],
         summary:
-            'Analysis, design, and application of modern analog circuits built with bipolar and field-effect technologies; emphasis on the basic building blocks used in today’s mixed-signal ICs.',
+            'Analysis, design, and application of modern analog circuits built with bipolar and field-effect technologies; emphasis on the basic building blocks used in today\'s mixed-signal ICs.',
     },
     psych202: {
         title: 'Introduction to Psychology',
@@ -214,7 +214,7 @@ const courseDetails = {
         code: 'ECE 204',
         credits: 3,
         grade: 'A',
-        majors: [],
+        majors: ['computer-engineering'],
         summary:
             'Python-based data acquisition, cleaning, visualization, basic modeling; ethics and bias in data.',
     },
@@ -324,7 +324,7 @@ const courseDetails = {
         code: 'DANCE 110',
         credits: 1,
         grade: 'A',
-        majors: [''],
+        majors: [],
         summary:
             'Technique, flexibility, alignment, and improvisation in dance.',
     },
@@ -460,7 +460,7 @@ const courseDetails = {
         grade: 'A',
         majors: ['computer-engineering'],
         summary:
-            'Popular song’s role in shaping ethnic/racial identity and as anti-racist protest.',
+            'Popular song\'s role in shaping ethnic/racial identity and as anti-racist protest.',
     },
 
     // Spring 2021-2022
