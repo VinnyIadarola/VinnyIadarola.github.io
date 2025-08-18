@@ -133,29 +133,29 @@
                 });
             });
 
-            // Card flip & expand
-            const grid = document.getElementById('cardGrid');
+            // // Card flip & expand
+            // const grid = document.getElementById('cardGrid');
 
-            document.querySelectorAll('.card').forEach(card=>{
-            card.addEventListener('click', e=>{
-                const expanded = card.classList.toggle('expanded');
-                // keep only one expanded card
-                if(expanded){
-                document.querySelectorAll('.card.expanded')
-                        .forEach(c=> c!==card && c.classList.remove('expanded'));
-                grid.classList.add('grid-expanded');
-                }else{
-                grid.classList.remove('grid-expanded');
-                }
-            });
-            });
+            // document.querySelectorAll('.card').forEach(card=>{
+            // card.addEventListener('click', e=>{
+            //     const expanded = card.classList.toggle('expanded');
+            //     // keep only one expanded card
+            //     if(expanded){
+            //     document.querySelectorAll('.card.expanded')
+            //             .forEach(c=> c!==card && c.classList.remove('expanded'));
+            //     grid.classList.add('grid-expanded');
+            //     }else{
+            //     grid.classList.remove('grid-expanded');
+            //     }
+            // });
+            // });
 
-            // collapse when clicking outside
-            document.addEventListener('click', e=>{
-            if(!e.target.closest('.card')){
-                document.querySelectorAll('.card.expanded')
-                        .forEach(c=>c.classList.remove('expanded'));
-                grid.classList.remove('grid-expanded');
-            }
-            });
+            // // collapse when clicking outside
+            // document.addEventListener('click', e=>{
+            // if(!e.target.closest('.card')){
+            //     document.querySelectorAll('.card.expanded')
+            //             .forEach(c=>c.classList.remove('expanded'));
+            //     grid.classList.remove('grid-expanded');
+            // }
+            // });
         });
