@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Cat</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="Styles/shared.css">
+  <style>
+    /**********************************************************************
+    ******                        Global Styles                     ******
+    **********************************************************************/
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --pagePad: 16px;        /* body padding on left/right + used in JS calc */
+      --availH: 100dvh;       /* set by JS to (vh - navbar - padding*2) */
+      --contentH: auto;       /* set by JS to (availH - headerH) */
+    }
+
+    html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* prevent page scroll */
+    }
+
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        background-color: #2a2a2a;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        min-height: 100vh;
+        padding: 20px;
+        padding-top: 80px; /* navbar space */
+    }
+
+    /**********************************************************************
+    ******                 Cat Container Structure                  ******
+    **********************************************************************/
+    .cat-container {
+      --containerRadius: 20px;
+        max-width: 1200px;
+        width: 100%;
+        height: calc(100vh - 120px); /* fit viewport (navbar + header margin subtracted) */
+        display: flex;
+        flex-direction: column;
+        overflow: hidden; /* make sure internals fit inside */
+    }
+
+    .cat-header {
+      position: relative;
+      padding: 6px 0 8px 16px; /* tighter header */
+      margin: 0;               /* remove extra space */
+      margin-bottom: 10px;
+    }
+    .cat-header::before {
+      content: '';
+      position: absolute;
+      left: 1px;
+      top: 14px;
+      bottom: 8px;
+      width: 6px; /* slimmer bar */
+      background: #310000;
+      border-radius: 3px;
+    }
+    .cat-header h1 {
+      color: rgb(214,214,214);
+      /* smaller + responsive */
+      font-size: clamp(1.6rem, 4vw, 5rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 2px;
+    
+    }
+    .cat-header p {
+      color: rgb(214,214,214);
+      font-size: clamp(0.9rem, 2.4vw, 1.2rem);
+      font-weight: 300;
+      margin-left: 5px;
+    }
+
+    .cat-content {
+      display: grid;
+      grid-template-columns: minmax(320px, 1fr) 1fr;
+      grid-auto-rows: 1fr;
+      background: transparent;
+      border-radius: var(--containerRadius);
+      gap: 0;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      align-items: stretch;
+      height: var(--contentH); /* lock to available height under header */
+      min-height: 380px;       /* safety floor for very short viewports */
+      overflow: hidden;        /* keep internals clipped, still no page scroll */
+    }
+
+    /**********************************************************************
+    ******                        Photo Section                      ******
+    **********************************************************************/
+    .photo-section {
+      position: relative;
+      background: transparent;
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      overflow: hidden; /* contain the bouncing element within this section */
+      border-radius: var(--containerRadius) 0 0 var(--containerRadius);
+    }
+
+    .photo-stage {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    #outer-border {
+      position: absolute;
+      width: 300px;
+      height: 400px;
+      will-change: transform, width, height;
+      transform: translate(0px, 0px);
+      background: linear-gradient(-135deg, #1c0101, #3d0000);
+      border: 8px solid transparent;
+      border-image: linear-gradient(-135deg, #1c0101, #3d0000) 1;
+      border-radius: var(--containerRadius) 0 0 var(--containerRadius);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-photo {
+      width: calc(100% - 34px);
+      height: calc(100% - 34px);
+      position: relative;
+      border: 17px solid #100021;
+      background: #100021;
+      border-radius: 15px;
+      overflow: hidden;
+    }
+    .photo-fit {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #outer-border {
+        transform: translate(0px, 0px) !important;
+        position: static !important;
+      }
+      .photo-stage {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    /**********************************************************************
+    ******                        Info Section                       ******
+    **********************************************************************/
+    .info-section {
+      background: linear-gradient(135deg, #1c0101, #3d0000);
+      color: rgb(214,214,214);
+      padding: clamp(20px, 4vw, 36px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-self: stretch;
+      border-radius: 0 var(--containerRadius) var(--containerRadius) 0;
+      min-width: 0;
+    }
+    .info-section h2 {
+      font-size: clamp(1.4rem, 3.2vw, 2.2rem);
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    .cat-details { margin-bottom: 16px; }
+    .detail-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 12px;
+      font-size: clamp(1rem, 2.4vw, 1.1rem);
+      gap: 12px;
+      min-width: 0;
+    }
+    .detail-item i {
+      width: 28px;
+      font-size: 1.25rem;
+      color: #d6d6d6;
+      flex: 0 0 auto;
+    }
+    .detail-item span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+    .fun-facts {
+      background: rgba(255,255,255,0.08);
+      padding: 16px;
+      border-radius: 12px;
+      margin-top: 8px;
+    }
+    .fun-facts h3 {
+      font-size: clamp(1.05rem, 2.6vw, 1.25rem);
+      margin-bottom: 10px;
+      color: #d6d6d6;
+    }
+    .fact-list { list-style: none; }
+    .fact-list li {
+      padding: 6px 0 6px 24px;
+      position: relative;
+      font-size: clamp(0.95rem, 2.2vw, 1.05rem);
+    }
+    .fact-list li::before {
+      content: '🐾';
+      position: absolute;
+      left: 0;
+    }
+
+    /**********************************************************************
+    ******                      Responsive Design                    ******
+    **********************************************************************/
+    @media (max-width: 960px) {
+      #outer-border { width: 280px; height: 360px; }
+    }
+
+    @media (max-width: 768px) {
+      /* On phones, stack but keep the WHOLE thing within the fixed height.
+         Use two equal-height rows so it never exceeds the viewport. */
+      .cat-content {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr; /* photo 50%, info 50% */
+      }
+      .photo-section {
+        border-radius: var(--containerRadius) var(--containerRadius) 0 0;
+      }
+      .info-section {
+        border-radius: 0 0 var(--containerRadius) var(--containerRadius);
+      }
+      #outer-border { width: 260px; height: 330px; }
+    }
+
+    @media (max-width: 420px) {
+      .cat-header { padding-left: 10px; }
+      .cat-header::before { width: 5px; }
+      #outer-border { width: 240px; height: 300px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar Section -->
+  <nav class="navbar">
+    <div class="nav-logo">VI</div>
+    <div class="nav-tabs">
+      <a href="index.html" class="nav-tab">Home</a>
+      <a href="projects.html" class="nav-tab">Projects</a>
+      <a href="employment.html" class="nav-tab">Employment</a>
+      <a href="education.html" class="nav-tab">Education</a>
+      <a href="contact.html" class="nav-tab">Contact</a>
+      <a href="cat.html" class="nav-tab active">My Cat</a>
+    </div>
+  </nav>
+
+  <!-- Cat Section -->
+  <div class="cat-container">
+    <div class="cat-header">
+      <h1>My Cat</h1>
+      <p>Meet my fluffy companion!</p>
+    </div>
+
+    <div class="cat-content">
+      <!-- Photo Section -->
+      <div class="photo-section">
+        <div class="photo-stage">
+          <div id="outer-border">
+            <div class="hero-photo">
+              <img src="Images/Goobie.jpg" alt="My Cat" class="photo-fit">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Info Section -->
+      <div class="info-section">
+        <h2>About My Cat</h2>
+        <div class="cat-details">
+          <div class="detail-item">
+            <i class="fas fa-paw"></i>
+            <span>Name: Goobie</span>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-birthday-cake"></i>
+            <span>Age: <span id="ageYears">—</span> years old</span>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-cat"></i>
+            <span>Breed: Medium Hair Tortie</span>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-palette"></i>
+            <span>Color: Beautiful tortoiseshell</span>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-heart"></i>
+            <span>Personality: Friendly and not the brightest</span>
+          </div>
+        </div>
+
+        <div class="fun-facts">
+          <h3>Fun Facts</h3>
+          <ul class="fact-list">
+            <li>WIll stare at your soul as she knows what you've done</li>
+            <li>Loves to jump on things she cannot stand on</li>
+            <li>Expert chasing her own tail like it owes her money</li>
+            <li>Professional nap machine</li>
+            <li>Takes up more space on my bed than I do</li>
+            <li>Master of slamming into walls headfirst</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /*********************** Layout sizing (no scroll) ************************/
+    (function () {
+      const container = document.querySelector('.cat-container');
+      const header = document.querySelector('.cat-header');
+      const navbar = document.querySelector('.navbar');
+
+      function setHeights() {
+        const pagePad = parseFloat(getComputedStyle(document.body).getPropertyValue('--pagePad')) || 16;
+        const navH = navbar ? navbar.offsetHeight : 0;
+        const avail = Math.max(320, window.innerHeight - navH - pagePad * 2); // remaining viewport height
+        container.style.setProperty('--availH', avail + 'px');
+        // Wait a tick to measure header after fonts/layout
+        requestAnimationFrame(() => {
+          const headH = header ? header.offsetHeight : 0;
+          const contentH = Math.max(260, avail - headH);
+          container.style.setProperty('--contentH', contentH + 'px');
+        });
+      }
+
+      window.addEventListener('resize', setHeights);
+      window.addEventListener('load', setHeights);
+      setHeights();
+    })();
+
+    /*********************** Age calculation ************************/
+    (function () {
+      const birthDate = new Date(2024, 5, 22); // June 22, 2024
+      const today = new Date();
+      function fullYears(birth, now) {
+        let years = now.getFullYear() - birth.getFullYear();
+        const hadBD = (now.getMonth() > birth.getMonth()) ||
+                      (now.getMonth() === birth.getMonth() && now.getDate() >= birth.getDate());
+        if (!hadBD) years--;
+        return Math.max(years, 0);
+      }
+      const years = fullYears(birthDate, today);
+      const ageEl = document.getElementById('ageYears');
+      if (ageEl) ageEl.textContent = years.toString();
+    })();
+
+    /*********************** Constant-speed bounce + grow-on-hit *****************/
+    (function () {
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const stage = document.querySelector('.photo-stage');
+      const box   = document.getElementById('outer-border');
+      if (!stage || !box || prefersReduced) {
+        if (box) box.style.transform = 'translate(0px, 0px)';
+        return;
+      }
+
+      const WALL_MARGIN = 0;
+      const GROW_FACTOR = 0.10;  // 10% growth towards container size on each hit
+
+      function dims() {
+        const s = stage.getBoundingClientRect();
+        const b = box.getBoundingClientRect();
+        return { cw: s.width, ch: s.height, bw: b.width, bh: b.height };
+      }
+      function clamp(v, mn, mx) { return Math.max(mn, Math.min(v, mx)); }
+
+      let { cw, ch, bw, bh } = dims();
+      let x = 0, y = 0;
+      const SPEED = 380;
+      let vx = SPEED * 0.75;
+      let vy = SPEED * 0.66;
+
+      function renormalize() {
+        const mag = Math.hypot(vx, vy) || 1;
+        const sx = Math.sign(vx) || 1;
+        const sy = Math.sign(vy) || 1;
+        const nx = Math.abs(vx) / mag;
+        const ny = Math.abs(vy) / mag;
+        vx = sx * nx * SPEED;
+        vy = sy * ny * SPEED;
+        if (Math.abs(vx) < 40) vx = 40 * Math.sign(vx);
+        if (Math.abs(vy) < 40) vy = 40 * Math.sign(vy);
+      }
+
+      function growTowardFit() {
+        const targetW = Math.max(120, cw - WALL_MARGIN * 2);
+        const targetH = Math.max(160, ch - WALL_MARGIN * 2);
+        const styles = getComputedStyle(box);
+        const curW = parseFloat(styles.width);
+        const curH = parseFloat(styles.height);
+
+        const EPS = 0.75;
+        const reachedW = Math.abs(targetW - curW) <= EPS;
+        const reachedH = Math.abs(targetH - curH) <= EPS;
+        if (reachedW && reachedH) {
+          box.style.width  = targetW + 'px';
+          box.style.height = targetH + 'px';
+          ({ cw, ch, bw, bh } = dims());
+          const maxX = Math.max(0, cw - bw);
+          const maxY = Math.max(0, ch - bh);
+          x = clamp(x, 0, maxX);
+          y = clamp(y, 0, maxY);
+          box.style.transform = `translate(${x}px, ${y}px)`;
+          return true;
+        }
+
+        const nextW = curW + (targetW - curW) * GROW_FACTOR;
+        const nextH = curH + (targetH - curH) * GROW_FACTOR;
+        box.style.width  = Math.min(nextW, targetW) + 'px';
+        box.style.height = Math.min(nextH, targetH) + 'px';
+        ({ cw, ch, bw, bh } = dims());
+        const maxX = Math.max(0, cw - bw);
+        const maxY = Math.max(0, ch - bh);
+        x = clamp(x, 0, maxX);
+        y = clamp(y, 0, maxY);
+        return false;
+      }
+
+      let last = performance.now();
+      let raf;
+      function animate(now) {
+        const dt = Math.min(32, now - last) / 1000;
+        last = now;
+        x += vx * dt;
+        y += vy * dt;
+        let hit = false;
+
+        ({ cw, ch, bw, bh } = dims());
+        const maxX = Math.max(0, cw - bw);
+        const maxY = Math.max(0, ch - bh);
+
+        if (x <= 0) { x = 0; vx = Math.abs(vx); renormalize(); hit = true; }
+        else if (x >= maxX) { x = maxX; vx = -Math.abs(vx); renormalize(); hit = true; }
+
+        if (y <= 0) { y = 0; vy = Math.abs(vy); renormalize(); hit = true; }
+        else if (y >= maxY) { y = maxY; vy = -Math.abs(vy); renormalize(); hit = true; }
+
+        if (hit && growTowardFit()) {
+          cancelAnimationFrame(raf);
+          return;
+        }
+
+        box.style.transform = `translate(${x}px, ${y}px)`;
+        raf = requestAnimationFrame(animate);
+      }
+
+      function onResize() {
+        ({ cw, ch, bw, bh } = dims());
+        const maxX = Math.max(0, cw - bw);
+        const maxY = Math.max(0, ch - bh);
+        x = clamp(x, 0, maxX);
+        y = clamp(y, 0, maxY);
+      }
+      window.addEventListener('resize', onResize);
+
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+          cancelAnimationFrame(raf);
+        } else {
+          last = performance.now();
+          raf = requestAnimationFrame(animate);
+        }
+      });
+
+      raf = requestAnimationFrame(animate);
+    })();
+  </script>
+</body>
+</html>

@@ -5,39 +5,39 @@
 const projects = [
     {
         id: 1,
-        name: "TBD_1",
-        icon: "<img src='Images/MeandDooman.jpg' alt='SystemVerilog Project'>",
-        tags: ["SystemVerilog"],
+        name: "My Website",
+        icon: "<img src='Images/website_project_picture.png' alt='My Website Project'>",
+        tags: ["HTML", "JavaScript", "CSS", "Github Pages"],
         description: "TDB ".repeat(100).trim(),
         github: "#"
     },
     {
         id: 2,
-        name: "TBD_2",
-        icon: "<img src='Images/MeandDooman.jpg' alt='C++ Project'>",
-        tags: ["C++"],
-        description: "TDB ".repeat(100).trim(),
-        github: "#"
+        name: "Beyond The Trench",
+        icon: "<img src='Images/' alt='Beyond The Trench'>",
+        tags: ["C++", "SDL3", "UI"],
+        description: "TDB ",
+        github: "https://github.com/VinnyIadarola/PastTheTrench"
     },
     {
         id: 3,
-        name: "TBD_3",
-        icon: "<img src='Images/MeandDooman.jpg' alt='C Project'>",
-        tags: ["C"],
+        name: "FIFO and LIFO",
+        icon: "<img src='Images/' alt='FIFO and LIFO'>",
+        tags: ["System Verilog", "Digital Logic", "Synthesizable", "Data Structures", "Testbench"],
         description: "TDB ".repeat(100).trim(),
-        github: "#"
+        github: "https://github.com/VinnyIadarola/FIFO-and-LIFO"
     },
     {
         id: 4,
-        name: "TBD_4",
-        icon: "<img src='Images/MeandDooman.jpg' alt='Python Project'>",
-        tags: ["Python"],
+        name: "Small Simple Matrix Multiplier",
+        icon: "<img src='Images/' alt='Matrix Multiplier Project'>",
+        tags: ["System Verilog", "Digital Logic", "Synthesizable", "Testbench"],
         description: "TDB ".repeat(100).trim(),
         github: "#"
     },
     {
         id: 5,
-        name: "TBD_5",
+        name: "Processecor ",
         icon: "<img src='Images/MeandDooman.jpg' alt='Java Project'>",
         tags: ["Java"],
         description: "TDB ".repeat(100).trim(),
@@ -55,7 +55,7 @@ const projects = [
         id: 7,
         name: "TBD_7",
         icon: "<img src='Images/MeandDooman.jpg' alt='HTML Project'>",
-        tags: ["HTML"],
+        tags: ["C"],
         description: "TDB ".repeat(100).trim(),
         github: "#"
     },
@@ -63,7 +63,7 @@ const projects = [
         id: 8,
         name: "TBD_8",
         icon: "<img src='Images/MeandDooman.jpg' alt='JavaScript Project'>",
-        tags: ["JavaScript"],
+        tags: ["Python"],
         description: "TDB ".repeat(100).trim(),
         github: "#"
     },
