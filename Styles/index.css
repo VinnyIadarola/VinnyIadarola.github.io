@@ -148,7 +148,10 @@ body {
     margin-top: 15px;
     margin-left: auto;
     text-align: right; 
-    font-family: 'Times New Roman', Times, serif;
+    /* font-family: 'Times New Roman', Times, serif;
+     */
+    font-family: "Atkinson Hyperlegible", sans-serif;
+
 }
 
 
