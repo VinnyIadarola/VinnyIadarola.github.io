@@ -1,259 +1,269 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My Cat</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="Styles/shared.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;600&family=IBM+Plex+Sans:wght@400;600&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;600&family=IBM+Plex+Sans:wght@400;600&display=swap">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Cat</title>
 
+    <!-- Favicon -->
+    <link rel="icon" href="Images/logo.png">
 
-    <!-- iphone stuff -->
-    <meta name="theme-color" content="#320000">
+    <!-- Styles (shared first so page CSS can override) -->
+    <link rel="stylesheet" href="Styles/shared.css">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;600&family=IBM+Plex+Sans:wght@400;600&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- iOS / PWA -->
+    <meta name="theme-color" content="#310000">
+    <meta name="apple-mobile-web-app-title" content="My Cat">
+    <link rel="apple-touch-icon" href="Images/logo.png">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <style>
-    /**********************************************************************
-    ******                        Global Styles                     ******
-    **********************************************************************/
-    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    :root {
-      --pagePad: 16px;        /* body padding on left/right + used in JS calc */
-      --availH: 100dvh;       /* set by JS to (vh - navbar - padding*2) */
-      --contentH: auto;       /* set by JS to (availH - headerH) */
-    }
+    <style>
+      /**********************************************************************
+      ******                        Global Styles                     ******
+      **********************************************************************/
+      * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  overflow: hidden; /* prevent page scroll */
-    }
+      :root {
+        --pagePad: 16px;        /* body padding on left/right + used in JS calc */
+        --availH: 100dvh;       /* set by JS to (vh - navbar - padding*2) */
+        --contentH: auto;       /* set by JS to (availH - headerH) */
+      }
 
-    body {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        background-color: #2a2a2a;
+      html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* prevent page scroll */
+      }
+
+      body {
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+          background-color: #2a2a2a;
+          display: flex;
+          justify-content: center;
+          align-items: flex-start;
+          min-height: 100vh;
+          padding: 20px;
+          padding-top: 80px; /* navbar space */
+      }
+
+      /**********************************************************************
+      ******                 Cat Container Structure                  ******
+      **********************************************************************/
+      .cat-container {
+        --containerRadius: 20px;
+          max-width: 1200px;
+          width: 100%;
+          height: calc(100vh - 120px); /* fit viewport (navbar + header margin subtracted) */
+          display: flex;
+          flex-direction: column;
+          overflow: hidden; /* make sure internals fit inside */
+      }
+
+      .cat-header {
+        position: relative;
+        padding: 6px 0 8px 16px; /* tighter header */
+        margin: 0;               /* remove extra space */
+        margin-bottom: 10px;
+      }
+      .cat-header::before {
+        content: '';
+        position: absolute;
+        left: 1px;
+        top: 14px;
+        bottom: 8px;
+        width: 6px; /* slimmer bar */
+        background: #310000;
+        border-radius: 3px;
+      }
+      .cat-header h1 {
+        color: rgb(214,214,214);
+        /* smaller + responsive */
+        font-size: clamp(1.6rem, 4vw, 5rem);
+        font-weight: 700;
+        line-height: 1.1;
+        margin-bottom: 2px;
+      
+      }
+      .cat-header p {
+        color: rgb(214,214,214);
+        font-size: clamp(0.9rem, 2.4vw, 1.2rem);
+        font-weight: 300;
+        margin-left: 5px;
+      }
+
+      .cat-content {
+        display: grid;
+        grid-template-columns: minmax(320px, 1fr) 1fr;
+        grid-auto-rows: 1fr;
+        background: transparent;
+        border-radius: var(--containerRadius);
+        gap: 0;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        align-items: stretch;
+        height: var(--contentH); /* lock to available height under header */
+        min-height: 380px;       /* safety floor for very short viewports */
+        overflow: hidden;        /* keep internals clipped, still no page scroll */
+      }
+
+      /**********************************************************************
+      ******                        Photo Section                      ******
+      **********************************************************************/
+      .photo-section {
+        position: relative;
+        background: transparent;
         display: flex;
         justify-content: center;
-        align-items: flex-start;
-        min-height: 100vh;
-        padding: 20px;
-        padding-top: 80px; /* navbar space */
-    }
+        align-items: stretch;
+        overflow: hidden; /* contain the bouncing element within this section */
+        border-radius: var(--containerRadius) 0 0 var(--containerRadius);
+      }
 
-    /**********************************************************************
-    ******                 Cat Container Structure                  ******
-    **********************************************************************/
-    .cat-container {
-      --containerRadius: 20px;
-        max-width: 1200px;
+      .photo-stage {
+        position: relative;
         width: 100%;
-        height: calc(100vh - 120px); /* fit viewport (navbar + header margin subtracted) */
+        height: 100%;
+      }
+
+      #outer-border {
+        position: absolute;
+        width: 300px;
+        height: 400px;
+        will-change: transform, width, height;
+        transform: translate(0px, 0px);
+        background: linear-gradient(-135deg, #1c0101, #3d0000);
+        border: 8px solid transparent;
+        border-image: linear-gradient(-135deg, #1c0101, #3d0000) 1;
+        border-radius: var(--containerRadius) 0 0 var(--containerRadius);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .hero-photo {
+        width: calc(100% - 34px);
+        height: calc(100% - 34px);
+        position: relative;
+        border: 17px solid #100021;
+        background: #100021;
+        border-radius: 15px;
+        overflow: hidden;
+      }
+      .photo-fit {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        #outer-border {
+          transform: translate(0px, 0px) !important;
+          position: static !important;
+        }
+        .photo-stage {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+
+      /**********************************************************************
+      ******                        Info Section                       ******
+      **********************************************************************/
+      .info-section {
+        background: linear-gradient(135deg, #1c0101, #3d0000);
+        color: rgb(214,214,214);
+        padding: clamp(20px, 4vw, 36px);
         display: flex;
         flex-direction: column;
-        overflow: hidden; /* make sure internals fit inside */
-    }
-
-    .cat-header {
-      position: relative;
-      padding: 6px 0 8px 16px; /* tighter header */
-      margin: 0;               /* remove extra space */
-      margin-bottom: 10px;
-    }
-    .cat-header::before {
-      content: '';
-      position: absolute;
-      left: 1px;
-      top: 14px;
-      bottom: 8px;
-      width: 6px; /* slimmer bar */
-      background: #310000;
-      border-radius: 3px;
-    }
-    .cat-header h1 {
-      color: rgb(214,214,214);
-      /* smaller + responsive */
-      font-size: clamp(1.6rem, 4vw, 5rem);
-      font-weight: 700;
-      line-height: 1.1;
-      margin-bottom: 2px;
-    
-    }
-    .cat-header p {
-      color: rgb(214,214,214);
-      font-size: clamp(0.9rem, 2.4vw, 1.2rem);
-      font-weight: 300;
-      margin-left: 5px;
-    }
-
-    .cat-content {
-      display: grid;
-      grid-template-columns: minmax(320px, 1fr) 1fr;
-      grid-auto-rows: 1fr;
-      background: transparent;
-      border-radius: var(--containerRadius);
-      gap: 0;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-      align-items: stretch;
-      height: var(--contentH); /* lock to available height under header */
-      min-height: 380px;       /* safety floor for very short viewports */
-      overflow: hidden;        /* keep internals clipped, still no page scroll */
-    }
-
-    /**********************************************************************
-    ******                        Photo Section                      ******
-    **********************************************************************/
-    .photo-section {
-      position: relative;
-      background: transparent;
-      display: flex;
-      justify-content: center;
-      align-items: stretch;
-      overflow: hidden; /* contain the bouncing element within this section */
-      border-radius: var(--containerRadius) 0 0 var(--containerRadius);
-    }
-
-    .photo-stage {
-      position: relative;
-      width: 100%;
-      height: 100%;
-    }
-
-    #outer-border {
-      position: absolute;
-      width: 300px;
-      height: 400px;
-      will-change: transform, width, height;
-      transform: translate(0px, 0px);
-      background: linear-gradient(-135deg, #1c0101, #3d0000);
-      border: 8px solid transparent;
-      border-image: linear-gradient(-135deg, #1c0101, #3d0000) 1;
-      border-radius: var(--containerRadius) 0 0 var(--containerRadius);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .hero-photo {
-      width: calc(100% - 34px);
-      height: calc(100% - 34px);
-      position: relative;
-      border: 17px solid #100021;
-      background: #100021;
-      border-radius: 15px;
-      overflow: hidden;
-    }
-    .photo-fit {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      #outer-border {
-        transform: translate(0px, 0px) !important;
-        position: static !important;
-      }
-      .photo-stage {
-        display: flex;
         justify-content: center;
+        align-self: stretch;
+        border-radius: 0 var(--containerRadius) var(--containerRadius) 0;
+        min-width: 0;
+      }
+      .info-section h2 {
+        font-size: clamp(1.4rem, 3.2vw, 2.2rem);
+        font-weight: 600;
+        margin-bottom: 16px;
+      }
+      .cat-details { margin-bottom: 16px; }
+      .detail-item {
+        display: flex;
         align-items: center;
+        margin-bottom: 12px;
+        font-size: clamp(1rem, 2.4vw, 1.1rem);
+        gap: 12px;
+        min-width: 0;
       }
-    }
-
-    /**********************************************************************
-    ******                        Info Section                       ******
-    **********************************************************************/
-    .info-section {
-      background: linear-gradient(135deg, #1c0101, #3d0000);
-      color: rgb(214,214,214);
-      padding: clamp(20px, 4vw, 36px);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-self: stretch;
-      border-radius: 0 var(--containerRadius) var(--containerRadius) 0;
-      min-width: 0;
-    }
-    .info-section h2 {
-      font-size: clamp(1.4rem, 3.2vw, 2.2rem);
-      font-weight: 600;
-      margin-bottom: 16px;
-    }
-    .cat-details { margin-bottom: 16px; }
-    .detail-item {
-      display: flex;
-      align-items: center;
-      margin-bottom: 12px;
-      font-size: clamp(1rem, 2.4vw, 1.1rem);
-      gap: 12px;
-      min-width: 0;
-    }
-    .detail-item i {
-      width: 28px;
-      font-size: 1.25rem;
-      color: #d6d6d6;
-      flex: 0 0 auto;
-    }
-    .detail-item span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-
-    .fun-facts {
-      background: rgba(255,255,255,0.08);
-      padding: 16px;
-      border-radius: 12px;
-      margin-top: 8px;
-    }
-    .fun-facts h3 {
-      font-size: clamp(1.05rem, 2.6vw, 1.25rem);
-      margin-bottom: 10px;
-      color: #d6d6d6;
-    }
-    .fact-list { list-style: none; }
-    .fact-list li {
-      padding: 6px 0 6px 24px;
-      position: relative;
-      font-size: clamp(0.95rem, 2.2vw, 1.05rem);
-    }
-    .fact-list li::before {
-      content: '🐾';
-      position: absolute;
-      left: 0;
-    }
-
-    /**********************************************************************
-    ******                      Responsive Design                    ******
-    **********************************************************************/
-    @media (max-width: 960px) {
-      #outer-border { width: 280px; height: 360px; }
-    }
-
-    @media (max-width: 768px) {
-      /* On phones, stack but keep the WHOLE thing within the fixed height.
-         Use two equal-height rows so it never exceeds the viewport. */
-      .cat-content {
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr; /* photo 50%, info 50% */
+      .detail-item i {
+        width: 28px;
+        font-size: 1.25rem;
+        color: #d6d6d6;
+        flex: 0 0 auto;
       }
-      .photo-section {
-        border-radius: var(--containerRadius) var(--containerRadius) 0 0;
-      }
-      .info-section {
-        border-radius: 0 0 var(--containerRadius) var(--containerRadius);
-      }
-      #outer-border { width: 260px; height: 330px; }
-    }
+      .detail-item span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
-    @media (max-width: 420px) {
-      .cat-header { padding-left: 10px; }
-      .cat-header::before { width: 5px; }
-      #outer-border { width: 240px; height: 300px; }
-    }
-  </style>
+      .fun-facts {
+        background: rgba(255,255,255,0.08);
+        padding: 16px;
+        border-radius: 12px;
+        margin-top: 8px;
+      }
+      .fun-facts h3 {
+        font-size: clamp(1.05rem, 2.6vw, 1.25rem);
+        margin-bottom: 10px;
+        color: #d6d6d6;
+      }
+      .fact-list { list-style: none; }
+      .fact-list li {
+        padding: 6px 0 6px 24px;
+        position: relative;
+        font-size: clamp(0.95rem, 2.2vw, 1.05rem);
+      }
+      .fact-list li::before {
+        content: '🐾';
+        position: absolute;
+        left: 0;
+      }
+
+      /**********************************************************************
+      ******                      Responsive Design                    ******
+      **********************************************************************/
+      @media (max-width: 960px) {
+        #outer-border { width: 280px; height: 360px; }
+      }
+
+      @media (max-width: 768px) {
+        /* On phones, stack but keep the WHOLE thing within the fixed height.
+          Use two equal-height rows so it never exceeds the viewport. */
+        .cat-content {
+          grid-template-columns: 1fr;
+          grid-template-rows: 1fr 1fr; /* photo 50%, info 50% */
+        }
+        .photo-section {
+          border-radius: var(--containerRadius) var(--containerRadius) 0 0;
+        }
+        .info-section {
+          border-radius: 0 0 var(--containerRadius) var(--containerRadius);
+        }
+        #outer-border { width: 260px; height: 330px; }
+      }
+
+      @media (max-width: 420px) {
+        .cat-header { padding-left: 10px; }
+        .cat-header::before { width: 5px; }
+        #outer-border { width: 240px; height: 300px; }
+      }
+    </style>
 </head>
 <body>
   <!-- Navbar Section -->
