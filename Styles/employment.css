@@ -405,7 +405,7 @@ body {
     }
     .job-meta-grid { grid-template-columns: 1fr; }
     .info-card { 
-        width: 90%; margin: 5% auto; 
+        width: 90%; 
     }
 
 
@@ -431,7 +431,9 @@ body {
     .title{
         font-size: 4rem;
     }
-
+    .info-card { 
+        width: 85%; 
+    }
     
     .controls {
         margin-left: 10px;
