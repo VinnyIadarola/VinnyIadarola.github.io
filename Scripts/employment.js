@@ -423,6 +423,8 @@ function toggleDropdown() {
 document.addEventListener('click', (event) => {
     const overlay = document.getElementById('infoCardOverlay');
     if (overlay?.classList.contains('active') && event.target === overlay) {
+        event.stopPropagation();
+        event.preventDefault();
         hideInfoCard();
     }
 });

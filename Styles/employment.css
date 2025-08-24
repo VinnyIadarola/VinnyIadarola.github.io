@@ -405,7 +405,7 @@ body {
     }
     .job-meta-grid { grid-template-columns: 1fr; }
     .info-card { 
-        width: 85%; margin: 5% auto; 
+        width: 90%; margin: 5% auto; 
     }
 
 
