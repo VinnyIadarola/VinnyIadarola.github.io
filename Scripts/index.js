@@ -1,11 +1,9 @@
   document.addEventListener('DOMContentLoaded', () => {
             // Typing Effect
             const texts = [
-                "computer engineer.",
-                "computer scientist.",
-                "mathematician.",
-                "teacher."
-
+                "A computer engineer.",
+                "A computer scientist.",
+                "A mathematician.",
             ];
 
             let textIndex = 0;

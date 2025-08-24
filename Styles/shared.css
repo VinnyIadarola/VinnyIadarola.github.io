@@ -96,7 +96,8 @@
     opacity: 0;
     transform: translateY(50px);
     transition: all 0.8s ease-out;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: "Atkinson Hyperlegible", sans-serif;
+
 }
 
 .end-title.animate {

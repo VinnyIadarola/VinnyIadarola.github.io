@@ -100,16 +100,11 @@ const projects = [
     },
     {
         id: 7,
-        name: "TBD_7",
-        icon: "<img src='Images/MeandDooman.jpg' alt='HTML Project'>",
-        tags: ["C", "MATLAB", "Java"],
+        name: "Cypher Setups",
+        icon: "<img src='Images/' alt='Cypher Setups'>",
+        tags: ["Java", "JavaFX"],
         description: `
-            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
-            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
-            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
-            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
-            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
-            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB
+            WIP A Java program for my friend Ethan so he can get better at Valorant.
         `,
         github: "#"
     },
@@ -117,7 +112,7 @@ const projects = [
         id: 8,
         name: "TBD_8",
         icon: "<img src='Images/MeandDooman.jpg' alt='JavaScript Project'>",
-        tags: ["Python"],
+        tags: ["Python", "C", "MATLAB"],
         description: `
             TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
             TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
