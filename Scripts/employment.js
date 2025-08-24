@@ -419,43 +419,13 @@ function toggleDropdown() {
     if (dropdown) dropdown.classList.toggle('show');
 }
 
-let touchStartY = 0;
-let touchStartTime = 0;
-
-function handleOverlayTouch(event) {
-    const overlay = document.getElementById('infoCardOverlay');
-    if (!overlay?.classList.contains('active')) return;
-    
-    if (event.type === 'touchstart') {
-        touchStartY = event.touches[0].clientY;
-        touchStartTime = Date.now();
-    } else if (event.type === 'touchend') {
-        const touchEndY = event.changedTouches[0].clientY;
-        const touchDuration = Date.now() - touchStartTime;
-        const touchDistance = Math.abs(touchEndY - touchStartY);
-        
-        // Only close if it's a tap (short duration, small distance) on the overlay
-        if (touchDuration < 300 && touchDistance < 10 && event.target === overlay) {
-            event.preventDefault();
-            hideInfoCard();
-        }
-    }
-}
-
-function handleOverlayClick(event) {
+// Simple overlay click handler like in projects.js
+document.addEventListener('click', (event) => {
     const overlay = document.getElementById('infoCardOverlay');
     if (overlay?.classList.contains('active') && event.target === overlay) {
         hideInfoCard();
     }
-}
-
-// Use touch events for mobile, click for desktop
-if ('ontouchstart' in window) {
-    window.addEventListener('touchstart', handleOverlayTouch, { passive: false });
-    window.addEventListener('touchend', handleOverlayTouch, { passive: false });
-} else {
-    window.addEventListener('click', handleOverlayClick);
-}
+});
 
 window.addEventListener('click', (event) => {
     // close sort dropdown on outside click
