@@ -419,19 +419,22 @@ function toggleDropdown() {
     if (dropdown) dropdown.classList.toggle('show');
 }
 
+function handleOverlayInteraction(event) {
+    const overlay = document.getElementById('infoCardOverlay');
+    if (overlay?.classList.contains('active') &&
+        event.target === overlay) {
+        hideInfoCard();
+    }
+}
+
+window.addEventListener('click', handleOverlayInteraction);
+window.addEventListener('touchend', handleOverlayInteraction);
+
 window.addEventListener('click', (event) => {
     // close sort dropdown on outside click
     if (!event.target.closest('.dropdown-container')) {
         const dropdown = document.getElementById('dropdownMenu');
         if (dropdown?.classList.contains('show')) dropdown.classList.remove('show');
-    }
-
-    // close info-card when clicking the overlay (anywhere outside the card)
-    const overlay = document.getElementById('infoCardOverlay');
-    if (overlay?.classList.contains('active') &&
-        overlay.contains(event.target) &&
-        !event.target.closest('.info-card')) {
-        hideInfoCard();
     }
 });
 
