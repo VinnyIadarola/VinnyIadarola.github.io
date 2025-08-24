@@ -230,7 +230,6 @@ const jobs = [
 
     
 ];
-
 /**********************************************************************
 ******                      UI State                             ******
 **********************************************************************/
@@ -251,6 +250,7 @@ function formatDate(dateString) {
     const options = { year: 'numeric', month: 'short' };
     return new Date(dateString).toLocaleDateString('en-US', options);
 }
+
 function calculateDuration(startDate, endDate) {
     const start = parseMaybeDate(startDate);
     const end = parseMaybeDate(endDate);
@@ -421,14 +421,18 @@ function toggleDropdown() {
 
 window.addEventListener('click', (event) => {
     // close sort dropdown on outside click
-    if (!event.target.matches('.dropdown-btn') && !event.target.matches('#selectedSort')) {
+    if (!event.target.closest('.dropdown-container')) {
         const dropdown = document.getElementById('dropdownMenu');
         if (dropdown?.classList.contains('show')) dropdown.classList.remove('show');
     }
 
-    // close info-card when clicking the overlay
+    // close info-card when clicking the overlay (anywhere outside the card)
     const overlay = document.getElementById('infoCardOverlay');
-    if (event.target === overlay) hideInfoCard();
+    if (overlay?.classList.contains('active') &&
+        overlay.contains(event.target) &&
+        !event.target.closest('.info-card')) {
+        hideInfoCard();
+    }
 });
 
 document.addEventListener('keydown', (event) => {
