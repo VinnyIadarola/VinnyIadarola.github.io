@@ -160,7 +160,7 @@ body {
     padding: 0;
     margin: 0;
 }
-
+/* 
 .degree-list-item {
     display: flex;
     justify-content: space-between;
@@ -170,9 +170,40 @@ body {
     line-height: 1.4;
 }
 
+
+
 .align-right {
     justify-content: flex-end;
+} */
+
+.degree-list-item{
+  display: grid;
+  grid-template-columns: 1fr auto;               /* left grows, right hugs content */
+  column-gap: clamp(0.5rem, 2vw, 1.25rem);       /* guaranteed breathing room */
+  align-items: baseline;
 }
+
+/* First <span> = degree name/title */
+.degree-list-item > span:first-child{
+  min-width: 0;          /* allows shrinking without overflow */
+  text-align: left;      /* override parent .degrees { text-align:right } */
+}
+
+/* Right <span> = school + date */
+.degree-list-item .align-right{
+  white-space: nowrap;   /* keep school+date together on one line */
+  text-align: right;
+}
+
+
+@media (max-width: 420px){
+  .degree-list-item > span:first-child{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
 
 .hero-paragraph {
     font-size: clamp(1.2rem, 3vw, 1.6rem);
@@ -626,7 +657,7 @@ body {
     }
     
     .degrees {
-        margin-top: -30px;
+        margin-top: -25px;
         margin-bottom: -12rem;    
         margin-left: 0;
         text-align: center;
@@ -798,6 +829,10 @@ body {
     .degree-list-item {
         font-size: clamp(0.7rem, 4vw, 0.9rem);
     }
+
+    .hopkins {
+        font-size: clamp(0.7rem, 3vw, 0.9rem);
+    }
     
     .project-left, .employment-right, .education-left {
         padding: 1.5rem 1rem;
@@ -848,13 +883,6 @@ body {
 @media (max-width: 540px) {
     .hero-paragraph {
         font-size: clamp(1.2rem, 5vw, 1.1rem);
-        margin-top: 4rem;
-    }
-}
-
-
-@media (max-width: 540px) {
-    .hero-paragraph {
         margin-top: 3rem;
     }
 }
@@ -863,7 +891,6 @@ body {
 
 /* Extra small phones */
 @media (max-width: 360px) {
-
     .hero-section {
         padding: 1rem 0.25rem;
     }
@@ -889,7 +916,12 @@ body {
         font-size: clamp(0.6rem, 5vw, 0.8rem);
     }
 
-        .education-right img {
+    
+    .hopkins {
+        font-size: clamp(0.5rem, 3vw, 0.9rem);
+    }
+
+    .education-right img {
         width: min(80vh, 250px);
     }
 }
