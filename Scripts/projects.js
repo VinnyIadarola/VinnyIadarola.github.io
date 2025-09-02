@@ -27,13 +27,13 @@ const projects = [
         icon: "<img src='Images/Projects/CypherSetups.jpg' alt='Cypher Setups'>",
         tags: ["Java", "JavaFX", "JAR", "EXE", "MSI", "UI", "Installer", "jpackage", "WiX Toolset", "Makefile"],
         description: `
-            A Java project created for my friend Ethan to help him improve at Valorant. The 
+            A Java project created for my friend Ethan so he can improve at Valorant. The 
             Cypher Setups application uses JavaFX for the frontend and pure Java for the backend. 
             Users can install the program through a packaged installer built with jpackage 
             and the WiX Toolset. Developers who want to modify the project can easily recompile
             the code using the provided Makefile. This project utilizes dynamic storage and
             maintaining default backup files in its bundled resources allowing users to expand the
-            tool with a dedicated AppData folder. It has its own responsivity functionsa and
+            tool with a dedicated AppData folder. It has its own responsivity functions and
             image handling  to ensure previews and galleries scale with window resizing and
             remain the same across scenes using a state maniger. These elements make the tool 
             both user-friendly and extensible, providing Valorant players with an

@@ -52,7 +52,7 @@ const jobs = [
     {
         title: "Physical Training Instructor and Fire Team Leader",
         company: "Marine Corps Madison Platoon",
-        department: "Military Training",
+        department: "OCS Military Prep",
         location: "Madison, WI",
         positionType: "Part-time Position",
         startDate: "2024-09-01",
@@ -72,11 +72,11 @@ const jobs = [
         tags: ["military","training","fitness","leadership","records management","recruit preparation"]
     },
     {
-        title: "Kappa Eta Kappa Academic Chair",
-        company: "Youth Wrestling Club",
-        department: "Sports & Recreation",
-        location: "El Paso, TX",
-        positionType: "Elected Club",
+        title: "Fraternity Academic Chair",
+        company: "Kappa Eta Kappa",
+        department: "Professional Fraternity",
+        location: "Madison, WI",
+        positionType: "Elected Fraternity",
         startDate: "2024-07-01",
         endDate: "2024-12-31",
         status: "completed",
@@ -94,11 +94,11 @@ const jobs = [
         tags: ["sports","youth","coaching","team leadership","athletics","wrestling","training","volunteer"]
     },
     {
-        title: "Kappa Eta Kappa Parlimentarian",
-        company: "Youth Wrestling Club",
-        department: "Sports & Recreation",
-        location: "El Paso, TX",
-        positionType: "Elected Club",
+        title: "Fraternity Parlimentarian",
+        company: "Kappa Eta Kappa",
+        department: "Professional Fraternity",
+        location: "Madison, WI",
+        positionType: "Elected Fraternity",
         startDate: "2024-07-01",
         endDate: "2024-12-31",
         status: "completed",
@@ -115,10 +115,11 @@ const jobs = [
         ],
         tags: ["sports","youth","coaching","team leadership","athletics","wrestling","training","volunteer"]
     },
+
     {
-        title: "Dining Hall Team Member",
-        company: "University of Wisconsin-Madison",
-        department: "Dining",
+        title: "Engineering Expo Lead",
+        company: "Kappa Eta Kappa Engineering Fraternity",
+        department: "STEM Outreach",
         location: "Madison, WI",
         positionType: "Part-time Position",
         startDate: "2023-09-01",
@@ -137,10 +138,10 @@ const jobs = [
         ],
         tags: ["engineering","leadership","project management","team coordination","process improvement","cost reduction"]
     },
-    {
-        title: "Engineering Expo Lead",
-        company: "Kappa Eta Kappa Engineering Fraternity",
-        department: "STEM Outreach",
+            {
+        title: "Dining Hall Team Member",
+        company: "University of Wisconsin-Madison",
+        department: "Dining",
         location: "Madison, WI",
         positionType: "Part-time Position",
         startDate: "2023-09-01",
@@ -181,6 +182,7 @@ const jobs = [
         ],
         tags: ["education","Chinese language","history","calligraphy","tutoring","culture","volunteer"]
     },
+
     {
         title: "Math Tutor",
         company: "Cielo Vista Elementary School",
