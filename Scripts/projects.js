@@ -25,7 +25,7 @@ const projects = [
         id: 2,
         name: "Cypher Setups",
         icon: "<img src='Images/Projects/CypherSetups.jpg' alt='Cypher Setups'>",
-        tags: ["Java", "JavaFX", "JAR", "EXE", "MSI", "UI", "Installer", "jpackage", "WiX Toolset", "Windows", "Makefile"],
+        tags: ["Java", "JavaFX", "JAR", "EXE", "MSI", "UI", "Installer", "jpackage", "WiX Toolset", "Makefile"],
         description: `
             A Java project created for my friend Ethan to help him improve at Valorant. The 
             Cypher Setups application uses JavaFX for the frontend and pure Java for the backend. 
