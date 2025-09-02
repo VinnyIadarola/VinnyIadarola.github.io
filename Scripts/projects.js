@@ -23,6 +23,42 @@ const projects = [
     },
     {
         id: 2,
+        name: "Cypher Setups",
+        icon: "<img src='Images/Projects/CypherSetups.jpg' alt='Cypher Setups'>",
+        tags: ["Java", "JavaFX", "JAR", "EXE", "MSI", "UI", "Installer", "jpackage", "WiX Toolset", "Windows", "Makefile"],
+        description: `
+            A Java project created for my friend Ethan to help him improve at Valorant. The 
+            Cypher Setups application uses JavaFX for the frontend and pure Java for the backend. 
+            Users can install the program through a packaged installer built with jpackage 
+            and the WiX Toolset. Developers who want to modify the project can easily recompile
+            the code using the provided Makefile. This project utilizes dynamic storage and
+            maintaining default backup files in its bundled resources allowing users to expand the
+            tool with a dedicated AppData folder. It has its own responsivity functionsa and
+            image handling  to ensure previews and galleries scale with window resizing and
+            remain the same across scenes using a state maniger. These elements make the tool 
+            both user-friendly and extensible, providing Valorant players with an
+            organized platform for their Cypher strategies. 
+            `,
+        github: "https://github.com/VinnyIadarola/Cypher-Setup"
+    },
+    {
+        id: 3,
+        name: "FIFO and LIFO",
+        icon: "<img src='Images/Projects/FIFOandLIFO.jpg' alt='FIFO and LIFO'>",
+        tags: ["System Verilog", "Digital Logic", "Synthesizable", "Data Structures", "Testbench"],
+        description: `
+            A synthesizable SystemVerilog implementation of a rotary queue and a stack, 
+            each built with clean, parameterizable RTL (data width/depth) and paired 
+            with dedicated testbenches. The verification includes multiple test suites 
+            covering varied data sizes and entry counts, edge-case scenarios (empty/full, 
+            simultaneous operations), and timing checks to ensure functional correctness 
+            and synthesis compatibility. Ready for FPGA/ASIC flows and easy integration 
+            into larger designs.
+        `,
+        github: "https://github.com/VinnyIadarola/FIFO-and-LIFO"
+    },
+    {
+        id: 4,
         name: "Past The Trench",
         icon: "<img src='Images/Projects/PastTheTrench.png' alt='Past The Trench'>",
         tags: ["C++", "SDL3", "UI"],
@@ -38,25 +74,9 @@ const projects = [
         github: "https://github.com/VinnyIadarola/PastTheTrench"
     },
     {
-        id: 3,
-        name: "FIFO and LIFO",
-        icon: "<img src='Images/' alt='FIFO and LIFO'>",
-        tags: ["System Verilog", "Digital Logic", "Synthesizable", "Data Structures", "Testbench"],
-        description: `
-            A synthesizable SystemVerilog implementation of a rotary queue and a stack, 
-            each built with clean, parameterizable RTL (data width/depth) and paired 
-            with dedicated testbenches. The verification includes multiple test suites 
-            covering varied data sizes and entry counts, edge-case scenarios (empty/full, 
-            simultaneous operations), and timing checks to ensure functional correctness 
-            and synthesis compatibility. Ready for FPGA/ASIC flows and easy integration 
-            into larger designs.
-        `,
-        github: "https://github.com/VinnyIadarola/FIFO-and-LIFO"
-    },
-    {
-        id: 4,
+        id: 5,
         name: "Simple Matrix Multiplier",
-        icon: "<img src='Images/' alt='Matrix Multiplier Project'>",
+        icon: "<img src='Images/Projects/MatrixMultiplier.png' alt='Matrix Multiplier Project'>",
         tags: ["System Verilog", "Digital Logic", "Synthesizable", "Testbench"],
         description: `
             TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
@@ -69,7 +89,7 @@ const projects = [
         github: "#"
     },
     {
-        id: 5,
+        id: 6,
         name: "WISC Processor",
         icon: "<img src='Images/' alt='WISC Processor'>",
         tags: [],
@@ -84,7 +104,7 @@ const projects = [
         github: "#"
     },
     {
-        id: 6,
+        id: 7,
         name: "Logic Analyzer",
         icon: "<img src='Images/' alt='Logic Analyzer'>",
         tags: [],
@@ -95,16 +115,6 @@ const projects = [
             TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
             TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
             TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB
-        `,
-        github: "#"
-    },
-    {
-        id: 7,
-        name: "Cypher Setups",
-        icon: "<img src='Images/' alt='Cypher Setups'>",
-        tags: ["Java", "JavaFX"],
-        description: `
-            WIP A Java program for my friend Ethan so he can get better at Valorant.
         `,
         github: "#"
     },
