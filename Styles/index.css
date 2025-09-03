@@ -882,10 +882,20 @@ body {
 
 @media (max-width: 540px) {
     .hero-paragraph {
-        font-size: clamp(1.2rem, 5vw, 1.1rem);
+        font-size: clamp(1rem, 4.5vw, 1.2rem);
         margin-top: 3rem;
     }
 }
+
+
+@media (max-width: 462px) {
+    .hero-paragraph {
+        font-size: clamp(1rem, 4.2vw, 1.2rem);
+        margin-top: 2.5rem;
+    }
+}
+
+
 
 
 
