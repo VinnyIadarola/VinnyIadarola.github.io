@@ -59,22 +59,6 @@ const projects = [
     },
     {
         id: 4,
-        name: "Past The Trench",
-        icon: "<img src='Images/Projects/PastTheTrench.png' alt='Past The Trench'>",
-        tags: ["C++", "SDL3", "UI"],
-        description: `
-            A WWII-themed 2D rogue-like, turn-based tactics game inspired by XCOM, 
-            built in C++ with SDL3. Command a small squad through procedurally 
-            generated missions featuring line-of-sight, cover, suppression, overwatch, 
-            morale, and limited resources, where every shot and every casualty matter. 
-            The goal is a tight, replayable loop where the user faces fog-of-war, 
-            destructible obstacles, and outmaneuvers through varied environments. 
-            Development is currently PAUSED while I learn more SDL3.
-        `,
-        github: "https://github.com/VinnyIadarola/PastTheTrench"
-    },
-    {
-        id: 5,
         name: "Simple Matrix Multiplier",
         icon: "<img src='Images/Projects/MatrixMultiplier.png' alt='Matrix Multiplier Project'>",
         tags: ["System Verilog", "Digital Logic", "Synthesizable", "Testbench"],
@@ -89,10 +73,25 @@ const projects = [
         github: "#"
     },
     {
+        id: 5,
+        name: "Logic Analyzer",
+        icon: "<img src='Images/Projects/LogicAnalyzer.png' alt='Logic Analyzer'>",
+        tags: ["SystemVerilog", "Verilog", "Synthesizable", "Testbench", "Synopsys", "SAED32", "SPI", "I2C", "UART", "School Project"],
+        description: `
+            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
+            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
+            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
+            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
+            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
+            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB
+        `,
+        github: "https://github.com/VinnyIadarola/Logic-Analyzer"
+    },
+    {
         id: 6,
         name: "WISC Processor",
-        icon: "<img src='Images/' alt='WISC Processor'>",
-        tags: [],
+        icon: "<img src='Images/Projects/WISCProcessor.png' alt='WISC Processor'>",
+        tags: ["Verilog", "Pipelined Processor", "Computer Architecture", "CPU", "ALU", "Hazard Detection", "Cache System", "Testbench", "School Project"],
         description: `
             TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
             TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
@@ -105,94 +104,95 @@ const projects = [
     },
     {
         id: 7,
-        name: "Logic Analyzer",
-        icon: "<img src='Images/' alt='Logic Analyzer'>",
-        tags: [],
+        name: "Past The Trench",
+        icon: "<img src='Images/Projects/PastTheTrench.png' alt='Past The Trench'>",
+        tags: ["C++", "SDL3", "UI"],
         description: `
-            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
-            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
-            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
-            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
-            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
-            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB
+            A WWII-themed 2D rogue-like, turn-based tactics game inspired by XCOM, 
+            built in C++ with SDL3. Command a small squad through procedurally 
+            generated missions featuring line-of-sight, cover, suppression, overwatch, 
+            morale, and limited resources, where every shot and every casualty matter. 
+            The goal is a tight, replayable loop where the user faces fog-of-war, 
+            destructible obstacles, and outmaneuvers through varied environments. 
+            Development is currently PAUSED while I learn more SDL3.
         `,
-        github: "#"
+        github: "https://github.com/VinnyIadarola/PastTheTrench"
     },
-    {
-        id: 8,
-        name: "TBD_8",
-        icon: "<img src='Images/MeandDooman.jpg' alt='JavaScript Project'>",
-        tags: ["Python", "C", "MATLAB"],
-        description: `
-            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
-            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
-            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
-            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
-            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
-            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB
-        `,
-        github: "#"
-    },
-    {
-        id: 9,
-        name: "TBD_9",
-        icon: "<img src='Images/MeandDooman.jpg' alt='Rust Project'>",
-        tags: ["Rust"],
-        description: `
-            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
-            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
-            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
-            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
-            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
-            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB
-        `,
-        github: "#"
-    },
-    {
-        id: 10,
-        name: "TBD_10",
-        icon: "<img src='Images/MeandDooman.jpg' alt='CUDA Project'>",
-        tags: ["CUDA"],
-        description: `
-            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
-            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
-            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
-            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
-            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
-            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB
-        `,
-        github: "#"
-    },
-    {
-        id: 11,
-        name: "TBD_11",
-        icon: "<img src='Images/MeandDooman.jpg' alt='Verilog Project'>",
-        tags: ["Verilog"],
-        description: `
-            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
-            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
-            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
-            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
-            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
-            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB
-        `,
-        github: "#"
-    },
-    {
-        id: 12,
-        name: "TBD_12",
-        icon: "<img src='Images/MeandDooman.jpg' alt='VHDL Project'>",
-        tags: ["VHDL"],
-        description: `
-            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
-            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
-            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
-            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
-            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
-            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB
-        `,
-        github: "#"
-    }
+    // {
+    //     id: 8,
+    //     name: "TBD_8",
+    //     icon: "<img src='Images/MeandDooman.jpg' alt='JavaScript Project'>",
+    //     tags: ["Python", "C", "MATLAB"],
+    //     description: `
+    //         TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
+    //         TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
+    //         TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
+    //         TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
+    //         TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
+    //         TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB
+    //     `,
+    //     github: "#"
+    // },
+    // {
+    //     id: 9,
+    //     name: "TBD_9",
+    //     icon: "<img src='Images/MeandDooman.jpg' alt='Rust Project'>",
+    //     tags: ["Rust"],
+    //     description: `
+    //         TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
+    //         TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
+    //         TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
+    //         TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
+    //         TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
+    //         TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB
+    //     `,
+    //     github: "#"
+    // },
+    // {
+    //     id: 10,
+    //     name: "TBD_10",
+    //     icon: "<img src='Images/MeandDooman.jpg' alt='CUDA Project'>",
+    //     tags: ["CUDA"],
+    //     description: `
+    //         TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
+    //         TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
+    //         TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
+    //         TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
+    //         TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
+    //         TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB
+    //     `,
+    //     github: "#"
+    // },
+    // {
+    //     id: 11,
+    //     name: "TBD_11",
+    //     icon: "<img src='Images/MeandDooman.jpg' alt='Verilog Project'>",
+    //     tags: ["Verilog"],
+    //     description: `
+    //         TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
+    //         TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
+    //         TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
+    //         TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
+    //         TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
+    //         TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB
+    //     `,
+    //     github: "#"
+    // },
+    // {
+    //     id: 12,
+    //     name: "TBD_12",
+    //     icon: "<img src='Images/MeandDooman.jpg' alt='VHDL Project'>",
+    //     tags: ["VHDL"],
+    //     description: `
+    //         TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
+    //         TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
+    //         TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
+    //         TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
+    //         TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
+    //         TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB
+    //     `,
+    //     github: "#"
+    // }
 ];
 
 /**********************************************************************
