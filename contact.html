@@ -50,6 +50,8 @@
         <div class="contact-content">
             <div class="form-section">
                 <form id="form">
+                    <input id="bot-trap" type="text" name="company_website" autocomplete="off" tabindex="-1" style="position:absolute;left:-5000px" aria-hidden="true">
+
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" id="name" name="name" placeholder="Enter your name" required>
@@ -120,9 +122,11 @@
     <script type="text/javascript">
         emailjs.init('KdoyFAWzmFigcdvAw');
 
+        const botTrap = document.getElementById("bot-trap");
         const btn = document.getElementById('button');
         const form = document.getElementById('form');
         const successMessage = document.getElementById('success-message');
+
 
         form.addEventListener('submit', function(event) {
             event.preventDefault();
@@ -132,6 +136,21 @@
             const serviceID = 'service_4tkh1fd';
             const templateID = 'contact-me';
 
+            if (botTrap && botTrap.value.trim() !== "") {
+                btn.value = 'Send Email';
+                btn.disabled = false;
+
+                successMessage.style.display = 'block';
+                    
+                    form.reset();
+                    
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 5000);
+
+                return; 
+            }
+            
             emailjs.sendForm(serviceID, templateID, this)
                 .then(() => {
                     btn.value = 'Send Email';
