@@ -40,15 +40,6 @@ const courseDetails = {
         summary:
             'Theory and applications of artificial neural networks: multi-layer perceptron, self-organization map, deep neural network, convolutional neural network, recurrent network, support vector machines, genetic algorithms, and evolutionary computing. Applications to control, pattern recognition, prediction, and object detection and tracking.',
     },
-    compsci544: {
-        title: 'Intro Big Data Systems',
-        code: 'COMP SCI 544',
-        credits: 3,
-        grade: '',
-        majors: ['computer-science'],
-        summary:
-            'Deploy and use distributed systems to store and analyze large data sets. Covers both unstructured and structured storage approaches. Analysis includes new query languages, streaming data, and machine-learning pipelines (primarily in Python).',
-    },
     compsci564: {
         title: 'Database Management Systems',
         code: 'COMP SCI 564',
@@ -74,15 +65,6 @@ const courseDetails = {
         majors: ['computer-engineering'],
         summary:
             'Analysis, design, and application of modern analog circuits built with bipolar and field-effect technologies; emphasis on the basic building blocks used in today\'s mixed-signal ICs.',
-    },
-    psych202: {
-        title: 'Introduction to Psychology',
-        code: 'PSYCH 202',
-        credits: 3,
-        grade: '',
-        majors: ['biology'],
-        summary:
-            'Survey of behavior and its development: motivation, emotion, learning, memory, personality, intelligence, language, thinking, and social behavior.',
     },
 
     // Spring 2024-2025
