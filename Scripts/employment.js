@@ -3,7 +3,7 @@
 **********************************************************************/
 const jobs = [
     {
-        title: "ECE In-Class Peer Mentor",
+        title: "Engineering In-Class Peer Mentor (Undergraduate TA)",
         company: "UW-Madison Engineering Department",
         department: "Education",
         location: "Madison, WI",
@@ -12,17 +12,22 @@ const jobs = [
         endDate: "",
         status: "current",
         bulletPoints: [
-            "Guided students through computer lab assignments",
-            "Maintained accurate attendance and progress records",
+            "Guided students through in-class matlab assignments",
+            "Led discussions on circuit analysis.",
             "Hosted make-up exams and organized study groups"
         ],
-        summary: "I took on this role Supported engineering students in lab environments, tracking progress and facilitating additional learning opportunities.",
+        summary: `
+            This role served as a further continuation of my teaching and leading
+            experiences. Maintained accurate attendance and progress records. Worked
+            with Dr. Steven Fredette, Someone someone, someone someone, and someone
+            someon
+        `,
         achievements: [
             "Received recognition from faculty for mentoring excellence",
-            "Increased student lab completion rates through targeted support",
+            "Increased students averaged grades compared to other sections",
             "Successfully hosted multiple study sessions with high attendance"
         ],
-        tags: ["education","engineering","peer mentor","student support","record keeping","labs"]
+        tags: ["leadership", "education","engineering","peer mentor","student support","record keeping","labs"]
     },
     {
         title: "Inpatient Unit Assistant",
@@ -41,13 +46,41 @@ const jobs = [
             "Cleaned and sanitized medical equipment and toys in dedicated facilities",
             "On-call every Saturday to teach algebra through calculus to patients when needed"
         ],
-        summary: "Provided compassionate, family-centered support on a pediatric inpatient unit; collaborated with nurses to prepare rooms for specific precautions; maintained patient comfort through timely resources; taught mathematics to patients when possible; and documented behaviors to support care plans.",
+        summary: `
+            Provided compassionate, family-centered support on a pediatric inpatient
+            unit; collaborated with nurses to prepare rooms for specific precautions;
+            maintained patient comfort through timely resources; taught mathematics to
+            patients when possible; and documented behaviors to support care plans.
+        `,
         achievements: [
             "Recognized by staff for exceptional family engagement and patient care",
             "Contributed to improved patient morale through personalized interactions",
             "Maintained perfect on-call attendance for Saturday math tutoring"
         ],
         tags: ["healthcare","patient care","nursing","medical","hospital","pediatric","children","family support","comfort care","behavioral assessment","tutoring","math"]
+    },
+    {
+        title: "Private Mathematics Tutor",
+        company: "Self-Employed",
+        department: "Education",
+        location: "Rancho Santa Margarita, CA",
+        positionType: "Volunteer",
+        startDate: "2025-05-01",
+        endDate: "2022-02-01",
+        status: "completed",
+        bulletPoints: [
+            "Taught basic mathematics to children in both Spanish and English",
+            "Assisted students with English homework assignments",
+            "Encouraged academic confidence through patient, individualized instruction"
+        ],
+        summary: `
+            I was one of 15 students selected to provide bilingual tutoring 
+            in Math and English to first and second-grade students. I 
+            employed several strategies to facilitate learning through 
+            various objects, activities, and games. I accumulated 50 volunteer 
+            hours teaching students in the after-school program.
+        `,
+        tags: ["education","math","tutoring","bilingual","Spanish","English","youth","elementary school","volunteer"]
     },
     {
         title: "Physical Training Instructor and Fire Team Leader",
@@ -63,7 +96,10 @@ const jobs = [
             "Developed personalized fitness improvement plans",
             "Maintained attendance and performance records for the Platoon Commander"
         ],
-        summary: "Organizes and leads physical training for Marine Corps recruits, tracking attendance and progress while developing individualized improvement plans.",
+        summary: `
+            Organizes and leads physical training for Marine Corps recruits, tracking
+            attendance and progress while developing individualized improvement plans.
+        `,
         achievements: [
             "Improved average platoon fitness scores by 15%",
             "Successfully prepared multiple candidates for Marine Corps selection",
@@ -85,7 +121,10 @@ const jobs = [
             "Prepared the team for tournaments and competitive matches",
             "Ensured safety and maintained discipline during training and events"
         ],
-        summary: "Directed and instructed youth wrestlers, overseeing training sessions, safety protocols, and tournament preparation for over 150 volunteer hours.",
+        summary: `
+            Directed and instructed youth wrestlers, overseeing training sessions,
+            safety protocols, and tournament preparation for over 150 volunteer hours.
+        `,
         achievements: [
             "Trained multiple wrestlers who advanced to regional competitions",
             "Improved team performance metrics over two seasons",
@@ -107,7 +146,10 @@ const jobs = [
             "Prepared the team for tournaments and competitive matches",
             "Ensured safety and maintained discipline during training and events"
         ],
-        summary: "Directed and instructed youth wrestlers, overseeing training sessions, safety protocols, and tournament preparation for over 150 volunteer hours.",
+        summary: `
+            Directed and instructed youth wrestlers, overseeing training sessions,
+            safety protocols, and tournament preparation for over 150 volunteer hours.
+        `,
         achievements: [
             "Trained multiple wrestlers who advanced to regional competitions",
             "Improved team performance metrics over two seasons",
@@ -130,7 +172,10 @@ const jobs = [
             "Improved processes and reduced costs through recommendations",
             "Gathered and organized resources for project success"
         ],
-        summary: "Directed a large-scale engineering project from concept to presentation, leading a team to process improvements and cost reductions.",
+        summary: `
+            Directed a large-scale engineering project from concept to presentation,
+            leading a team to process improvements and cost reductions.
+        `,
         achievements: [
             "Won election to lead engineering expo project",
             "Achieved cost reduction goals while maintaining quality",
@@ -138,7 +183,7 @@ const jobs = [
         ],
         tags: ["engineering","leadership","project management","team coordination","process improvement","cost reduction"]
     },
-            {
+    {
         title: "Dining Hall Team Member",
         company: "University of Wisconsin-Madison",
         department: "Dining",
@@ -152,7 +197,10 @@ const jobs = [
             "Improved processes and reduced costs through recommendations",
             "Gathered and organized resources for project success"
         ],
-        summary: "Directed a large-scale engineering project from concept to presentation, leading a team to process improvements and cost reductions.",
+        summary: `
+            Directed a large-scale engineering project from concept to presentation,
+            leading a team to process improvements and cost reductions.
+        `,
         achievements: [
             "Won election to lead engineering expo project",
             "Achieved cost reduction goals while maintaining quality",
@@ -165,7 +213,7 @@ const jobs = [
         company: "Chinese Honors Association",
         department: "Education",
         location: "Santa Ana, CA",
-        positionType: "Volunteer",
+        positionType: "Nominated",
         startDate: "2019-01-01",
         endDate: "2020-12-31",
         status: "completed",
@@ -174,63 +222,68 @@ const jobs = [
             "Taught traditional art forms such as calligraphy",
             "Supported students in preparing for academic competitions"
         ],
-        summary: "Provided tutoring in Chinese language, history, and calligraphy, helping underclassmen improve academic performance and cultural understanding.",
-        achievements: [
-            "Helped students achieve top scores in Chinese language competitions",
-            "Introduced new calligraphy techniques to the curriculum",
-            "Expanded cultural learning opportunities for members"
-        ],
+        summary: `
+            Provided tutoring in Chinese language, history, and calligraphy, helping
+            underclassmen improve academic performance and cultural understanding.
+        `,
+        achievements: [],
         tags: ["education","Chinese language","history","calligraphy","tutoring","culture","volunteer"]
     },
-
     {
-        title: "Math Tutor",
-        company: "Cielo Vista Elementary School",
-        department: "Education",
-        location: "Rancho Santa Margarita, CA",
-        positionType: "Volunteer",
-        startDate: "2017-01-01",
-        endDate: "2019-12-31",
-        status: "completed",
-        bulletPoints: [
-            "Taught basic mathematics to children in both Spanish and English",
-            "Assisted students with English homework assignments",
-            "Encouraged academic confidence through patient, individualized instruction"
-        ],
-        summary: "Provided bilingual tutoring in math and English, fostering academic growth and confidence among elementary students for 270 volunteer hours.",
-        achievements: [
-            "Helped several students advance a full grade level in math proficiency",
-            "Recognized by teachers for exceptional bilingual teaching skills",
-            "Contributed to improved test scores in targeted classrooms"
-        ],
-        tags: ["education","math","tutoring","bilingual","Spanish","English","youth","elementary school","volunteer"]
-    },
-    {
-        title: "Volunteer Youth Wrestling Team Leader",
+        title: "Youth Wrestling Coach",
         company: "Youth Wrestling Club",
         department: "Sports & Recreation",
-        location: "San Clemente, CA",
-        positionType: "Volunteer",
-        startDate: "2016-01-01",
-        endDate: "2018-12-31",
+        location: "Santa Ana, CA",
+        positionType: "Part-time",
+        startDate: "2018-04-01",
+        endDate: "2020-07-01",
         status: "completed",
         bulletPoints: [
             "Led team warm-ups and taught wrestling techniques",
             "Prepared the team for tournaments and competitive matches",
             "Ensured safety and maintained discipline during training and events"
         ],
-        summary: "Directed and instructed youth wrestlers, overseeing training sessions, safety protocols, and tournament preparation for over 150 volunteer hours.",
+        summary: `
+            Primary responsibilities included instructing youth wrestlers (U13),
+            overseeing training sessions, and preparing athletes for tournaments for
+            over 150 hours. I began each practice by leading warm-ups and stretches,
+            ensuring all wrestlers were attentive to instruction. I walked around and
+            provided demonstrations of the moves to the wrestlers. I became a
+            registered coach for multiple tournament hosts so I could remain alongside
+            my wrestlers at every moment. Prior to weigh-ins, I conducted gear and
+            general health checks. During tournaments, I supervised and observed a
+            select group of wrestlers, ensuring they were properly nourished and aware
+            of any upcoming matches.
+        `,
         achievements: [
-            "Trained multiple wrestlers who advanced to regional competitions",
-            "Improved team performance metrics over two seasons",
-            "Recognized for dedication to youth sports development"
+            "Trained multiple wrestlers who advanced to state-level competitions",
+            "Personally requested by headcoach to to lead tournament organization"
         ],
-        tags: ["sports","youth","coaching","team leadership","athletics","wrestling","training","volunteer"]
-    }
-
-
-
-    
+        tags: ["sports","youth","coaching","team leadership","athletics","wrestling","training","paid"]
+    },  
+    {
+        title: "Elementary School Tutor",
+        company: "Cielo Vista Elementary School",
+        department: "Education",
+        location: "Rancho Santa Margarita, CA",
+        positionType: "Volunteer",
+        startDate: "2017-01-01",
+        endDate: "2018-01-01",
+        status: "completed",
+        bulletPoints: [
+            "Taught basic mathematics to children in both Spanish and English",
+            "Assisted students with English homework assignments",
+            "Encouraged academic confidence through patient, individualized instruction"
+        ],
+        summary: `
+            I was one of 15 students selected to provide bilingual tutoring 
+            in Math and English to first and second-grade students. I 
+            employed several strategies to facilitate learning through 
+            various objects, activities, and games. I accumulated 50 volunteer 
+            hours teaching students in the after-school program.
+        `,
+        tags: ["education","math","tutoring","bilingual","Spanish","English","youth","elementary school","volunteer"]
+    },
 ];
 /**********************************************************************
 ******                      UI State                             ******
