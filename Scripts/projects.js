@@ -4,29 +4,41 @@
 **********************************************************************/
 const projects = [
     {
-        id: 1,
-        name: "My Website",
-        icon: "<img src='Images/website_project_picture.png' alt='My Website Project'>",
-        tags: ["HTML", "JavaScript", "CSS", "Github Pages"],
-        description: `
-            This website is an interactive portfolio designed with animations and 
-            responsive elements that invite users to explore my background, projects, 
-            and experiences in a dynamic way. Each page features click-to-reveal sections 
-            and smooth scroll-triggered effects, while the Education, Employment, and 
-            Projects pages use modular JavaScript to make adding or updating content simple 
-            and efficient. These pages are displayed as filterable cards with tags, images, and 
-            expandable info cards that grant the user more information. Built with 
-            HTML, CSS, and JavaScript, the site combines engaging visuals with a clean, 
-            maintainable structure that adapts seamlessly across devices.
+    id: 1,
+    name: "Logic Analyzer",
+    icon: "<img src='Images/Projects/LogicAnalyzer.png' alt='Logic Analyzer'>",
+    tags: ["SystemVerilog", "Verilog", "Synthesizable", "Testbench", "Synopsys", "SAED32", "SPI", "I2C", "UART", "School Project"],
+    description: `
+            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
+            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
+            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
+            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
+            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
+            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB
         `,
-        github: "#"
-    },
-    {
-        id: 2,
-        name: "Cypher Setups",
-        icon: "<img src='Images/Projects/CypherSetups.jpg' alt='Cypher Setups'>",
-        tags: ["Java", "JavaFX", "JAR", "EXE", "MSI", "UI", "Installer", "jpackage", "WiX Toolset", "Makefile"],
-        description: `
+    github: "https://github.com/VinnyIadarola/Logic-Analyzer"
+  },
+  {
+    id: 2,
+    name: "Simple Matrix Multiplier",
+    icon: "<img src='Images/Projects/MatrixMultiplier.png' alt='Matrix Multiplier Project'>",
+    tags: ["System Verilog", "Digital Logic", "Synthesizable", "Testbench"],
+    description: `
+            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
+            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
+            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
+            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
+            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
+            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB
+        `,
+    github: "https://github.com/VinnyIadarola/Matrix-Multiplier"
+  },
+  {
+    id: 3,
+    name: "Cypher Setups",
+    icon: "<img src='Images/Projects/CypherSetups.jpg' alt='Cypher Setups'>",
+    tags: ["Java", "JavaFX", "JAR", "EXE", "MSI", "UI", "Installer", "jpackage", "WiX Toolset", "Makefile"],
+    description: `
             A Java project created for my friend Ethan so he can improve at Valorant. The 
             Cypher Setups application uses JavaFX for the frontend and pure Java for the backend. 
             Users can install the program through a packaged installer built with jpackage 
@@ -39,14 +51,14 @@ const projects = [
             both user-friendly and extensible, providing Valorant players with an
             organized platform for their Cypher strategies. 
             `,
-        github: "https://github.com/VinnyIadarola/Cypher-Setup"
-    },
-    {
-        id: 3,
-        name: "FIFO and LIFO",
-        icon: "<img src='Images/Projects/FIFOandLIFO.jpg' alt='FIFO and LIFO'>",
-        tags: ["System Verilog", "Digital Logic", "Synthesizable", "Data Structures", "Testbench"],
-        description: `
+    github: "https://github.com/VinnyIadarola/Cypher-Setup"
+  },
+  {
+    id: 4,
+    name: "FIFO and LIFO",
+    icon: "<img src='Images/Projects/FIFOandLIFO.jpg' alt='FIFO and LIFO'>",
+    tags: ["System Verilog", "Digital Logic", "Synthesizable", "Data Structures", "Testbench"],
+    description: `
             A synthesizable SystemVerilog implementation of a rotary queue and a stack, 
             each built with clean, parameterizable RTL (data width/depth) and paired 
             with dedicated testbenches. The verification includes multiple test suites 
@@ -55,14 +67,14 @@ const projects = [
             and synthesis compatibility. Ready for FPGA/ASIC flows and easy integration 
             into larger designs.
         `,
-        github: "https://github.com/VinnyIadarola/FIFO-and-LIFO"
-    },
-    {
-        id: 4,
-        name: "Simple Matrix Multiplier",
-        icon: "<img src='Images/Projects/MatrixMultiplier.png' alt='Matrix Multiplier Project'>",
-        tags: ["System Verilog", "Digital Logic", "Synthesizable", "Testbench"],
-        description: `
+    github: "https://github.com/VinnyIadarola/FIFO-and-LIFO"
+  },
+  {
+    id: 5,
+    name: "WISC Processor",
+    icon: "<img src='Images/Projects/WISCProcessor.png' alt='WISC Processor'>",
+    tags: ["Verilog", "Pipelined Processor", "Computer Architecture", "CPU", "ALU", "Hazard Detection", "Cache System", "Testbench", "School Project"],
+    description: `
             TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
             TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
             TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
@@ -70,44 +82,32 @@ const projects = [
             TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
             TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB
         `,
-        github: "#"
-    },
-    {
-        id: 5,
-        name: "Logic Analyzer",
-        icon: "<img src='Images/Projects/LogicAnalyzer.png' alt='Logic Analyzer'>",
-        tags: ["SystemVerilog", "Verilog", "Synthesizable", "Testbench", "Synopsys", "SAED32", "SPI", "I2C", "UART", "School Project"],
-        description: `
-            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
-            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
-            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
-            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
-            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
-            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB
+    github: "https://github.com/VinnyIadarola/WISC-Processor"
+  },
+  {
+    id: 6,
+    name: "My Website",
+    icon: "<img src='Images/website_project_picture.png' alt='My Website Project'>",
+    tags: ["HTML", "JavaScript", "CSS", "Github Pages"],
+    description: `
+            This website is an interactive portfolio designed with animations and 
+            responsive elements that invite users to explore my background, projects, 
+            and experiences in a dynamic way. Each page features click-to-reveal sections 
+            and smooth scroll-triggered effects, while the Education, Employment, and 
+            Projects pages use modular JavaScript to make adding or updating content simple 
+            and efficient. These pages are displayed as filterable cards with tags, images, and 
+            expandable info cards that grant the user more information. Built with 
+            HTML, CSS, and JavaScript, the site combines engaging visuals with a clean, 
+            maintainable structure that adapts seamlessly across devices.
         `,
-        github: "https://github.com/VinnyIadarola/Logic-Analyzer"
-    },
-    {
-        id: 6,
-        name: "WISC Processor",
-        icon: "<img src='Images/Projects/WISCProcessor.png' alt='WISC Processor'>",
-        tags: ["Verilog", "Pipelined Processor", "Computer Architecture", "CPU", "ALU", "Hazard Detection", "Cache System", "Testbench", "School Project"],
-        description: `
-            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
-            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
-            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
-            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
-            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB 
-            TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB TDB
-        `,
-        github: "#"
-    },
-    {
-        id: 7,
-        name: "Past The Trench",
-        icon: "<img src='Images/Projects/PastTheTrench.png' alt='Past The Trench'>",
-        tags: ["C++", "SDL3", "UI"],
-        description: `
+    github: "https://github.com/VinnyIadarola/VinnyIadarola.github.io"
+  },
+  {
+    id: 7,
+    name: "Past The Trench",
+    icon: "<img src='Images/Projects/PastTheTrench.png' alt='Past The Trench'>",
+    tags: ["C++", "SDL3", "UI"],
+    description: `
             A WWII-themed 2D rogue-like, turn-based tactics game inspired by XCOM, 
             built in C++ with SDL3. Command a small squad through procedurally 
             generated missions featuring line-of-sight, cover, suppression, overwatch, 
@@ -116,8 +116,8 @@ const projects = [
             destructible obstacles, and outmaneuvers through varied environments. 
             Development is currently PAUSED while I learn more SDL3.
         `,
-        github: "https://github.com/VinnyIadarola/PastTheTrench"
-    },
+    github: "https://github.com/VinnyIadarola/PastTheTrench"
+  }
     // {
     //     id: 8,
     //     name: "TBD_8",
