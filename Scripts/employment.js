@@ -17,10 +17,16 @@ const jobs = [
             "Hosted make-up exams and organized study groups"
         ],
         summary: `
-            This role served as a further continuation of my teaching and leading
-            experiences. Maintained accurate attendance and progress records. Worked
-            with Dr. Steven Fredette, Someone someone, someone someone, and someone
-            someon
+            This role represented a continued extension of my teaching and leadership 
+            experience. I maintained precise attendance and progress records. I 
+            collaborated with Dr. Steven Fredette, Dr. Daniel van der Weide, and 
+            Dr. Bulent Sarlioglu. I primarily taught ECE 230 after being invited to 
+            return to the same position. ECE 230 is an introductory circuit analysis 
+            course with an average enrollment of 120 students per semester. I facilitated 
+            three discussion sections each week and in the earlier semesters, I would open 
+            the course on behalf of the professor, ensuring all students understood the 
+            current assignment. I also organized pre-exam study sessions, creating surveys 
+            to identify areas where students required additional support.
         `,
         achievements: [
             "Received recognition from faculty for mentoring excellence",
@@ -42,46 +48,43 @@ const jobs = [
             "Provided compassionate care to pediatric patients and their families",
             "Collaborated with nursing staff to maintain optimal patient environments",
             "Documented patient behaviors and communicated effectively with healthcare teams",
-            "Ensured patient comfort through personalized resource allocation",
-            "Cleaned and sanitized medical equipment and toys in dedicated facilities",
-            "On-call every Saturday to teach algebra through calculus to patients when needed"
         ],
         summary: `
-            Provided compassionate, family-centered support on a pediatric inpatient
-            unit; collaborated with nurses to prepare rooms for specific precautions;
-            maintained patient comfort through timely resources; taught mathematics to
-            patients when possible; and documented behaviors to support care plans.
+            I supported pediatric inpatients by preparing welcoming environments tailored 
+            to both the patient and their family. I enriched patients' experiences by 
+            offering a walking partner, playmate or mathematical instruction from algebra 
+            through calculus, during hospitalization. I ensured access to resources that
+            enhanced comfort, while also maintaining clean and sanitized equipment and play
+            materials in specialized facilities. Additionally, I strengthened the 
+            volunteer team by training two new members and mentoring five others through 
+            shadowing opportunities to help them understand the role and available resources..
         `,
         achievements: [
             "Recognized by staff for exceptional family engagement and patient care",
             "Contributed to improved patient morale through personalized interactions",
-            "Maintained perfect on-call attendance for Saturday math tutoring"
         ],
         tags: ["healthcare","patient care","nursing","medical","hospital","pediatric","children","family support","comfort care","behavioral assessment","tutoring","math"]
     },
-    {
-        title: "Private Mathematics Tutor",
-        company: "Self-Employed",
-        department: "Education",
-        location: "Rancho Santa Margarita, CA",
-        positionType: "Volunteer",
-        startDate: "2025-05-01",
-        endDate: "2022-02-01",
-        status: "completed",
-        bulletPoints: [
-            "Taught basic mathematics to children in both Spanish and English",
-            "Assisted students with English homework assignments",
-            "Encouraged academic confidence through patient, individualized instruction"
-        ],
-        summary: `
-            I was one of 15 students selected to provide bilingual tutoring 
-            in Math and English to first and second-grade students. I 
-            employed several strategies to facilitate learning through 
-            various objects, activities, and games. I accumulated 50 volunteer 
-            hours teaching students in the after-school program.
-        `,
-        tags: ["education","math","tutoring","bilingual","Spanish","English","youth","elementary school","volunteer"]
-    },
+    // {
+    //     title: "Private Mathematics Tutor",
+    //     company: "Self-Employed",
+    //     department: "Education",
+    //     location: "Madison, WI",
+    //     positionType: "Volunteer",
+    //     startDate: "2025-05-01",
+    //     endDate: "2022-02-01",
+    //     status: "completed",
+    //     bulletPoints: [
+    //         "Coordinated tutoring appointments with students.",
+    //         "Taught students study skills, note-taking skills, and test-taking strategies.",
+    //         "Worked with over 25 students spanning classes from Trigonometry to Calculus 2.",
+    //     ],
+    //     summary: `
+    //         Idk
+    //     `,
+    //     achievements: [],
+    //     tags: ["education","math","tutoring","bilingual","Spanish","English","youth","elementary school","volunteer"]
+    // },
     {
         title: "Physical Training Instructor and Fire Team Leader",
         company: "Marine Corps Madison Platoon",
@@ -107,79 +110,112 @@ const jobs = [
         ],
         tags: ["military","training","fitness","leadership","records management","recruit preparation"]
     },
+    // {
+    //     title: "Fraternity Academic Chair",
+    //     company: "Kappa Eta Kappa",
+    //     department: "Professional Fraternity",
+    //     location: "Madison, WI",
+    //     positionType: "Elected Fraternity",
+    //     startDate: "2024-07-01",
+    //     endDate: "2024-12-31",
+    //     status: "completed",
+    //     bulletPoints: [
+    //         "Led team warm-ups and taught wrestling techniques",
+    //         "Prepared the team for tournaments and competitive matches",
+    //         "Ensured safety and maintained discipline during training and events"
+    //     ],
+    //     summary: `
+    //         Directed and instructed youth wrestlers, overseeing training sessions,
+    //         safety protocols, and tournament preparation for over 150 volunteer hours.
+    //     `,
+    //     achievements: [
+    //         "Trained multiple wrestlers who advanced to regional competitions",
+    //         "Improved team performance metrics over two seasons",
+    //         "Recognized for dedication to youth sports development"
+    //     ],
+    //     tags: ["sports","youth","coaching","team leadership","athletics","wrestling","training","volunteer"]
+    // },
+    // {
+    //     title: "Fraternity Parlimentarian",
+    //     company: "Kappa Eta Kappa",
+    //     department: "Professional Fraternity",
+    //     location: "Madison, WI",
+    //     positionType: "Elected Fraternity",
+    //     startDate: "2024-07-01",
+    //     endDate: "2024-12-31",
+    //     status: "completed",
+    //     bulletPoints: [
+    //         "Led team warm-ups and taught wrestling techniques",
+    //         "Prepared the team for tournaments and competitive matches",
+    //         "Ensured safety and maintained discipline during training and events"
+    //     ],
+    //     summary: `
+    //         Directed and instructed youth wrestlers, overseeing training sessions,
+    //         safety protocols, and tournament preparation for over 150 volunteer hours.
+    //     `,
+    //     achievements: [
+    //         "Trained multiple wrestlers who advanced to regional competitions",
+    //         "Improved team performance metrics over two seasons",
+    //         "Recognized for dedication to youth sports development"
+    //     ],
+    //     tags: ["sports","youth","coaching","team leadership","athletics","wrestling","training","volunteer"]
+    // },
     {
-        title: "Fraternity Academic Chair",
+        title: "Industry Outreach Chair",
         company: "Kappa Eta Kappa",
         department: "Professional Fraternity",
         location: "Madison, WI",
-        positionType: "Elected Fraternity",
-        startDate: "2024-07-01",
-        endDate: "2024-12-31",
+        positionType: "Elected Club",
+        startDate: "2024-06-01",
+        endDate: "2024-10-31",
         status: "completed",
         bulletPoints: [
-            "Led team warm-ups and taught wrestling techniques",
-            "Prepared the team for tournaments and competitive matches",
-            "Ensured safety and maintained discipline during training and events"
+            "Redesigned the sponsorship form and email templates garnering more than $3000 in funds",
+            "Contacted and scheduled industry speaker events with 5 different companies.",
+            "Increased student participation by promoting industry events and creating resume folders for companies"
         ],
         summary: `
-            Directed and instructed youth wrestlers, overseeing training sessions,
-            safety protocols, and tournament preparation for over 150 volunteer hours.
+            I was selected by the organization's president to lead industry engagement. 
+            I revamped sponsorship forms and outreach templates, and contacted over 
+            20 companies to align them with appropriate partnership packages. I organized 
+            speaker nights with five companies, including Milwaukee Tool and Forward Edge 
+            ASIC, and created a centralized resume folder showcasing members' qualifications
+            for partnering employers.
         `,
         achievements: [
-            "Trained multiple wrestlers who advanced to regional competitions",
-            "Improved team performance metrics over two seasons",
-            "Recognized for dedication to youth sports development"
+            "Garnering more than $3000 in funds",
+            "Hosted 5 different industry speaker events",
         ],
-        tags: ["sports","youth","coaching","team leadership","athletics","wrestling","training","volunteer"]
+        tags: []
     },
-    {
-        title: "Fraternity Parlimentarian",
-        company: "Kappa Eta Kappa",
-        department: "Professional Fraternity",
-        location: "Madison, WI",
-        positionType: "Elected Fraternity",
-        startDate: "2024-07-01",
-        endDate: "2024-12-31",
-        status: "completed",
-        bulletPoints: [
-            "Led team warm-ups and taught wrestling techniques",
-            "Prepared the team for tournaments and competitive matches",
-            "Ensured safety and maintained discipline during training and events"
-        ],
-        summary: `
-            Directed and instructed youth wrestlers, overseeing training sessions,
-            safety protocols, and tournament preparation for over 150 volunteer hours.
-        `,
-        achievements: [
-            "Trained multiple wrestlers who advanced to regional competitions",
-            "Improved team performance metrics over two seasons",
-            "Recognized for dedication to youth sports development"
-        ],
-        tags: ["sports","youth","coaching","team leadership","athletics","wrestling","training","volunteer"]
-    },
-
     {
         title: "Engineering Expo Lead",
         company: "Kappa Eta Kappa Engineering Fraternity",
-        department: "STEM Outreach",
+        department: "Professional Fraternity",
         location: "Madison, WI",
-        positionType: "Part-time Position",
+        positionType: "Elected Club",
         startDate: "2023-09-01",
         endDate: "2024-05-01",
         status: "completed",
         bulletPoints: [
-            "Led a 15-person team to develop and present an engineering project",
-            "Improved processes and reduced costs through recommendations",
-            "Gathered and organized resources for project success"
+            "Developed and presented a project, earning selection to lead a 15-person engineering team",
+            "Led design sessions to ensure all members understood roles and expectations",
+            "Reviewed and executed on project requirements and restrictions designated by the executive board"
         ],
         summary: `
-            Directed a large-scale engineering project from concept to presentation,
-            leading a team to process improvements and cost reductions.
+            The Engineering Expo is an annual project showcase for organizations and 
+            clubs. I planned and presented a physical Flappy Bird game to my 
+            organization, after which I was elected project lead and awarded a $1,000 
+            stipend along with a team of 15 engineers. I organized the team into hardware,
+            firmware, and software groups, and held weekly sessions with team leads to 
+            monitor progress and ensure proper API integration. I personally led the 
+            hardware team, conducting bi-weekly design sessions to guide engineers 
+            through their assigned tasks. The project culminated in a successful 
+            presentation at the Expo. 
         `,
         achievements: [
-            "Won election to lead engineering expo project",
-            "Achieved cost reduction goals while maintaining quality",
-            "Received positive feedback from expo attendees"
+            "Won election to lead and design engineering expo project",
+            "Received positive feedback from expo attendees and judges"
         ],
         tags: ["engineering","leadership","project management","team coordination","process improvement","cost reduction"]
     },
@@ -189,23 +225,23 @@ const jobs = [
         department: "Dining",
         location: "Madison, WI",
         positionType: "Part-time Position",
-        startDate: "2023-09-01",
-        endDate: "2024-05-01",
+        startDate: "2021-09-01",
+        endDate: "2022-05-01",
         status: "completed",
         bulletPoints: [
-            "Led a 15-person team to develop and present an engineering project",
-            "Improved processes and reduced costs through recommendations",
-            "Gathered and organized resources for project success"
+            "Earned certifications as a cashier and in basic grilling operations",
+            "Independently managed the grill station and oversaw food preparation",
+            "Entrusted with additional responsibility to operate the university convenience store independently"
         ],
         summary: `
-            Directed a large-scale engineering project from concept to presentation,
-            leading a team to process improvements and cost reductions.
+            A member of my school's dining hall system, I began working as a cashier and 
+            later gained increased responsibilities by becoming certified to operate the 
+            grill. I independently managed the “Fired Up” station until receiving a 
+            special assignment to oversee the “Flamingo Run,” the university's convenience 
+            store. In this role, I was responsible for handling all transactions as well 
+            as stocking and maintaining the cleanliness of the store.
         `,
-        achievements: [
-            "Won election to lead engineering expo project",
-            "Achieved cost reduction goals while maintaining quality",
-            "Received positive feedback from expo attendees"
-        ],
+        achievements: [],
         tags: ["engineering","leadership","project management","team coordination","process improvement","cost reduction"]
     },
     {
@@ -223,8 +259,11 @@ const jobs = [
             "Supported students in preparing for academic competitions"
         ],
         summary: `
-            Provided tutoring in Chinese language, history, and calligraphy, helping
-            underclassmen improve academic performance and cultural understanding.
+            Provided tutoring in Chinese language, history, and calligraphy, assisting
+            underclassmen in enhancing their academic performance and deepening their 
+            cultural understanding. Completed ten hours of tutoring per semester to 
+            maintain active membership and demonstrated a consistent commitment to
+            mentorship, academic excellence, and the promotion of cultural appreciation. 
         `,
         achievements: [],
         tags: ["education","Chinese language","history","calligraphy","tutoring","culture","volunteer"]
