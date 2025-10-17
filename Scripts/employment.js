@@ -162,7 +162,7 @@ const jobs = [
     // },
     {
         title: "Industry Outreach Chair",
-        company: "Kappa Eta Kappa",
+        company: "IEEE Club",
         department: "Professional Fraternity",
         location: "Madison, WI",
         positionType: "Elected Club",
