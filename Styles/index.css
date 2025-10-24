@@ -1179,9 +1179,9 @@ body.mobile-info-open {
         width: min(90vh, 350px);
     }
 
-    /* grid tokens */
+  
     :root{
-        --tile-size: 70px;
+        --tile-size: 100px;
         --tile-gap: 8px;
     }
 
@@ -1192,6 +1192,10 @@ body.mobile-info-open {
     .hero-paragraph {
         font-size: clamp(1rem, 4.5vw, 1.2rem);
         margin-top: 3rem;
+    }
+        :root{
+        --tile-size: 70px;
+        --tile-gap: 8px;
     }
 }
 
