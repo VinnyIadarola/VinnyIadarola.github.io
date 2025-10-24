@@ -20,6 +20,11 @@ body {
     overflow-y: hidden;
 }
 
+body.overlay-active {
+    overflow: hidden;
+}
+
+
 /**********************************************************************
 ******                         Hero Section                      ******
 **********************************************************************/
@@ -476,7 +481,7 @@ body {
     height: 100%;
     max-width: none;
     aspect-ratio: auto;
-    z-index: 20;
+    z-index: 3000;
     border-radius: 0;
 
     background:  rgba(28, 1, 1, 0.9);
@@ -501,6 +506,83 @@ body {
     background: linear-gradient(119deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
     pointer-events: none;
     z-index: -1;
+}
+
+.info-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(6px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease-in-out;
+    z-index: 2800;
+}
+
+.info-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.card.expanded.modal-mode {
+    position: fixed;
+    inset: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(90vw, 560px);
+    max-width: 95vw;
+    height: auto;
+    max-height: 90vh;
+    padding: clamp(18px, 5vw, 34px);
+    border-radius: 28px;
+    background: rgba(28, 1, 1, 0.93);
+    backdrop-filter: blur(14px);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.55);
+    z-index: 3010;
+}
+
+.card.expanded.modal-mode::before {
+    display: none;
+}
+
+.card.expanded.modal-mode .card-content {
+    height: auto;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    overflow: visible;
+}
+
+.card.expanded.modal-mode .text-content {
+    position: relative;
+    inset: auto;
+    transform: none;
+    opacity: 1;
+    max-height: calc(90vh - clamp(80px, 20vh, 220px));
+    background-color: rgba(20, 20, 25, 0.96);
+    border-radius: 22px;
+    padding: clamp(18px, 5vw, 28px);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+    overflow-y: auto;
+}
+
+.card.expanded.modal-mode .info-logo {
+    width: min(180px, 40%);
+}
+
+.card.expanded.modal-mode .lang-description {
+    max-width: none;
+}
+
+.card.expanded.collapsing {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.24s ease;
+}
+
+.card.expanded.modal-mode.collapsing {
+    transition: opacity 0.24s ease;
 }
 
 
@@ -674,7 +756,9 @@ body {
     background-color: rgba(20, 20, 25, 1); /* same visual tone as your .text-content */
     border-radius: 25px;
     color: rgba(255, 255, 255, 0.9);
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
     cursor: default;
 }
 

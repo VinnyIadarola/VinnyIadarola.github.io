@@ -33,6 +33,170 @@ function qsa(root, sel) {
 /**********************************************************************
 ******                        Card Creation                        ******
 **********************************************************************/
+let infoOverlayEl = null;
+const CARD_COLLAPSE_DURATION = 240;
+
+function updateCardState(card, lang, expand) {
+    const panel    = qs(card, '.text-content');
+    const btn      = qs(card, '.lang-btn');
+    const titleEl  = qs(card, '.lang-title');
+    const infoLogo = qs(card, '.info-logo');
+
+    const langName = (lang?.name || titleEl?.textContent || '').trim();
+
+    if (btn) {
+        if (expand) {
+            btn.removeAttribute('aria-disabled');
+            btn.setAttribute('href', `projects.html?tag=${encodeURIComponent(langName)}`);
+            btn.textContent = langName ? `View ${langName} Projects` : 'View Projects';
+        } else {
+            btn.setAttribute('aria-disabled', 'true');
+            btn.setAttribute('href', '#');
+            btn.textContent = 'View Projects';
+        }
+    }
+
+    if (panel) {
+        if (expand) {
+            panel.classList.add('info-card');
+            panel.setAttribute('role', 'region');
+            panel.setAttribute('aria-label', 'Info Card');
+        } else {
+            panel.classList.remove('info-card');
+            panel.removeAttribute('role');
+            panel.removeAttribute('aria-label');
+        }
+    }
+
+    if (infoLogo) {
+        infoLogo.style.display = expand ? 'grid' : 'none';
+    }
+
+    if (titleEl) {
+        if (expand) {
+            titleEl.dataset.centered = '1';
+        } else {
+            delete titleEl.dataset.centered;
+        }
+    }
+}
+
+function setCardExpanded(card, lang, expand) {
+    const grid = qs(document, '#cardGrid');
+
+    if (expand) {
+        card.classList.remove('collapsing');
+        delete card.dataset.collapsing;
+        qsa(document, '.card.expanded').forEach(other => {
+            if (other !== card) setCardExpanded(other, null, false);
+        });
+        card.classList.add('expanded');
+        grid?.classList.add('grid-expanded');
+        card.setAttribute('aria-expanded', 'true');
+        updateCardState(card, lang, true);
+        applyOverlayIfNeeded(card);
+        return;
+    }
+
+    if (!card.classList.contains('expanded')) {
+        clearOverlay(card);
+        return;
+    }
+
+    if (card.dataset.collapsing === '1') {
+        return;
+    }
+
+    card.dataset.collapsing = '1';
+    card.classList.add('collapsing');
+    card.setAttribute('aria-expanded', 'false');
+
+    const finalizeCollapse = () => {
+        card.classList.remove('expanded');
+        card.classList.remove('modal-mode');
+        card.classList.remove('collapsing');
+        delete card.dataset.collapsing;
+        updateCardState(card, null, false);
+        if (!qs(document, '.card.expanded')) {
+            grid?.classList.remove('grid-expanded');
+        }
+        clearOverlay(card);
+    };
+
+    window.setTimeout(finalizeCollapse, CARD_COLLAPSE_DURATION);
+}
+
+function collapseAllCards() {
+    qsa(document, '.card.expanded').forEach(card => setCardExpanded(card, null, false));
+}
+
+function ensureInfoOverlay() {
+    if (!infoOverlayEl) {
+        infoOverlayEl = document.createElement('div');
+        infoOverlayEl.className = 'info-overlay';
+        infoOverlayEl.setAttribute('data-role', 'info-overlay');
+        infoOverlayEl.addEventListener('click', collapseAllCards);
+    }
+
+    document.body.appendChild(infoOverlayEl);
+
+    return infoOverlayEl;
+}
+
+function applyOverlayIfNeeded(card) {
+    const overlay = ensureInfoOverlay();
+
+    requestAnimationFrame(() => {
+        if (!card.classList.contains('expanded')) return;
+
+        const wasModal = card.classList.contains('modal-mode');
+        if (wasModal) card.classList.remove('modal-mode');
+
+        const infoPanel = qs(card, '.info-card') || qs(card, '.text-content');
+        if (!infoPanel) {
+            if (wasModal) card.classList.add('modal-mode');
+            return;
+        }
+
+        const padding = 48;
+        const contentHeight = infoPanel.scrollHeight;
+        const contentWidth = infoPanel.scrollWidth;
+
+        const cardOverflow =
+            infoPanel.scrollHeight > infoPanel.clientHeight + 1 ||
+            infoPanel.scrollWidth > infoPanel.clientWidth + 1 ||
+            card.scrollHeight > card.clientHeight + 1 ||
+            card.scrollWidth > card.clientWidth + 1;
+
+        const viewportTooSmall =
+            contentHeight + padding > window.innerHeight ||
+            contentWidth + padding > window.innerWidth;
+
+        const needsOverlay = cardOverflow || viewportTooSmall;
+
+        if (needsOverlay) {
+            card.classList.add('modal-mode');
+            overlay.classList.add('active');
+            document.body.classList.add('overlay-active');
+        } else {
+            card.classList.remove('modal-mode');
+            if (!qs(document, '.card.modal-mode')) {
+                overlay.classList.remove('active');
+                document.body.classList.remove('overlay-active');
+            }
+        }
+    });
+}
+
+function clearOverlay(card) {
+    card?.classList.remove('modal-mode');
+
+    if (!qs(document, '.card.modal-mode')) {
+        infoOverlayEl?.classList.remove('active');
+        document.body.classList.remove('overlay-active');
+    }
+}
+
 function createLanguageCard(lang) {
     const tpl = qs(document, '#cardTemplate');
     const node = tpl.content.cloneNode(true);
@@ -73,7 +237,7 @@ function createLanguageCard(lang) {
         // If not expanded yet, expand instead of navigating
         if (!card.classList.contains('expanded')) {
             e.preventDefault();
-            toggleExpand(card, lang);
+            setCardExpanded(card, lang, true);
             return;
         }
 
@@ -83,82 +247,24 @@ function createLanguageCard(lang) {
     });
 
     // Toggle expand on card
-    const onToggle = () => toggleExpand(card, lang);
-    card.addEventListener('click', onToggle);
+    card.addEventListener('click', () => {
+        if (card.dataset.collapsing === '1') return;
+        if (card.classList.contains('expanded')) {
+            setCardExpanded(card, lang, false);
+        } else {
+            setCardExpanded(card, lang, true);
+        }
+    });
     card.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
-            onToggle();
+            if (card.dataset.collapsing === '1') return;
+            const shouldExpand = !card.classList.contains('expanded');
+            setCardExpanded(card, lang, shouldExpand);
         }
     });
 
     return card;
-}
-
-
-function toggleExpand(card, lang) {
-    const grid = qs(document, '#cardGrid');
-    const nowExpanded = card.classList.toggle('expanded');
-
-    if (nowExpanded) {
-        qsa(document, '.card.expanded').forEach(c => c !== card && c.classList.remove('expanded'));
-        grid?.classList.add('grid-expanded');
-    } else {
-        grid?.classList.remove('grid-expanded');
-    }
-
-    card.setAttribute('aria-expanded', String(nowExpanded));
-
-    // Get references to existing elements
-    const panel = qs(card, '.text-content');
-    const btn = qs(card, '.lang-btn');
-    const titleEl = qs(card, '.lang-title');
-    const infoLogo = qs(card, '.info-logo');
-    
-    const langName = (lang?.name || titleEl?.textContent || '').trim();
-
-    // Handle button state
-    if (btn) {
-        if (nowExpanded) {
-            btn.removeAttribute('aria-disabled');
-            btn.setAttribute('href', `projects.html?tag=${encodeURIComponent(langName)}`);
-            btn.textContent = langName ? `View ${langName} Projects` : 'View Projects';
-        } else {
-            btn.setAttribute('aria-disabled', 'true');
-            btn.setAttribute('href', '#');
-            btn.textContent = 'View Projects';
-        }
-    }
-
-    if (!panel) return;
-
-    if (nowExpanded) {
-        // Mark as "info card" and show the logo
-        panel.classList.add('info-card');
-        panel.setAttribute('role', 'region');
-        panel.setAttribute('aria-label', 'Info Card');
-        
-        if (infoLogo) {
-            infoLogo.style.display = 'grid';
-        }
-        
-        if (titleEl && !titleEl.dataset.centered) {
-            titleEl.dataset.centered = '1';
-        }
-    } else {
-        // Collapse cleanup
-        panel.classList.remove('info-card');
-        panel.removeAttribute('role');
-        panel.removeAttribute('aria-label');
-        
-        if (infoLogo) {
-            infoLogo.style.display = 'none';
-        }
-        
-        if (titleEl && titleEl.dataset.centered) {
-            delete titleEl.dataset.centered;
-        }
-    }
 }
 
 
@@ -178,11 +284,13 @@ function renderLanguages(langs) {
 // collapse when clicking outside cards
 function setupGlobalCollapse() {
     document.addEventListener('click', (e) => {
-        const grid = document.getElementById('cardGrid');
         if (!e.target.closest('.card')) {
-            qsa(document, '.card.expanded').forEach(c => c.classList.remove('expanded'));
-            grid?.classList.remove('grid-expanded');
+            collapseAllCards();
         }
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') collapseAllCards();
     });
 }
 
@@ -316,8 +424,18 @@ document.addEventListener('DOMContentLoaded', async () => {
     await loadLanguages();          // Load JSON
     renderLanguages(languagesData); // Render cards
     setupGlobalCollapse();          // Optional: outside-click collapse
+    ensureInfoOverlay();
 
     setupTypingEffect();
     setupScrollAnimations();
     setupNavTabs();
+
+    window.addEventListener('resize', () => {
+        const activeCard = qs(document, '.card.expanded');
+        if (activeCard) {
+            applyOverlayIfNeeded(activeCard);
+        } else {
+            clearOverlay();
+        }
+    });
 });
