@@ -29,6 +29,28 @@ function qsa(root, sel) {
     return Array.from((root || document).querySelectorAll(sel));
 }
 
+function normalizeYearsValue(raw) {
+    if (raw === undefined || raw === null) return '0';
+    const str = String(raw).trim();
+    if (!str) return '0';
+
+    const numericPattern = /^-?\d+(\.\d+)?$/;
+    if (numericPattern.test(str)) {
+        const num = Number(str);
+        if (Number.isNaN(num) || !Number.isFinite(num)) return '0';
+        let normalized = num.toString();
+        if (normalized.includes('.')) {
+            normalized = normalized
+                .replace(/\.0+$/, '')
+                .replace(/(\.\d*?)0+$/, '$1')
+                .replace(/\.$/, '');
+        }
+        return normalized === '' ? '0' : normalized;
+    }
+
+    return str;
+}
+
 
 /**********************************************************************
 ******                        Card Creation                        ******
@@ -117,33 +139,44 @@ function ensureMobileInfoElements() {
 }
 
 function buildLangData(card, lang) {
+    const yearsFromCard = card?.dataset?.years;
+
     if (lang) {
         const name = lang.name || '';
-        const years = lang.years ?? lang.experienceYears ?? '';
+        const fromLang = lang.years ?? lang.experienceYears ?? '';
+        const yearsRaw = yearsFromCard !== undefined && yearsFromCard !== ''
+            ? yearsFromCard
+            : fromLang;
+        const years = normalizeYearsValue(yearsRaw);
+
         return {
             id: card?.dataset.langId || lang.id || name.toLowerCase().replace(/\s+/g, '-'),
             name,
-            years: years === '' || years === null ? '' : years,
+            years,
             description: lang.description || lang.blurb || '',
             image: lang.image || '',
             alt: lang.alt || (name ? `${name} Logo` : 'Language logo'),
         };
     }
 
+    // Fallback when no lang object (pull from DOM)
     const title = qs(card, '.lang-title')?.textContent?.trim() || '';
-    const yearsText = qs(card, '.years-num')?.textContent?.trim() || '';
+    const yearsText = yearsFromCard !== undefined
+        ? yearsFromCard
+        : qs(card, '.years-num')?.textContent?.trim() || '';
     const descText = qs(card, '.lang-description')?.textContent?.trim() || '';
     const imgEl = qs(card, '.info-logo img') || qs(card, '.language-icon img');
 
     return {
         id: card?.dataset.langId || title.toLowerCase().replace(/\s+/g, '-'),
         name: title,
-        years: yearsText,
+        years: normalizeYearsValue(yearsText),
         description: descText,
         image: imgEl?.getAttribute('src') || '',
         alt: imgEl?.getAttribute('alt') || (title ? `${title} Logo` : 'Language logo'),
     };
 }
+
 
 function showMobileInfoCard(card, lang) {
     const els = ensureMobileInfoElements();
@@ -176,12 +209,14 @@ function showMobileInfoCard(card, lang) {
         els.title.textContent = data.name || 'Details';
     }
     if (els.yearsNum) {
-        els.yearsNum.textContent = data.years === '' ? '-' : `${data.years}`;
+        els.yearsNum.textContent = normalizeYearsValue(data.years);
     }
     if (els.description) {
         els.description.textContent = data.description || '';
     }
     if (els.link) {
+        const linkText = data.name ? `View ${data.name} Projects` : 'View Projects';
+        els.link.textContent = linkText;
         if (data.name) {
             els.link.setAttribute('href', `projects.html?tag=${encodeURIComponent(data.name)}`);
             els.link.removeAttribute('aria-disabled');
@@ -190,6 +225,9 @@ function showMobileInfoCard(card, lang) {
             els.link.setAttribute('href', '#');
             els.link.setAttribute('aria-disabled', 'true');
             els.link.setAttribute('tabindex', '-1');
+            if (!data.name) {
+                els.link.textContent = 'View Projects';
+            }
         }
     }
 
@@ -416,15 +454,20 @@ function createLanguageCard(lang) {
     // Set both the icon image and the info logo image
     img.src = lang.image;
     img.alt = lang.alt || `${lang.name} Logo`;
-    
     if (infoLogoImg) {
         infoLogoImg.src = lang.image;
         infoLogoImg.alt = lang.alt || `${lang.name} Logo`;
     }
 
     titleEl.textContent = lang.name || 'Untitled';
-    const yrs = Number(lang.years ?? lang.experienceYears ?? 0);
-    yearsNumEl.textContent = isNaN(yrs) ? '—' : `${yrs}`;
+
+    const rawYears = lang.years ?? lang.experienceYears ?? '';
+    const displayYears = normalizeYearsValue(rawYears);
+
+    yearsNumEl.textContent = displayYears;
+    // Persist for mobile info card usage
+    card.dataset.years = displayYears;
+
     descEl.textContent = lang.description || lang.blurb || 'Description coming soon.';
 
     // Button behavior
@@ -464,6 +507,7 @@ function createLanguageCard(lang) {
 
     return card;
 }
+
 
 
 /**********************************************************************

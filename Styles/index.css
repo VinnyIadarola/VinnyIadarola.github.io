@@ -565,15 +565,40 @@ body.mobile-info-open {
     overflow: auto;
     display: grid;
     gap: 18px;
-    background: rgba(28, 1, 1, 0.94);
     border-radius: 28px;
-    padding: clamp(18px, 5vw, 32px);
-    color: rgba(255, 255, 255, 0.92);
-    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+
+    
+    background:  rgba(28, 1, 1, 0.9);
+    backdrop-filter: blur(20px);
+    padding: 20px;
 }
+
+
+
+.mobile-info-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(35deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+    pointer-events: none;
+    z-index: -1;
+}
+
 
 .mobile-info-card:focus {
     outline: none;
+}
+
+.inner-mobile-card {
+    gap: 14px;
+    padding: 20px;
+    background-color: rgba(20, 20, 25, 1); 
+    border-radius: 25px;
+    color: rgba(255, 255, 255, 0.9);
+
 }
 
 .mobile-info-close {
@@ -611,6 +636,7 @@ body.mobile-info-open {
 .mobile-info-header {
     display: grid;
     gap: 12px;
+    margin-top: 15px;
     text-align: center;
 }
 
@@ -631,6 +657,7 @@ body.mobile-info-open {
     font-size: clamp(1rem, 4vw, 1.1rem);
     line-height: 1.6;
     text-align: left;
+    margin-top: 10px;
 }
 
 .mobile-info-description:empty {
@@ -872,7 +899,7 @@ body.mobile-info-open {
     justify-items: center;
     gap: 14px;
     padding: 20px;
-    background-color: rgba(20, 20, 25, 1); /* same visual tone as your .text-content */
+    background-color: rgba(20, 20, 25, 1); 
     border-radius: 25px;
     color: rgba(255, 255, 255, 0.9);
     overflow-x: hidden;
@@ -936,8 +963,7 @@ body.mobile-info-open {
 /**********************************************************************
 ******                      Responsive                           ******
 **********************************************************************/
-/* TODO fix langauge info card responsiveness issues cutting off
-Maybe have it open up in the center of the screen like other files info cards */
+
 /* Tablet and smaller desktop */
 @media (max-width: 1350px) {
     .hero-text-container {
