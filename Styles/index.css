@@ -530,31 +530,45 @@ body.overlay-active {
 .mobile-info-wrapper {
     position: fixed;
     inset: 0;
-    display: none;
+    display: flex;
     align-items: center;
     justify-content: center;
     padding: clamp(12px, 6vw, 32px);
     z-index: 3200;
-}
-
-.mobile-info-wrapper.active {
-    display: flex;
-}
-
-.mobile-info-wrapper[hidden] {
-    display: none !important;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s ease, visibility 0s linear 0.3s;
 }
 
 body.mobile-info-open {
     overflow: hidden;
 }
 
+.mobile-info-wrapper.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition: opacity 0.3s ease, visibility 0s linear 0s;
+}
+
 .mobile-info-backdrop {
     position: absolute;
     inset: 0;
-    background: rgba(10, 10, 14, 0.75);
-    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
     z-index: 0;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.mobile-info-wrapper.active .mobile-info-backdrop {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
 }
 
 .mobile-info-card {
@@ -571,6 +585,20 @@ body.mobile-info-open {
     background:  rgba(28, 1, 1, 0.9);
     backdrop-filter: blur(20px);
     padding: 20px;
+
+    transform: translateY(24px) scale(0.96);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: transform 0.28s ease, opacity 0.28s ease, visibility 0s linear 0.28s;
+}
+
+.mobile-info-wrapper.active .mobile-info-card {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition: transform 0.28s ease, opacity 0.28s ease, visibility 0s linear 0s;
 }
 
 

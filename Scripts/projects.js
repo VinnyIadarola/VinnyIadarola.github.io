@@ -117,7 +117,7 @@ function setupEventListeners() {
         const projectCard = e.target.closest('.project-card');
         if (projectCard) {
             const projectId = parseInt(projectCard.dataset.projectId);
-            const project = projects.find(p => p.id === projectId);
+            const project = projectDetails.find(p => p.id === projectId);
             showinfoCard(project);
         }
     });

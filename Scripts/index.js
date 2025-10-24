@@ -178,6 +178,11 @@ function buildLangData(card, lang) {
 }
 
 
+
+
+
+
+
 function showMobileInfoCard(card, lang) {
     const els = ensureMobileInfoElements();
     if (!els) return;
@@ -186,11 +191,15 @@ function showMobileInfoCard(card, lang) {
     const data = buildLangData(card, lang);
 
     mobileInfoActive = true;
-    els.wrapper.hidden = false;
+    if (els.wrapper.hasAttribute('hidden')) {
+        els.wrapper.removeAttribute('hidden');
+    }
     els.wrapper.setAttribute('aria-hidden', 'false');
     els.wrapper.classList.add('active');
     els.wrapper.setAttribute('data-lang-id', data.id || '');
     document.body.classList.add('mobile-info-open');
+
+
 
     if (els.logo) {
         if (data.image) {
@@ -248,7 +257,6 @@ function hideMobileInfoCard() {
     els.wrapper.classList.remove('active');
     els.wrapper.removeAttribute('data-lang-id');
     els.wrapper.setAttribute('aria-hidden', 'true');
-    els.wrapper.hidden = true;
     document.body.classList.remove('mobile-info-open');
 
     clearOverlay();
