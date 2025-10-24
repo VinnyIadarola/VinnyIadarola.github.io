@@ -99,18 +99,9 @@
     "years": "4"
   },
   {
-    "id": "vhdl",
-    "name": "VHDL",
-    "image": "Images/Languages/vhdl_logo.png",
-    "alt": "VHDL Logo",
-    "description": "TBD",
-    "class": "vhdl",
-    "years": "1"
-  },
-  {
     "id": "sql",
     "name": "SQL",
-    "image": "Images/Languages/.png",
+    "image": "Images/Languages/sql_logo.png",
     "alt": "SQL Logo",
     "description": "TBD",
     "class": "SQL",

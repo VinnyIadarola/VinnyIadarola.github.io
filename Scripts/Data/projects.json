@@ -43,7 +43,7 @@
     "id": 6,
     "name": "Ebay Database Model",
     "icon": "<img src='Images/Projects/Ebay.png' alt='JavaScript Project'>",
-    "tags": ["Entity-Relation Model", "Databases", "SQLite", "Python", "json"],
+    "tags": ["Entity-Relation Model", "Databases", "SQL", "Python", "json"],
     "description": "Hidden Repo until grades are posted",
     "github": "https://github.com/VinnyIadarola/Ebay-Modeling-and-Schema"
   },
