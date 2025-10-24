@@ -1,0 +1,98 @@
+[
+  {
+    "id": "systemverilog",
+    "name": "SystemVerilog",
+    "image": "Images/Languages/systemverilog_logo.jpeg",
+    "alt": "SystemVerilog Logo",
+    "blurb": "My Love",
+    "class": "systemverilog"
+  },
+  {
+    "id": "cpp",
+    "name": "C++",
+    "image": "Images/Languages/cpp_logo.png",
+    "alt": "C++ Logo",
+    "blurb": "My 2nd Love",
+    "class": "cpp"
+  },
+  {
+    "id": "c",
+    "name": "C",
+    "image": "Images/Languages/c_logo.png",
+    "alt": "C Logo",
+    "blurb": "TBD",
+    "class": "c"
+  },
+  {
+    "id": "python",
+    "name": "Python",
+    "image": "Images/Languages/python_logo.png",
+    "alt": "Python Logo",
+    "blurb": "TBD",
+    "class": "python"
+  },
+  {
+    "id": "java",
+    "name": "Java",
+    "image": "Images/Languages/java_logo.png",
+    "alt": "Java Logo",
+    "blurb": "TBD",
+    "class": "java"
+  },
+  {
+    "id": "matlab",
+    "name": "MATLAB",
+    "image": "Images/Languages/matlab_logo.png",
+    "alt": "MATLAB Logo",
+    "blurb": "TBD",
+    "class": "matlab"
+  },
+  {
+    "id": "html",
+    "name": "HTML",
+    "image": "Images/Languages/html_logo.png",
+    "alt": "HTML Logo",
+    "blurb": "TBD",
+    "class": "html"
+  },
+  {
+    "id": "javascript",
+    "name": "JavaScript",
+    "image": "Images/Languages/javascript_logo.png",
+    "alt": "JavaScript Logo",
+    "blurb": "TBD",
+    "class": "javascript"
+  },
+  {
+    "id": "rust",
+    "name": "Rust",
+    "image": "Images/Languages/rust_logo.png",
+    "alt": "Rust Logo",
+    "blurb": "TBD",
+    "class": "rust"
+  },
+  {
+    "id": "cuda",
+    "name": "CUDA",
+    "image": "Images/Languages/cuda_logo.png",
+    "alt": "CUDA Logo",
+    "blurb": "TBD",
+    "class": "cuda"
+  },
+  {
+    "id": "verilog",
+    "name": "Verilog",
+    "image": "Images/Languages/verilog_logo.png",
+    "alt": "Verilog Logo",
+    "blurb": "TBD",
+    "class": "verilog"
+  },
+  {
+    "id": "vhdl",
+    "name": "VHDL",
+    "image": "Images/Languages/vhdl_logo.png",
+    "alt": "VHDL Logo",
+    "blurb": "TBD",
+    "class": "vhdl"
+  }
+]

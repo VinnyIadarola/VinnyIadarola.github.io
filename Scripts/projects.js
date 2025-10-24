@@ -215,6 +215,33 @@ function setupScrollAnimations() {
 
 
 
+
+/**********************************************************************
+******                 Index to project Tag handler              ******
+**********************************************************************/
+ async function preselectedTag() {
+    const params = new URLSearchParams(window.location.search);
+    const tag = params.get('tag');
+    if (!tag) return;
+
+
+    if (!selectedTags.includes(tag) && allTags.includes(tag)) {
+        selectedTags.push(tag);
+        renderSelectedTags();
+        renderAllTags();
+        filterProjects();
+    } 
+
+    const grid = document.querySelector('#projectsGrid, .projects-grid, .cards-grid');
+    if (grid) {
+        const offset = 20000; // Adjust this value for more/less scroll
+        const top = grid.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+    }
+}
+
+
+
 /**********************************************************************
 ******                     Global Variables                      ******
 **********************************************************************/
@@ -233,6 +260,7 @@ async function init() {
     allTags = [...new Set(projectDetails.flatMap(project => project.tags))];
     filteredProjects = [...projectDetails];
     renderAllTags();
+    preselectedTag();
     renderProjects();
     setupEventListeners();
     setupScrollAnimations();

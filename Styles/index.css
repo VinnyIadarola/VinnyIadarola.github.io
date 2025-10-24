@@ -1,5 +1,9 @@
 :root {
     --navbar-height: 60px;
+
+    --tile-size: 125px;
+    --tile-gap: 20px;
+
     overflow-x: hidden;
 }
 
@@ -126,9 +130,6 @@ body {
     font-size: clamp(1.5rem, 4vw, 2rem);
     color: rgb(214, 214, 214);
     min-height: 2rem;
-}
-
-.typing-text {
     border-right: 2px solid #fff;
     animation: blink 1s infinite;
 }
@@ -157,28 +158,28 @@ body {
 }
 
 .degree-list-item{
-  display: grid;
-  grid-template-columns: 1fr auto;
-  column-gap: clamp(0.5rem, 2vw, 1.25rem);
-  align-items: baseline;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    column-gap: clamp(0.5rem, 2vw, 1.25rem);
+    align-items: baseline;
 }
 
 .degree-list-item > span:first-child{
-  min-width: 0;
-  text-align: left;
+    min-width: 0;
+    text-align: left;
 }
 
 .degree-list-item .align-right{
-  white-space: nowrap;
-  text-align: right;
+    white-space: nowrap;
+    text-align: right;
 }
 
 @media (max-width: 420px){
-  .degree-list-item > span:first-child{
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
+    .degree-list-item > span:first-child{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
 }
 
 .hero-paragraph {
@@ -193,7 +194,7 @@ body {
 ******                      Project Section                     ******
 **********************************************************************/
 .project-section {
-    min-height: calc(100vh - 60px);
+    height: calc(100dvh - var(--navbar-height));
     background: linear-gradient(-135deg, hsl(0, 0%, 15%) 0%, #292929 100%);
     display: flex;
     flex-direction: row;
@@ -229,11 +230,11 @@ body {
 }
 
 .see-more-link {
-    border: 5px solid #230000;
+    border: 2px solid #230000;
     box-shadow: 0 6px 25px rgba(0, 0, 0, 0.5);       
     background: #310000;
     color: rgb(214, 214, 214);
-    padding: 15px;
+    padding: 18px;
     text-decoration: none;
     font-size: clamp(1.2rem, 2.5vw, 1.6rem);
     margin-top: 30px;
@@ -242,7 +243,7 @@ body {
 }
 
 .see-more-link:hover {
-    background: rgba(104, 0, 0, 0.8);
+    background: rgba(90, 0, 0, 0.8);
 }
 
 .project-right {
@@ -270,139 +271,11 @@ body {
     transform: translateX(0);
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(3, 125px);
-    grid-template-rows: repeat(4, 125px);
-    gap: 30px;
-    justify-content: center;
-    align-content: center;
-    width: 100%;
-    height: auto;
-    padding: 20px;
-    max-height: calc(100vh - 120px);
-}
-
-.card {
-    width: 125px;
-    height: 125px;
-    position: relative;
-    cursor: pointer;
-    perspective: 1000px;
-}
-
-.card-content {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    background: #310000;
-    border-radius: 15px;
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);       
-    border: 2px solid #1c0000;
-    transition: 0.2s ease;
-    overflow: hidden;
-}
-
-.card:hover .card-content {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
-}
-
-.icon-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
-    transition: all 2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.card.expanded .icon-container {
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    transform: none;
-    background: rgb(214, 214, 214);
-    border-radius: 15px;
-}
-
-.card.expanded {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 20;
-    border-radius: 0;
-}
-
-.grid.grid-expanded .card:not(.expanded){
-    opacity: 0;
-    pointer-events: none;
-}
-
-.language-icon {
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-    transition: all 1s cubic-bezier(0.55, 0.085, 0.68, 0.53);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    color: rgb(214, 214, 214);
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-    background: rgb(214, 214, 214);
-}
-
-.language-icon::before {
-    content: attr(data-lang);
-    font-size: 0.8rem;
-    color: #333;
-}
-
-.card.expanded .language-icon {
-    transform: rotateY(180deg);
-    opacity: 0;
-}
-
-.text-content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    color: rgb(214, 214, 214);
-    opacity: 0;
-    transform: rotateY(-180deg);
-    transition: all 1s cubic-bezier(0.55, 0.085, 0.68, 0.53);
-    z-index: 1;
-}
-
-.card.expanded .text-content {
-    opacity: 1;
-    transform: rotateY(0deg);
-}
-
-.language-description {
-    color: black;
-    font-size: 0.9rem;
-    line-height: 1.5;
-    text-align: center;
-    opacity: 0.9;
-}
-
 /**********************************************************************
 ******                      Employment Section                   ******
 **********************************************************************/
 .employment-section {
-    min-height: calc(100vh - 60px);
+    height: calc(100dvh - var(--navbar-height));
     display: flex;
     flex-direction: row;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
@@ -476,7 +349,7 @@ body {
 ******                      Education Section                    ******
 **********************************************************************/
 .education-section {
-    min-height: 100vh;
+    height: calc(100dvh - var(--navbar-height));
     display: flex;
     flex-direction: row;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
@@ -565,9 +438,303 @@ body {
 }
 
 /**********************************************************************
+******                      Language Grid                         ******
+**********************************************************************/
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(calc(var(--tile-size) * 0.85), 1fr));
+    gap: var(--tile-gap);
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+    height: auto;
+    padding: 20px;
+}
+
+.card {
+    width: 100%;
+    max-width: var(--tile-size);
+    height: auto;
+    aspect-ratio: 1 / 1;
+    position: relative;
+    cursor: pointer;
+    perspective: 1000px;
+    transition: 0.2s ease;
+
+}
+
+.card:hover  {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+}
+
+
+.card.expanded {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    aspect-ratio: auto;
+    z-index: 20;
+    border-radius: 0;
+
+    background:  rgba(28, 1, 1, 0.9);
+    backdrop-filter: blur(20px);
+    padding: 40px;
+    transition: all 0.3s ease;
+}
+
+
+.card.expanded:hover  {
+    transform: none;
+    box-shadow: none;
+}
+
+.card.expanded::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(119deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+
+
+
+
+.card-content {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: #310000;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);       
+    border: 2px solid #1c0000;
+    overflow: hidden;
+    transition: all 2s ease-in-out;
+
+}
+
+
+
+.icon-container {
+    position: absolute;
+    inset: 0;
+    transform: none;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+.grid.grid-expanded .card:not(.expanded){
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+
+.language-icon {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    transition: all 1s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    background: rgb(214, 214, 214);
+}
+
+.card.expanded .language-icon {
+    transform: rotateY(180deg);
+    opacity: 0;
+}
+
+.text-content {
+    position: absolute;
+    inset: 0;
+    display: grid;
+
+    gap: 14px;
+    padding: 20px;
+    background-color: rgba(20, 20, 25, 1);
+    border-radius: 25px;
+    color: rgba(255,255,255,0.9);
+
+
+    /* flip animation states preserved */
+    opacity: 0;
+    transform: rotateY(-180deg);
+    transition: all 1s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+    z-index: 1;
+}
+
+.card.expanded .text-content {
+    opacity: 1;
+    transform: rotateY(0deg);
+}
+
+
+.lang-btn[aria-disabled="true"] {
+  pointer-events: none;
+  opacity: 0.6;
+  cursor: default;
+  text-decoration: none;
+}
+
+
+.language-description {
+    background: #ffffff;
+    color: #111;
+    border-radius: 12px;
+    border: 2px solid #dddddd;
+    padding: clamp(10px, 2vw, 16px);
+    font-size: clamp(0.9rem, 1.8vw, 1rem);
+    line-height: 1.5;
+    overflow: auto;
+    max-height: 60vh;
+    opacity: 0.95;
+}
+
+
+.card.expanded .icon-container {
+  display: none;
+}
+
+.text-content.info-card {
+  display: grid;
+  grid-template-rows: auto auto auto 1fr;
+  justify-items: center;
+  gap: 14px; 
+}
+
+.info-logo {
+  display: grid;
+  place-items: center;
+  width: min(140px, 30%);
+  max-width: 180px;
+}
+
+.info-logo img {
+  width: 150%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+
+  border: 10px #310000;
+}
+
+.card.expanded .lang-header,
+.card.expanded .lang-title {
+  text-align: center;
+  width: 100%;
+}
+
+.lang-title {
+    font-size: 1.6em;
+}
+
+.card.expanded .lang-meta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.card.expanded .lang-description,
+.card.expanded .language-description { 
+  width: 100%;
+  max-width: 900px; 
+  margin-top: 4px;
+}
+
+
+
+.card.expanded .card-content {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+.info-card {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    grid-template-rows: auto auto auto 1fr;
+    justify-items: center;
+    gap: 14px;
+    padding: 20px;
+    background-color: rgba(20, 20, 25, 1); /* same visual tone as your .text-content */
+    border-radius: 25px;
+    color: rgba(255, 255, 255, 0.9);
+    overflow: hidden;
+    cursor: default;
+}
+
+
+
+.info-card .lang-header,
+.info-card .lang-title {
+    text-align: center;
+    width: 100%;
+}
+
+
+.info-card .lang-meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    margin-top: 15px;
+
+}
+
+
+
+.years-badge {
+    background: linear-gradient(135deg, #1c0101, #2F0101);
+    border: 2px solid rgba(28, 1, 1, 0.401);
+    color: rgb(190, 190, 190);
+    border-radius: 20px;
+    padding: 10px
+}
+
+.info-card .lang-description {
+    width: 100%;
+    max-width: 900px;
+    margin-top: 4px;
+}
+
+
+.lang-btn {
+    background: linear-gradient(-135deg, #1c0101, #2F0101);
+    border: 2px solid rgba(28, 1, 1, 0.401);
+    color: rgb(190, 190, 190);
+    border-radius: 20px;
+    padding: 10px;
+    text-decoration: none;
+    transition: background 0.2s ease-in-out;
+    transition-property: background, background-color;
+    will-change: background;
+}
+
+.lang-btn:hover {
+    background:  rgba(90, 0, 0, 0.8)
+}
+
+/**********************************************************************
 ******                      Responsive                           ******
 **********************************************************************/
-
+/* TODO fix langauge info card responsiveness issues cutting off
+Maybe have it open up in the center of the screen like other files info cards */
 /* Tablet and smaller desktop */
 @media (max-width: 1350px) {
     .hero-text-container {
@@ -609,27 +776,21 @@ body {
     .project-right {
         min-width: 450px;
     }
-    
-    .grid {
-        grid-template-columns: repeat(3, 110px);
-        grid-template-rows: repeat(4, 110px);
-        gap: 25px;
-    }
-    
-    .card {
-        width: 110px;
-        height: 110px;
-    }
 
     .education-right img {
         width: min(50vh, 450px);
+    }
+
+    /* grid sizing tokens */
+    :root{
+        --tile-size: 110px;
+        --tile-gap: 25px;
     }
 }
 
 /* Large tablets */
 @media (max-width: 1024px) {
     .hero-section {
-        /* FIX: previously height:100vh (hard cap). Use min-height so it can expand. */
         min-height: calc(100dvh - var(--navbar-height));
         flex-direction: column;
         text-align: center;
@@ -701,18 +862,6 @@ body {
     .employment-right, .project-left, .education-left {
         padding: 2rem 1rem;
     }
-    
-    .grid {
-        grid-template-columns: repeat(4, 80px);
-        grid-template-rows: repeat(3, 80px);
-        gap: 15px;
-        padding: 15px;
-    }
-    
-    .card {
-        width: 80px;
-        height: 80px;
-    }
 
     .project-right {
         min-width: 100%;
@@ -721,6 +870,14 @@ body {
     .education-right img {
         width: min(80vh, 500px);
     }
+
+    /* grid tokens */
+    :root{
+        --tile-size: 90px;
+        --tile-gap: 15px;
+    }
+
+    .grid { padding: 15px; }
 }
 
 /* Small tablets and large phones */
@@ -775,18 +932,6 @@ body {
         font-size: clamp(1rem, 4vw, 1.2rem);
         padding: 12px;
     }
-    
-    .grid {
-        grid-template-columns: repeat(3, 70px);
-        grid-template-rows: repeat(4, 70px);
-        gap: 8px;
-        padding: 10px;
-    }
-    
-    .card {
-        width: 70px;
-        height: 70px;
-    }
 
     .employment-left img, .education-right img {
         max-height: 200px;
@@ -804,6 +949,14 @@ body {
     .education-right img {
         width: min(90vh, 350px);
     }
+
+    /* grid tokens */
+    :root{
+        --tile-size: 70px;
+        --tile-gap: 8px;
+    }
+
+    .grid { padding: 10px; }
 }
 
 @media (max-width: 540px) {
@@ -826,17 +979,6 @@ body {
         padding: 1rem 0.25rem;
     }
     
-    .grid {
-        grid-template-columns: repeat(3, 60px);
-        grid-template-rows: repeat(4, 60px);
-        gap: 6px;
-    }
-    
-    .card {
-        width: 60px;
-        height: 60px;
-    }
-
     .hero-title {
         font-size: clamp(1.5rem, 12vw, 2rem);
     }
@@ -851,5 +993,11 @@ body {
 
     .education-right img {
         width: min(80vh, 250px);
+    }
+
+    /* grid tokens */
+    :root{
+        --tile-size: 60px;
+        --tile-gap: 6px;
     }
 }

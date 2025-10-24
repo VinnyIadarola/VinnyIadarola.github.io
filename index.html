@@ -25,7 +25,8 @@
     <meta name="theme-color" content="#310000">
     <meta name="apple-mobile-web-app-title" content="Viadarola Virtual Resume">
     <link rel="apple-touch-icon" href="Images/logo.png">
-    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 </head>
 
@@ -114,163 +115,36 @@
         </div>
 
         <div class="project-right">
-            <div class="grid" id="cardGrid">
-                <div class="card">
-                    <div class="card-content">
-                    <div class="icon-container">
-                        <div class="language-icon systemverilog">
-                        <img src="Images/Languages/systemverilog_logo.jpeg" alt="SystemVerilog Logo" class="photo-fit">
-                        </div>
-                    </div>
-                    <div class="text-content">
-                        <div class="language-description">My Love</div>
-                    </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-content">
-                    <div class="icon-container">
-                        <div class="language-icon cpp">
-                        <img src="Images/Languages/cpp_logo.png" alt="C++ Logo" class="photo-fit">
-                        </div>
-                    </div>
-                    <div class="text-content">
-                        <div class="language-description">My 2nd Love</div>
-                    </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-content">
-                    <div class="icon-container">
-                        <div class="language-icon c">
-                        <img src="Images/Languages/c_logo.png" alt="C Logo" class="photo-fit">
-                        </div>
-                    </div>
-                    <div class="text-content">
-                        <div class="language-description">TBD</div>
-                    </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-content">
-                    <div class="icon-container">
-                        <div class="language-icon python">
-                        <img src="Images/Languages/python_logo.png" alt="Python Logo" class="photo-fit">
-                        </div>
-                    </div>
-                    <div class="text-content">
-                        <div class="language-description">TBD</div>
-                    </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-content">
-                    <div class="icon-container">
-                        <div class="language-icon java">
-                        <img src="Images/Languages/java_logo.png" alt="Java Logo" class="photo-fit">
-                        </div>
-                    </div>
-                    <div class="text-content">
-                        <div class="language-description">TBD</div>
-                    </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-content">
-                    <div class="icon-container">
-                        <div class="language-icon matlab">
-                        <img src="Images/Languages/matlab_logo.png" alt="MATLAB Logo" class="photo-fit">
-                        </div>
-                    </div>
-                    <div class="text-content">
-                        <div class="language-description">TBD</div>
-                    </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-content">
-                    <div class="icon-container">
-                        <div class="language-icon html">
-                            <img src="Images/Languages/html_logo.png" alt="HTML Logo" class="photo-fit">
-                        </div>
-                    </div>
-                    <div class="text-content">
-                        <div class="language-description">TBD</div>
-                    </div>
-                </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-content">
-                    <div class="icon-container">
-                        <div class="language-icon javascript">
-                        <img src="Images/Languages/javascript_logo.png" alt="JavaScript Logo" class="photo-fit">
-                        </div>
-                    </div>
-                    <div class="text-content">
-                        <div class="language-description">TBD</div>
-                    </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-content">
-                    <div class="icon-container">
-                        <div class="language-icon rust">
-                        <img src="Images/Languages/rust_logo.png" alt="Rust Logo" class="photo-fit">
-                        </div>
-                    </div>
-                    <div class="text-content">
-                        <div class="language-description">TBD</div>
-                    </div>
-                    </div>
-                </div>
-
-                <div class="card">
+            <div class="grid" id="cardGrid"></div>
+            <template id="cardTemplate">
+                <div class="card" role="button" tabindex="0" aria-expanded="false">
                     <div class="card-content">
                         <div class="icon-container">
-                            <div class="language-icon cuda">
-                                <img src="Images/Languages/cuda_logo.png" alt="CUDA Logo" class="photo-fit">
+                            <div class="language-icon">
+                                <img class="photo-fit" loading="lazy" alt="">
                             </div>
                         </div>
-                        <div class="text-content">
-                            <div class="language-description">TBD</div>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="card">
-                    <div class="card-content">
-                        <div class="icon-container">
-                            <div class="language-icon verilog">
-                                <img src="Images/Languages/verilog_logo.png" alt="Verilog Logo" class="photo-fit">
-                            </div>
-                        </div>
                         <div class="text-content">
-                            <div class="language-description">TBD</div>
+                            <div class="info-logo" style="display: none;">
+                                <img class="photo-fit" loading="lazy" alt="">
+                            </div>
+                            <header class="lang-header">
+                                <h3 class="lang-title"></h3>
+                                <div class="lang-meta">
+                                    <div class="years-badge">
+                                        <span class="years-num"></span>
+                                        <span class="years-label">years of experience</span>
+                                    </div> 
+                                    <a class="lang-btn" href="#" aria-disabled="true">View Projects</a>
+                                </div>
+                            </header>
+                            <div class="lang-description"></div>
                         </div>
                     </div>
                 </div>
+            </template>
 
-                <div class="card">
-                    <div class="card-content">
-                        <div class="icon-container">
-                            <div class="language-icon vhdl">
-                                <img src="Images/Languages/vhdl_logo.png" alt="VHDL Logo" class="photo-fit">
-                            </div>
-                        </div>
-                        <div class="text-content">
-                            <div class="language-description">TBD</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -323,7 +197,7 @@
         <ul class="social-list">
             <li class="phone">
                 <a href="tel:949-973-7247" aria-label="Phone">
-                    <i id="meow" class="fa fa-phone fa-2x""></i>
+                    <i id="meow" class="fa fa-phone fa-2x"></i>
                 </a>
             </li>
 
@@ -346,7 +220,7 @@
             </li>
 
             <li class="discord">
-                <a href="discordapp.com/users/1066215217610104914"  aria-label="Discord">
+                <a href="https://discordapp.com/users/1066215217610104914"  aria-label="Discord">
                     <i class="fab fa-discord fa-2x"></i>
                 </a>
             </li>
