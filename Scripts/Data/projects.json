@@ -3,7 +3,7 @@
     "id": 1,
     "name": "Logic Analyzer",
     "icon": "<img src='Images/Projects/LogicAnalyzer.png' alt='Logic Analyzer'>",
-    "tags": ["SystemVerilog", "Verilog", "Synthesizable", "Testbench", "Synopsys", "SAED32", "SPI", "I2C", "UART", "School Project"],
+    "tags": ["SystemVerilog", "Verilog", "Synthesizable", "Testbench", "Synopsys", "SAED32", "SPI", "I2C", "UART"],
     "description": "UNDER CONSTRUCTION! sorry.",
     "github": "https://github.com/VinnyIadarola/Logic-Analyzer"
   },
@@ -35,7 +35,7 @@
     "id": 5,
     "name": "WISC Processor",
     "icon": "<img src='Images/Projects/WISCProcessor.png' alt='WISC Processor'>",
-    "tags": ["Verilog", "Pipelined Processor", "Computer Architecture", "CPU", "ALU", "Hazard Detection", "Cache System", "Testbench", "School Project"],
+    "tags": ["Verilog", "Pipelined Processor", "Computer Architecture", "CPU", "ALU", "Hazard Detection", "Cache System", "Testbench", ],
     "description": "UNDER CONSTRUCTION! sorry.",
     "github": "https://github.com/VinnyIadarola/WISC-Processor"
   },
@@ -43,7 +43,7 @@
     "id": 6,
     "name": "Ebay Database Model",
     "icon": "<img src='Images/Projects/Ebay.png' alt='JavaScript Project'>",
-    "tags": ["Entity-Relation Model", "Database", "SQLite", "School Project"],
+    "tags": ["Entity-Relation Model", "Databases", "SQLite", "Python", "json"],
     "description": "Hidden Repo until grades are posted",
     "github": "https://github.com/VinnyIadarola/Ebay-Modeling-and-Schema"
   },
@@ -51,7 +51,7 @@
     "id": 7,
     "name": "My Website",
     "icon": "<img src='Images/website_project_picture.png' alt='My Website Project'>",
-    "tags": ["HTML", "JavaScript", "CSS", "Github Pages"],
+    "tags": ["HTML", "JavaScript", "CSS", "json", "Github Pages"],
     "description": "This website is an interactive portfolio designed with animations and responsive elements that invite users to explore my background, projects, and experiences in a dynamic way. Each page features click-to-reveal sections and smooth scroll-triggered effects, while the Education, Employment, and Projects pages use modular JavaScript to make adding or updating content simple and efficient. These pages are displayed as filterable cards with tags, images, and expandable info cards that grant the user more information. Built with HTML, CSS, and JavaScript, the site combines engaging visuals with a clean, maintainable structure that adapts seamlessly across devices.",
     "github": "https://github.com/VinnyIadarola/VinnyIadarola.github.io"
   },

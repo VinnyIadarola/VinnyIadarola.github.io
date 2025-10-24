@@ -153,7 +153,7 @@ function buildLangData(card, lang) {
             id: card?.dataset.langId || lang.id || name.toLowerCase().replace(/\s+/g, '-'),
             name,
             years,
-            description: lang.description || lang.blurb || '',
+            description: lang.description || '',
             image: lang.image || '',
             alt: lang.alt || (name ? `${name} Logo` : 'Language logo'),
         };
@@ -468,7 +468,7 @@ function createLanguageCard(lang) {
     // Persist for mobile info card usage
     card.dataset.years = displayYears;
 
-    descEl.textContent = lang.description || lang.blurb || 'Description coming soon.';
+    descEl.textContent = lang.description || 'Description coming soon.';
 
     // Button behavior
     langBtn.setAttribute('aria-disabled', 'true');   // start disabled

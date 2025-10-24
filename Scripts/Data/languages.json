@@ -4,95 +4,116 @@
     "name": "SystemVerilog",
     "image": "Images/Languages/systemverilog_logo.jpeg",
     "alt": "SystemVerilog Logo",
-    "blurb": "My Love",
-    "class": "systemverilog"
+    "description": "My Love",
+    "class": "systemverilog",
+    "years": "4"
   },
   {
     "id": "cpp",
     "name": "C++",
     "image": "Images/Languages/cpp_logo.png",
     "alt": "C++ Logo",
-    "blurb": "My 2nd Love",
-    "class": "cpp"
+    "description": "My 2nd Love",
+    "class": "cpp",
+    "years": "2"
   },
   {
     "id": "c",
     "name": "C",
     "image": "Images/Languages/c_logo.png",
     "alt": "C Logo",
-    "blurb": "TBD",
-    "class": "c"
+    "description": "TBD",
+    "class": "c",
+    "years": "3"
   },
   {
     "id": "python",
     "name": "Python",
     "image": "Images/Languages/python_logo.png",
     "alt": "Python Logo",
-    "blurb": "TBD",
-    "class": "python"
+    "description": "TBD",
+    "class": "python",
+    "years": "4"
   },
   {
     "id": "java",
     "name": "Java",
     "image": "Images/Languages/java_logo.png",
     "alt": "Java Logo",
-    "blurb": "TBD",
-    "class": "java"
+    "description": "TBD",
+    "class": "java",
+    "years": "4"
   },
   {
     "id": "matlab",
     "name": "MATLAB",
     "image": "Images/Languages/matlab_logo.png",
     "alt": "MATLAB Logo",
-    "blurb": "TBD",
-    "class": "matlab"
+    "description": "TBD",
+    "class": "matlab",
+    "years": "4"
   },
   {
     "id": "html",
     "name": "HTML",
     "image": "Images/Languages/html_logo.png",
     "alt": "HTML Logo",
-    "blurb": "TBD",
-    "class": "html"
+    "description": "TBD",
+    "class": "html",
+    "years": "2"
   },
   {
     "id": "javascript",
     "name": "JavaScript",
     "image": "Images/Languages/javascript_logo.png",
     "alt": "JavaScript Logo",
-    "blurb": "TBD",
-    "class": "javascript"
+    "description": "TBD",
+    "class": "javascript",
+    "years": "2"
   },
   {
     "id": "rust",
     "name": "Rust",
     "image": "Images/Languages/rust_logo.png",
     "alt": "Rust Logo",
-    "blurb": "TBD",
-    "class": "rust"
+    "description": "TBD",
+    "class": "rust",
+    "years": "0.5"
   },
   {
     "id": "cuda",
     "name": "CUDA",
     "image": "Images/Languages/cuda_logo.png",
     "alt": "CUDA Logo",
-    "blurb": "TBD",
-    "class": "cuda"
+    "description": "TBD",
+    "class": "cuda",
+    "years": "1"
   },
   {
     "id": "verilog",
     "name": "Verilog",
     "image": "Images/Languages/verilog_logo.png",
     "alt": "Verilog Logo",
-    "blurb": "TBD",
-    "class": "verilog"
+    "description": "TBD",
+    "class": "verilog",
+    "years": "4"
   },
   {
     "id": "vhdl",
     "name": "VHDL",
     "image": "Images/Languages/vhdl_logo.png",
     "alt": "VHDL Logo",
-    "blurb": "TBD",
-    "class": "vhdl"
+    "description": "TBD",
+    "class": "vhdl",
+    "years": "1"
+  },
+  {
+    "id": "sql",
+    "name": "SQL",
+    "image": "Images/Languages/.png",
+    "alt": "SQL Logo",
+    "description": "TBD",
+    "class": "SQL",
+    "years": "0.5"
   }
 ]
