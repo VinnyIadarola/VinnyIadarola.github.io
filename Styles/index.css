@@ -1271,4 +1271,19 @@ body.mobile-info-open {
 }
 
 
+/* height and width small idk man */
+@media (max-height: 700px) {
+    .employment-section {
+        height: auto;
+    }
+}
+
+
+@media (max-height: 500px) {
+    .employment-section, .education-section, .project-section {
+        height: auto;
+    }
+}
+
+
 
