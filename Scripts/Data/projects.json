@@ -35,7 +35,7 @@
     "id": 5,
     "name": "WISC Processor",
     "icon": "<img src='Images/Projects/WISCProcessor.png' alt='WISC Processor'>",
-    "tags": ["Verilog", "Pipelined Processor", "Computer Architecture", "CPU", "ALU", "Hazard Detection", "Cache System", "Testbench", ],
+    "tags": ["Verilog", "Pipelined Processor", "Computer Architecture", "CPU", "ALU", "Hazard Detection", "Cache System", "Testbench"],
     "description": "UNDER CONSTRUCTION! sorry.",
     "github": "https://github.com/VinnyIadarola/WISC-Processor"
   },
