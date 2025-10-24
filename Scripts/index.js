@@ -35,6 +35,10 @@ function qsa(root, sel) {
 **********************************************************************/
 let infoOverlayEl = null;
 const CARD_COLLAPSE_DURATION = 240;
+const MOBILE_CARD_BREAKPOINT = 900;
+let mobileInfoElements = null;
+let mobileInfoActive = false;
+let lastMobileCardMode = false;
 
 function updateCardState(card, lang, expand) {
     const panel    = qs(card, '.text-content');
@@ -81,8 +85,201 @@ function updateCardState(card, lang, expand) {
     }
 }
 
+/**********************************************************************
+******                  Mobile Info Card Helpers                   ******
+**********************************************************************/
+function shouldUseMobileInfoCard() {
+    if (typeof window === 'undefined' || typeof window.matchMedia !== 'function') {
+        return false;
+    }
+    return window.matchMedia(`(max-width: ${MOBILE_CARD_BREAKPOINT}px)`).matches;
+}
+
+function ensureMobileInfoElements() {
+    if (mobileInfoElements) return mobileInfoElements;
+
+    const wrapper = document.getElementById('mobileInfoWrapper');
+    if (!wrapper) return null;
+
+    mobileInfoElements = {
+        wrapper,
+        backdrop: wrapper.querySelector('[data-role="mobile-info-backdrop"]'),
+        card: wrapper.querySelector('.mobile-info-card'),
+        close: wrapper.querySelector('[data-role="mobile-info-close"]'),
+        title: wrapper.querySelector('[data-role="mobile-info-title"]'),
+        yearsNum: wrapper.querySelector('[data-role="mobile-info-years-num"]'),
+        description: wrapper.querySelector('[data-role="mobile-info-description"]'),
+        link: wrapper.querySelector('[data-role="mobile-info-link"]'),
+        logo: wrapper.querySelector('[data-role="mobile-info-logo"] img'),
+    };
+
+    return mobileInfoElements;
+}
+
+function buildLangData(card, lang) {
+    if (lang) {
+        const name = lang.name || '';
+        const years = lang.years ?? lang.experienceYears ?? '';
+        return {
+            id: card?.dataset.langId || lang.id || name.toLowerCase().replace(/\s+/g, '-'),
+            name,
+            years: years === '' || years === null ? '' : years,
+            description: lang.description || lang.blurb || '',
+            image: lang.image || '',
+            alt: lang.alt || (name ? `${name} Logo` : 'Language logo'),
+        };
+    }
+
+    const title = qs(card, '.lang-title')?.textContent?.trim() || '';
+    const yearsText = qs(card, '.years-num')?.textContent?.trim() || '';
+    const descText = qs(card, '.lang-description')?.textContent?.trim() || '';
+    const imgEl = qs(card, '.info-logo img') || qs(card, '.language-icon img');
+
+    return {
+        id: card?.dataset.langId || title.toLowerCase().replace(/\s+/g, '-'),
+        name: title,
+        years: yearsText,
+        description: descText,
+        image: imgEl?.getAttribute('src') || '',
+        alt: imgEl?.getAttribute('alt') || (title ? `${title} Logo` : 'Language logo'),
+    };
+}
+
+function showMobileInfoCard(card, lang) {
+    const els = ensureMobileInfoElements();
+    if (!els) return;
+    if (!shouldUseMobileInfoCard()) return;
+
+    const data = buildLangData(card, lang);
+
+    mobileInfoActive = true;
+    els.wrapper.hidden = false;
+    els.wrapper.setAttribute('aria-hidden', 'false');
+    els.wrapper.classList.add('active');
+    els.wrapper.setAttribute('data-lang-id', data.id || '');
+    document.body.classList.add('mobile-info-open');
+
+    if (els.logo) {
+        if (data.image) {
+            els.logo.src = data.image;
+        } else {
+            els.logo.removeAttribute('src');
+        }
+        if (data.alt) {
+            els.logo.alt = data.alt;
+        } else {
+            els.logo.removeAttribute('alt');
+        }
+    }
+
+    if (els.title) {
+        els.title.textContent = data.name || 'Details';
+    }
+    if (els.yearsNum) {
+        els.yearsNum.textContent = data.years === '' ? '-' : `${data.years}`;
+    }
+    if (els.description) {
+        els.description.textContent = data.description || '';
+    }
+    if (els.link) {
+        if (data.name) {
+            els.link.setAttribute('href', `projects.html?tag=${encodeURIComponent(data.name)}`);
+            els.link.removeAttribute('aria-disabled');
+            els.link.removeAttribute('tabindex');
+        } else {
+            els.link.setAttribute('href', '#');
+            els.link.setAttribute('aria-disabled', 'true');
+            els.link.setAttribute('tabindex', '-1');
+        }
+    }
+
+    const overlay = ensureInfoOverlay();
+    overlay?.classList.add('active');
+    document.body.classList.add('overlay-active');
+
+    if (els.card) {
+        window.setTimeout(() => els.card.focus(), 0);
+    }
+}
+
+function hideMobileInfoCard() {
+    const els = ensureMobileInfoElements();
+    if (!els || !mobileInfoActive) return;
+
+    mobileInfoActive = false;
+    els.wrapper.classList.remove('active');
+    els.wrapper.removeAttribute('data-lang-id');
+    els.wrapper.setAttribute('aria-hidden', 'true');
+    els.wrapper.hidden = true;
+    document.body.classList.remove('mobile-info-open');
+
+    clearOverlay();
+}
+
+function setupMobileInfoCard() {
+    const els = ensureMobileInfoElements();
+    if (!els) return;
+
+    if (els.wrapper.dataset.mobileInfoInit === '1') return;
+    els.wrapper.dataset.mobileInfoInit = '1';
+
+    if (els.close) {
+        els.close.addEventListener('click', hideMobileInfoCard);
+    }
+    if (els.backdrop) {
+        els.backdrop.addEventListener('click', hideMobileInfoCard);
+    }
+    els.wrapper.addEventListener('click', (e) => {
+        if (e.target === els.wrapper || e.target === els.backdrop) {
+            hideMobileInfoCard();
+        }
+    });
+    if (els.link) {
+        els.link.addEventListener('click', (e) => {
+            if (els.link.getAttribute('aria-disabled') === 'true') {
+                e.preventDefault();
+                e.stopPropagation();
+                return;
+            }
+            hideMobileInfoCard();
+        });
+    }
+}
+
 function setCardExpanded(card, lang, expand) {
     const grid = qs(document, '#cardGrid');
+    const useMobileCard = shouldUseMobileInfoCard();
+
+    if (useMobileCard) {
+        if (expand) {
+            qsa(document, '.card.expanded').forEach(other => {
+                if (other !== card) {
+                    other.classList.remove('expanded', 'collapsing', 'modal-mode');
+                    delete other.dataset.collapsing;
+                    other.setAttribute('aria-expanded', 'false');
+                    updateCardState(other, null, false);
+                }
+            });
+            grid?.classList.remove('grid-expanded');
+            card.classList.remove('expanded', 'collapsing', 'modal-mode');
+            delete card.dataset.collapsing;
+            card.setAttribute('aria-expanded', 'false');
+            updateCardState(card, lang, false);
+            showMobileInfoCard(card, lang);
+        } else {
+            hideMobileInfoCard();
+            card.classList.remove('expanded', 'collapsing', 'modal-mode');
+            delete card.dataset.collapsing;
+            card.setAttribute('aria-expanded', 'false');
+            updateCardState(card, null, false);
+            if (!qs(document, '.card.expanded')) {
+                grid?.classList.remove('grid-expanded');
+            }
+        }
+        return;
+    }
+
+    hideMobileInfoCard();
 
     if (expand) {
         card.classList.remove('collapsing');
@@ -127,6 +324,7 @@ function setCardExpanded(card, lang, expand) {
 }
 
 function collapseAllCards() {
+    hideMobileInfoCard();
     qsa(document, '.card.expanded').forEach(card => setCardExpanded(card, null, false));
 }
 
@@ -284,9 +482,9 @@ function renderLanguages(langs) {
 // collapse when clicking outside cards
 function setupGlobalCollapse() {
     document.addEventListener('click', (e) => {
-        if (!e.target.closest('.card')) {
-            collapseAllCards();
-        }
+        if (e.target.closest('.card')) return;
+        if (e.target.closest('.mobile-info-card')) return;
+        collapseAllCards();
     });
 
     document.addEventListener('keydown', (e) => {
@@ -425,17 +623,39 @@ document.addEventListener('DOMContentLoaded', async () => {
     renderLanguages(languagesData); // Render cards
     setupGlobalCollapse();          // Optional: outside-click collapse
     ensureInfoOverlay();
+    setupMobileInfoCard();
+
+    lastMobileCardMode = shouldUseMobileInfoCard();
+    if (lastMobileCardMode) {
+        clearOverlay();
+    }
 
     setupTypingEffect();
     setupScrollAnimations();
     setupNavTabs();
 
     window.addEventListener('resize', () => {
-        const activeCard = qs(document, '.card.expanded');
-        if (activeCard) {
-            applyOverlayIfNeeded(activeCard);
-        } else {
+        const isMobile = shouldUseMobileInfoCard();
+
+        if (isMobile !== lastMobileCardMode) {
+            if (isMobile) {
+                collapseAllCards();
+            } else {
+                hideMobileInfoCard();
+            }
+        }
+
+        if (!isMobile) {
+            const activeCard = qs(document, '.card.expanded');
+            if (activeCard) {
+                applyOverlayIfNeeded(activeCard);
+            } else {
+                clearOverlay();
+            }
+        } else if (!mobileInfoActive) {
             clearOverlay();
         }
+
+        lastMobileCardMode = isMobile;
     });
 });
