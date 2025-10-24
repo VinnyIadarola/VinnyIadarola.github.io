@@ -1233,16 +1233,3 @@ body.mobile-info-open {
 
 
 
-
-/* Extra small phones */
-@media (max-height: 667px) {
-    .project-section, .education-section, .employment-section {
-
-
-        min-height: 150vh;
-
-    }
-        :root{
-        --tile-size: 70px;
-    }
-}
